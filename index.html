@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RH Chain Trading Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0e17; --surface: #111827; --border: #1e293b;
+  --text: #e2e8f0; --muted: #64748b; --green: #22c55e; --red: #ef4444;
+  --accent: #38bdf8; --gold: #f59e0b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'JetBrains Mono',ui-monospace,'Cascadia Code',monospace; font-size:13px; padding:20px; }
+h1 { font-size:18px; color:var(--accent); letter-spacing:1px; }
+.header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:8px; }
+.header .meta { color:var(--muted); font-size:11px; }
+.status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
+.status-dot.ok { background:var(--green); box-shadow:0 0 6px var(--green); }
+.status-dot.err { background:var(--red); box-shadow:0 0 6px var(--red); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+.kpi { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px; }
+.kpi .label { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.kpi .value { font-size:20px; font-weight:700; }
+.kpi .sub { color:var(--muted); font-size:10px; margin-top:4px; }
+.win { color:var(--green); } .loss { color:var(--red); }
+.panel { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:20px; }
+.panel h2 { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:12px; }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; padding:6px 8px; border-bottom:1px solid var(--border); }
+td { padding:7px 8px; border-bottom:1px solid var(--border); font-size:12px; }
+tr:hover { background:#1a2332; }
+.sym { font-weight:700; color:var(--accent); }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.tag { color:var(--gold); font-size:11px; }
+.chart-wrap { height:220px; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media(max-width:900px) { .two-col { grid-template-columns:1fr; } }
+.sym-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; }
+.sym-card { text-align:center; }
+.sym-name { font-size:16px; font-weight:700; color:var(--accent); }
+.sym-stats { color:var(--muted); font-size:11px; margin:4px 0; display:flex; justify-content:center; gap:10px; }
+.sym-pnl { font-size:15px; font-weight:700; }
+.sym-avg { font-size:11px; }
+.tp-step { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.tp-at { width:50px; color:var(--green); font-weight:700; }
+.tp-bar { height:14px; background:linear-gradient(90deg,#166534,#22c55e); border-radius:3px; min-width:10px; }
+.tp-sell { color:var(--muted); font-size:11px; }
+.sl-row { display:flex; align-items:center; gap:10px; margin-top:12px; padding-top:10px; border-top:1px solid var(--border); }
+.sl-at { width:50px; color:var(--red); font-weight:700; }
+.sl-bar { width:60px; height:14px; background:linear-gradient(90deg,#ef4444,#7f1d1d); border-radius:3px; }
+.grade { padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px; }
+.grade-A { background:#14532d; color:#4ade80; } .grade-B { background:#713f12; color:#fbbf24; } .grade-C { background:#7f1d1d; color:#fca5a5; }
+.thesis { color:var(--muted); font-size:11px; max-width:300px; }
+.findings li { color:var(--muted); font-size:12px; margin-bottom:6px; line-height:1.5; list-style:none; padding-left:14px; position:relative; }
+.findings li::before { content:"▸"; position:absolute; left:0; color:var(--accent); }
+.footer { color:var(--muted); font-size:10px; text-align:center; margin-top:24px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><span class="status-dot ok"></span>RH CHAIN TRADER</h1>
+  <div class="meta">Generated 2026-07-28 19:30 JST | Chain ID 4663 | PancakeSwap Router</div>
+</div>
+
+<div class="grid">
+  <div class="kpi"><div class="label">Equity</div><div class="value">0.041425</div><div class="sub">ETH (day start)</div></div>
+  <div class="kpi"><div class="label">Daily PnL</div><div class="value loss">-0.000061</div><div class="sub">3 trades today</div></div>
+  <div class="kpi"><div class="label">Total Realized</div><div class="value loss">-0.000550</div><div class="sub">ETH | 8 closed</div></div>
+  <div class="kpi"><div class="label">Win Rate</div><div class="value">37.5%</div><div class="sub">3W / 5L</div></div>
+  <div class="kpi"><div class="label">Profit Factor</div><div class="value loss">0.39</div><div class="sub">gross W / gross L</div></div>
+  <div class="kpi"><div class="label">Expectancy</div><div class="value loss">-3.43%</div><div class="sub">per trade</div></div>
+  <div class="kpi"><div class="label">Avg Hold</div><div class="value">5.0h</div><div class="sub">best +5.5% / worst -18.4%</div></div>
+  <div class="kpi"><div class="label">Risk State</div><div class="value" style="font-size:14px"><span class="win">NORMAL</span></div><div class="sub">0 consec losses | route OK</div></div>
+</div>
+
+<div class="panel">
+  <h2>Equity Curve (Realized PnL, ETH)</h2>
+  <div class="chart-wrap"><canvas id="eqChart"></canvas></div>
+</div>
+
+<div class="two-col">
+<div class="panel">
+  <h2>Exit Rules — Staged TP / SL</h2>
+  <div class="tp-step"><span class="tp-at">+15%</span><span class="tp-bar" style="width:35%"></span><span class="tp-sell">sell 35%</span></div>
+<div class="tp-step"><span class="tp-at">+30%</span><span class="tp-bar" style="width:30%"></span><span class="tp-sell">sell 30%</span></div>
+<div class="tp-step"><span class="tp-at">+60%</span><span class="tp-bar" style="width:25%"></span><span class="tp-sell">sell 25%</span></div>
+
+  <div class="sl-row"><span class="sl-at">-15%</span><span class="sl-bar"></span><span class="tp-sell">stop loss (full exit)</span></div>
+  <div class="sl-row" style="border:none;margin-top:6px;padding-top:0"><span class="sl-at" style="color:var(--gold)">2h</span><span class="sl-bar" style="background:linear-gradient(90deg,#f59e0b,#78350f);width:40px"></span><span class="tp-sell">stale exit | max hold 6h</span></div>
+  <div style="margin-top:12px;color:var(--muted);font-size:11px">Position size: 0.001 ETH | Slippage max 5.0% | Max 8 concurrent</div>
+</div>
+<div class="panel">
+  <h2>By Symbol</h2>
+  <div class="sym-cards"><div class="card sym-card"><div class="sym-name">CASHCAT</div>
+<div class="sym-stats"><span>3 trades</span><span>WR 33%</span></div>
+<div class="sym-pnl win">+0.000072 ETH</div>
+<div class="sym-avg win">avg -2.52%</div></div>
+<div class="card sym-card"><div class="sym-name">STONKBROKER</div>
+<div class="sym-stats"><span>3 trades</span><span>WR 33%</span></div>
+<div class="sym-pnl loss">-0.000135 ETH</div>
+<div class="sym-avg loss">avg -1.21%</div></div>
+<div class="card sym-card"><div class="sym-name">PONS</div>
+<div class="sym-stats"><span>2 trades</span><span>WR 50%</span></div>
+<div class="sym-pnl loss">-0.000487 ETH</div>
+<div class="sym-avg loss">avg -8.12%</div></div>
+</div>
+</div>
+</div>
+
+<div class="panel">
+  <h2>Trade Journal (8 closed — newest first)</h2>
+  <div style="overflow-x:auto">
+  <table>
+  <tr><th>Entry (UTC)</th><th>Symbol</th><th>Entry $</th><th>Exit $</th><th>PnL %</th><th>PnL ETH</th><th>Hold</th><th>Exit Reason</th><th>Score</th><th>Liquidity</th></tr>
+  <tr class="loss">
+<td>2026-07-28 07:08:04</td><td class="sym">CASHCAT</td>
+<td>$0.0385</td><td>$0.0379</td>
+<td class="num loss">-11.55%</td>
+<td class="num loss">-0.000047</td>
+<td>2h9m</td><td class="tag">stale_exit</td><td>70</td>
+<td class="num">$2,884,302.31</td></tr>
+<tr class="loss">
+<td>2026-07-28 05:26:39</td><td class="sym">STONKBROKER</td>
+<td>$0.005413</td><td>$0.005506</td>
+<td class="num loss">-3.41%</td>
+<td class="num loss">-0.000014</td>
+<td>3h2m</td><td class="tag">stale_exit</td><td>80</td>
+<td class="num">$1,664,173.41</td></tr>
+<tr class="loss">
+<td>2026-07-27 14:22:55</td><td class="sym">STONKBROKER</td>
+<td>$0.006265</td><td>$0.005909</td>
+<td class="num loss">-5.68%</td>
+<td class="num loss">-0.000284</td>
+<td>7h56m</td><td class="tag">time_exit</td><td>80</td>
+<td class="num">$1,824,249.44</td></tr>
+<tr class="loss">
+<td>2026-07-27 13:15:19</td><td class="sym">PONS</td>
+<td>$0.0650</td><td>$0.0530</td>
+<td class="num loss">-18.44%</td>
+<td class="num loss">-0.000553</td>
+<td>9h3m</td><td class="tag">time_exit</td><td>90</td>
+<td class="num">$1,753,865.73</td></tr>
+<tr class="win">
+<td>2026-07-27 13:12:00</td><td class="sym">CASHCAT</td>
+<td>$0.0366</td><td>$0.0381</td>
+<td class="num win">+3.98%</td>
+<td class="num win">+0.000120</td>
+<td>4h50m</td><td class="tag">time_exit</td><td>70</td>
+<td class="num">$2,674,791.83</td></tr>
+<tr class="win">
+<td>2026-07-26 14:17:43</td><td class="sym">STONKBROKER</td>
+<td>$0.005535</td><td>$0.005837</td>
+<td class="num win">+5.46%</td>
+<td class="num win">+0.000164</td>
+<td>4h28m</td><td class="tag">time_exit_force</td><td>80</td>
+<td class="num">$1,685,743.60</td></tr>
+<tr class="win">
+<td>2026-07-26 14:17:36</td><td class="sym">PONS</td>
+<td>$0.0520</td><td>$0.0532</td>
+<td class="num win">+2.19%</td>
+<td class="num win">+0.000066</td>
+<td>4h1m</td><td class="tag">time_exit</td><td>90</td>
+<td class="num">$1,742,497.55</td></tr>
+<tr class="loss">
+<td>2026-07-26 13:45:44</td><td class="sym">CASHCAT</td>
+<td>$0.0482</td><td>$0.0482</td>
+<td class="num loss">+0.00%</td>
+<td class="num loss">+0.000000</td>
+<td>4h9m</td><td class="tag">time_exit</td><td>70</td>
+<td class="num">$2,940,925.57</td></tr>
+
+  </table>
+  </div>
+</div>
+
+<div class="two-col">
+<div class="panel">
+  <h2>Target Watchlist</h2>
+  <table>
+  <tr><th>Symbol</th><th>Grade</th><th>Liquidity</th><th>Thesis</th></tr>
+  <tr><td class="sym">PONS</td><td><span class="grade grade-A">A</span></td>
+<td class="num">$1,610,000.00</td><td class="thesis">Launchpad fee and burn flywheel; monitor realized fees and burns</td></tr>
+<tr><td class="sym">STONKBROKER</td><td><span class="grade grade-A">A-</span></td>
+<td class="num">$1,645,000.00</td><td class="thesis">RWA and fee-distribution theme</td></tr>
+<tr><td class="sym">CASHCAT</td><td><span class="grade grade-B">B+</span></td>
+<td class="num">$2,860,000.00</td><td class="thesis">First native cultural runner with comparatively deep liquidity</td></tr>
+
+  </table>
+</div>
+<div class="panel">
+  <h2>Auto Insights</h2>
+  <ul class="findings"><li>損失の大部分はレガシー dexscreener 由来（4件・勝率0.0%・PnL -0.15124）。現行 rh_chain は 8件・勝率37.5%・PnL -0.00055 とほぼ損益分岐。ピボットは正解。</li><li>現行戦略の期待値は -3.43%/件 とわずかにマイナス。平均WIN +3.9% に対し平均LOSS -7.8% と損失が大きい（非対称）。</li><li>売却失敗/孤立（exit_price=0）が 2 件。これは市場損失ではなく実行障害。売却ルートpreflight と halt_on_sell_failure の徹底が有効。</li><li>規律逸脱: 保有時間超過 4 件 / SL逸脱 4 件。EXIT 条件を満たしながら on-chain revert で約定できなかった可能性が高い。</li><li>現行 8 件に利益確定退出（TP/staged/trailing）が0件 — 段階TP（15/30/60%）に一度も到達していない（最大到達 +5.5%）。退出内訳: stale_exit=2, time_exit=5, time_exit_force=1。ブルーチップのレンジ相場に対し初回TP 15% が遠い。</li></ul>
+</div>
+</div>
+
+<div class="footer">RH Chain Auto-Trader v2 | data/trade_journal.json + state.json | regenerate: python generate_dashboard.py</div>
+
+<script>
+const curveData = [{"label": "CASHCAT", "time": "2026-07-26 17:55", "cum": 0.0}, {"label": "PONS", "time": "2026-07-26 18:19", "cum": 6.571e-05}, {"label": "STONKBROKER", "time": "2026-07-26 18:45", "cum": 0.00022939}, {"label": "CASHCAT", "time": "2026-07-27 18:02", "cum": 0.00034893}, {"label": "PONS", "time": "2026-07-27 22:19", "cum": -0.0002042}, {"label": "STONKBROKER", "time": "2026-07-27 22:19", "cum": -0.00048831}, {"label": "STONKBROKER", "time": "2026-07-28 08:28", "cum": -0.00050244}, {"label": "CASHCAT", "time": "2026-07-28 09:17", "cum": -0.0005498}];
+new Chart(document.getElementById('eqChart'), {
+  type: 'line',
+  data: {
+    labels: curveData.map(d => d.label + '\n' + d.time),
+    datasets: [{
+      data: curveData.map(d => d.cum),
+      borderColor: curveData[curveData.length-1]?.cum >= 0 ? '#22c55e' : '#ef4444',
+      backgroundColor: 'rgba(56,189,248,0.05)',
+      fill: true, tension: 0.3, pointRadius: 5,
+      pointBackgroundColor: curveData.map((d,i) => {
+        const prev = i > 0 ? curveData[i-1].cum : 0;
+        return d.cum >= prev ? '#22c55e' : '#ef4444';
+      })
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: '#64748b', font: { size: 9 } }, grid: { color: '#1e293b' } },
+      y: { ticks: { color: '#64748b', callback: v => v.toFixed(5) }, grid: { color: '#1e293b' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
