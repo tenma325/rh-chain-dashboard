@@ -1,7 +1,10 @@
 # RH Chain Trader Dashboard
 
-Live trading performance dashboard for the Robinhood Chain (chain ID 4663) auto-trader.
+Robinhood Chain (chain ID 4663) wallet / PnL monitor.
 
-Static single-file HTML — no backend. Regenerated from the private trading repo after each session via `generate_dashboard.py --publish`.
+Static HTML + `snapshot.json` (no backend, no private keys). Regenerated from the
+private trader with `python dashboard_server.py --publish`.
+
+ETH/WETH on the page also refreshes from the public RH RPC in the browser.
 
 **Live:** https://tenma325.github.io/rh-chain-dashboard/

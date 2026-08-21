@@ -1,0 +1,634 @@
+{
+  "generated_at": "2026-08-21 19:55:24 JST",
+  "wallet": {
+    "address": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
+    "eth": 0.01295052,
+    "weth": 0.0,
+    "total_eth": 0.01295052,
+    "ok": true
+  },
+  "wallet_history": [
+    {
+      "time": "2026-08-21T10:50:36.543253+00:00",
+      "label": "19:50",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:50:47.620977+00:00",
+      "label": "19:50",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:50:51.015203+00:00",
+      "label": "19:50",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:51:06.110227+00:00",
+      "label": "19:51",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:51:21.107246+00:00",
+      "label": "19:51",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:51:36.044607+00:00",
+      "label": "19:51",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:51:51.077030+00:00",
+      "label": "19:51",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:52:05.981098+00:00",
+      "label": "19:52",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:52:20.998962+00:00",
+      "label": "19:52",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:52:36.136773+00:00",
+      "label": "19:52",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:52:51.132901+00:00",
+      "label": "19:52",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:53:06.071099+00:00",
+      "label": "19:53",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:53:21.008114+00:00",
+      "label": "19:53",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:53:36.045164+00:00",
+      "label": "19:53",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:53:51.055535+00:00",
+      "label": "19:53",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:54:06.074284+00:00",
+      "label": "19:54",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:54:21.018671+00:00",
+      "label": "19:54",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:54:36.214817+00:00",
+      "label": "19:54",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:54:51.022075+00:00",
+      "label": "19:54",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:55:05.998705+00:00",
+      "label": "19:55",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:55:21.052740+00:00",
+      "label": "19:55",
+      "total_eth": 0.01295052
+    },
+    {
+      "time": "2026-08-21T10:55:24.868243+00:00",
+      "label": "19:55",
+      "total_eth": 0.01295052
+    }
+  ],
+  "stats": {
+    "daily_pnl_eth": 0.00072934,
+    "trades_today": 10,
+    "closed_trades": 21,
+    "open_journal": 6,
+    "open_positions": 7,
+    "live_risk": 5,
+    "total_realized_eth": 0.00106881,
+    "win_rate": 38.1,
+    "wins": 8,
+    "losses": 13,
+    "consecutive_losses": 0,
+    "sell_route_healthy": true,
+    "last_updated": "2026-08-21T10:53:50.440277+00:00"
+  },
+  "equity_curve": [
+    {
+      "time": "07/27 02:55",
+      "symbol": "CASHCAT",
+      "cum_eth": 0.0,
+      "pnl_eth": 0.0
+    },
+    {
+      "time": "07/27 03:19",
+      "symbol": "PONS",
+      "cum_eth": 6.571e-05,
+      "pnl_eth": 6.571e-05
+    },
+    {
+      "time": "07/27 03:45",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00022939,
+      "pnl_eth": 0.00016369
+    },
+    {
+      "time": "07/28 03:02",
+      "symbol": "CASHCAT",
+      "cum_eth": 0.00034893,
+      "pnl_eth": 0.00011954
+    },
+    {
+      "time": "07/28 07:19",
+      "symbol": "PONS",
+      "cum_eth": -0.0002042,
+      "pnl_eth": -0.00055313
+    },
+    {
+      "time": "07/28 07:19",
+      "symbol": "STONKBROKER",
+      "cum_eth": -0.00048831,
+      "pnl_eth": -0.00028412
+    },
+    {
+      "time": "07/28 17:28",
+      "symbol": "STONKBROKER",
+      "cum_eth": -0.00050244,
+      "pnl_eth": -1.413e-05
+    },
+    {
+      "time": "07/28 18:17",
+      "symbol": "CASHCAT",
+      "cum_eth": -0.0005498,
+      "pnl_eth": -4.735e-05
+    },
+    {
+      "time": "07/28 21:31",
+      "symbol": "STONKBROKER",
+      "cum_eth": -0.00057297,
+      "pnl_eth": -2.318e-05
+    },
+    {
+      "time": "07/28 23:09",
+      "symbol": "CASHCAT",
+      "cum_eth": -0.00059222,
+      "pnl_eth": -1.925e-05
+    },
+    {
+      "time": "07/29 04:39",
+      "symbol": "STONKBROKER",
+      "cum_eth": -0.00060632,
+      "pnl_eth": -1.41e-05
+    },
+    {
+      "time": "07/29 13:59",
+      "symbol": "CASHCAT",
+      "cum_eth": -0.00063112,
+      "pnl_eth": -2.48e-05
+    },
+    {
+      "time": "07/29 17:08",
+      "symbol": "STONKBROKER",
+      "cum_eth": -0.00061966,
+      "pnl_eth": 1.146e-05
+    },
+    {
+      "time": "07/29 17:08",
+      "symbol": "CASHCAT",
+      "cum_eth": -0.00063398,
+      "pnl_eth": -1.432e-05
+    },
+    {
+      "time": "08/21 13:21",
+      "symbol": "PONS",
+      "cum_eth": -0.00068275,
+      "pnl_eth": -4.877e-05
+    },
+    {
+      "time": "08/21 13:22",
+      "symbol": "CASHCAT",
+      "cum_eth": 0.00054678,
+      "pnl_eth": 0.00122953
+    },
+    {
+      "time": "08/21 15:03",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00072735,
+      "pnl_eth": 0.00018057
+    },
+    {
+      "time": "08/21 15:06",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00091702,
+      "pnl_eth": 0.00018967
+    },
+    {
+      "time": "08/21 15:09",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00090629,
+      "pnl_eth": -1.073e-05
+    },
+    {
+      "time": "08/21 15:16",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00107469,
+      "pnl_eth": 0.0001684
+    },
+    {
+      "time": "08/21 15:18",
+      "symbol": "STONKBROKER",
+      "cum_eth": 0.00106881,
+      "pnl_eth": -5.88e-06
+    }
+  ],
+  "daily_pnl": [
+    {
+      "day": "2026-07-27",
+      "pnl_eth": 0.00022939
+    },
+    {
+      "day": "2026-07-28",
+      "pnl_eth": -0.00082161
+    },
+    {
+      "day": "2026-07-29",
+      "pnl_eth": -4.175e-05
+    },
+    {
+      "day": "2026-08-21",
+      "pnl_eth": 0.00170279
+    }
+  ],
+  "positions": [
+    {
+      "symbol": "GOOD",
+      "address": "0x5f62C57e5C537887117EeF828b7E3Ad41C009FEb",
+      "eth_spent": 0.0002,
+      "remaining_pct": 100.0,
+      "onchain_balance": 105.13279445752757,
+      "entry_price_usd": 0.004512,
+      "entry_time": "2026-08-21T09:39:25.950474+00:00",
+      "source": "journal_restore",
+      "live_risk": true
+    },
+    {
+      "symbol": "PIPEDOG",
+      "address": "0x5Cb6F181081301b44905F3ae15419112ecaBd8A6",
+      "eth_spent": 0.0002,
+      "remaining_pct": 100.0,
+      "onchain_balance": 565.0187623971457,
+      "entry_price_usd": 0.002498,
+      "entry_time": "2026-08-21T05:40:04.272494+00:00",
+      "source": "journal_restore",
+      "live_risk": true
+    },
+    {
+      "symbol": "PONS",
+      "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "eth_spent": 0.0002,
+      "remaining_pct": 60.0,
+      "onchain_balance": 7.5120418031993434,
+      "entry_price_usd": 0.03829,
+      "entry_time": "2026-08-21T05:39:45.116817+00:00",
+      "source": "rh_chain_blue_chip",
+      "live_risk": true
+    },
+    {
+      "symbol": "STONKBROKER",
+      "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
+      "eth_spent": 0.0002,
+      "remaining_pct": 100.0,
+      "onchain_balance": 33.51667211665004,
+      "entry_price_usd": 0.01435,
+      "entry_time": "2026-08-21T09:39:22.754485+00:00",
+      "source": "rh_chain_blue_chip",
+      "live_risk": true
+    },
+    {
+      "symbol": "WOOD",
+      "address": "0xF8BC08092C06dB6148114DCf82AF881F1085f92b",
+      "eth_spent": 0.0002,
+      "remaining_pct": 100.0,
+      "onchain_balance": 161.74632374769448,
+      "entry_price_usd": 0.005814,
+      "entry_time": "2026-08-21T05:39:48.237548+00:00",
+      "source": "rh_chain_blue_chip",
+      "live_risk": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
+      "eth_spent": 0.0,
+      "remaining_pct": 100.0,
+      "onchain_balance": 3.6080296994205043,
+      "entry_price_usd": 0.1345,
+      "entry_time": "2026-08-21T08:49:54.253595+00:00",
+      "source": "wallet_sync",
+      "live_risk": false
+    },
+    {
+      "symbol": "TENDIES",
+      "address": "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9",
+      "eth_spent": 0.0,
+      "remaining_pct": 100.0,
+      "onchain_balance": 34.9380308220334,
+      "entry_price_usd": 0.01363,
+      "entry_time": "2026-08-21T06:42:33.618810+00:00",
+      "source": "wallet_sync",
+      "live_risk": false
+    }
+  ],
+  "recent_trades": [
+    {
+      "symbol": "PIPEDOG",
+      "entry_time": "2026-08-21T09:42:33.221415+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "GOOD",
+      "entry_time": "2026-08-21T09:39:25.950474+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T09:39:22.755090+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-08-21T08:47:14.335673+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "TENDIES",
+      "entry_time": "2026-08-21T06:41:25.851204+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T06:17:10.948104+00:00",
+      "exit_time": "2026-08-21T06:18:38.352793+00:00",
+      "pnl_eth": -5.88e-06,
+      "pnl_pct": -2.9377832313368994,
+      "exit_reason": "stop_loss",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T06:15:13.254242+00:00",
+      "exit_time": "2026-08-21T06:16:18.816121+00:00",
+      "pnl_eth": 0.0001684,
+      "pnl_pct": 84.1977781253494,
+      "exit_reason": "stop_loss",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T06:08:45.320994+00:00",
+      "exit_time": "2026-08-21T06:09:21.850992+00:00",
+      "pnl_eth": -1.073e-05,
+      "pnl_pct": -5.366921555588231,
+      "exit_reason": "stop_loss",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T06:04:01.849828+00:00",
+      "exit_time": "2026-08-21T06:06:06.466949+00:00",
+      "pnl_eth": 0.00018967,
+      "pnl_pct": 94.83678307796475,
+      "exit_reason": "stop_loss",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-08-21T06:00:22.017829+00:00",
+      "exit_time": "2026-08-21T06:03:17.335174+00:00",
+      "pnl_eth": 0.00018057,
+      "pnl_pct": 90.28467734819291,
+      "exit_reason": "stop_loss",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "PIPEDOG",
+      "entry_time": "2026-08-21T05:40:04.272494+00:00",
+      "exit_time": "",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "",
+      "is_win": false,
+      "open": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-29T23:08:17.541009+00:00",
+      "exit_time": "2026-08-21T04:22:20.147850+00:00",
+      "pnl_eth": 0.00122953,
+      "pnl_pct": 586.3323725296981,
+      "exit_reason": "time_exit",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "PONS",
+      "entry_time": "2026-07-29T23:08:05.373859+00:00",
+      "exit_time": "2026-08-21T04:21:57.441479+00:00",
+      "pnl_eth": -4.877e-05,
+      "pnl_pct": -23.259493452177697,
+      "exit_reason": "time_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-29T06:04:11.646404+00:00",
+      "exit_time": "2026-07-29T08:08:10.430677+00:00",
+      "pnl_eth": -1.432e-05,
+      "pnl_pct": -6.892794883868724,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-29T02:07:10.529492+00:00",
+      "exit_time": "2026-07-29T08:08:00.286238+00:00",
+      "pnl_eth": 1.146e-05,
+      "pnl_pct": 5.510444555589308,
+      "exit_reason": "time_exit",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-29T01:08:17.443739+00:00",
+      "exit_time": "2026-07-29T04:59:58.041127+00:00",
+      "pnl_eth": -2.48e-05,
+      "pnl_pct": -11.798745549231365,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-28T13:38:05.617874+00:00",
+      "exit_time": "2026-07-28T19:39:39.349744+00:00",
+      "pnl_eth": -1.41e-05,
+      "pnl_pct": -6.826818345718126,
+      "exit_reason": "time_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-28T11:24:56.487209+00:00",
+      "exit_time": "2026-07-28T14:09:54.897872+00:00",
+      "pnl_eth": -1.925e-05,
+      "pnl_pct": -4.702052798371136,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-28T10:26:09.308913+00:00",
+      "exit_time": "2026-07-28T12:31:47.313957+00:00",
+      "pnl_eth": -2.318e-05,
+      "pnl_pct": -5.603781091397645,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-28T07:08:04.985983+00:00",
+      "exit_time": "2026-07-28T09:17:35.402330+00:00",
+      "pnl_eth": -4.735e-05,
+      "pnl_pct": -11.548501685552592,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-28T05:26:39.240543+00:00",
+      "exit_time": "2026-07-28T08:28:55.092500+00:00",
+      "pnl_eth": -1.413e-05,
+      "pnl_pct": -3.4105962379332486,
+      "exit_reason": "stale_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-27T14:22:55.882970+00:00",
+      "exit_time": "2026-07-27T22:19:16.183849+00:00",
+      "pnl_eth": -0.00028412,
+      "pnl_pct": -5.682362330407016,
+      "exit_reason": "time_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "PONS",
+      "entry_time": "2026-07-27T13:15:19.436163+00:00",
+      "exit_time": "2026-07-27T22:19:04.601033+00:00",
+      "pnl_eth": -0.00055313,
+      "pnl_pct": -18.437644164231905,
+      "exit_reason": "time_exit",
+      "is_win": false,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-27T13:12:00.727269+00:00",
+      "exit_time": "2026-07-27T18:02:45.695615+00:00",
+      "pnl_eth": 0.00011954,
+      "pnl_pct": 3.984716157205248,
+      "exit_reason": "time_exit",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entry_time": "2026-07-26T14:17:43.003129+00:00",
+      "exit_time": "2026-07-26T18:45:51.917467+00:00",
+      "pnl_eth": 0.00016369,
+      "pnl_pct": 5.456187895212289,
+      "exit_reason": "time_exit_force",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "PONS",
+      "entry_time": "2026-07-26T14:17:36.468985+00:00",
+      "exit_time": "2026-07-26T18:19:34.197500+00:00",
+      "pnl_eth": 6.571e-05,
+      "pnl_pct": 2.1902017291066325,
+      "exit_reason": "time_exit",
+      "is_win": true,
+      "open": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entry_time": "2026-07-26T13:45:44.807912+00:00",
+      "exit_time": "2026-07-26T17:55:43.423363+00:00",
+      "pnl_eth": 0.0,
+      "pnl_pct": 0.0,
+      "exit_reason": "time_exit",
+      "is_win": false,
+      "open": false
+    }
+  ]
+}
