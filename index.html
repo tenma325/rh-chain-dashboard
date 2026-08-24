@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RH Chain ウォレット監視</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6I+1zze6Z7kHXO7q3UyZAWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 :root {
   --bg: #0a0e17;
@@ -73,19 +73,40 @@ td {
 .tag { color: var(--gold); font-size: 12px; }
 .scroll { overflow-x: auto; }
 .footer { color: var(--muted); font-size: 11px; text-align: center; margin-top: 8px; }
+.dot.loading { background: var(--gold); animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.banner {
+  background: #3f1d20;
+  border: 1px solid var(--red);
+  color: #fecaca;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+.banner.warn {
+  background: #3a2e15;
+  border-color: var(--gold);
+  color: #fde68a;
+}
+.banner[hidden] { display: none; }
 </style>
 </head>
 <body>
 <div class="header">
   <div>
-    <h1><span id="dot" class="dot err"></span>RH Chain ウォレット監視</h1>
-    <div class="meta">Chain ID 4663 · 秘密鍵は表示しません · <span id="source">接続中</span></div>
+    <h1><span id="dot" class="dot loading"></span>RH Chain ウォレット監視</h1>
+    <div class="meta">Chain ID 4663 · 秘密鍵は表示しません · <span id="source">読み込み中…</span></div>
   </div>
   <div class="meta">
-    <div id="generated">接続中…</div>
+    <div id="generated">スナップショット取得中…</div>
     <div class="addr" id="address"></div>
   </div>
 </div>
+<div id="statusBanner" class="banner" hidden role="status"></div>
 
 <div class="grid" id="kpis"></div>
 
@@ -151,6 +172,80 @@ const RH_RPC = "https://rpc.mainnet.chain.robinhood.com";
 const WETH = "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
 const grid = { color: "#1e293b" };
 const charts = {};
+let hasRendered = false;
+let snapshotDegraded = false;
+let rpcFailed = false;
+let sourceLabel = "読み込み中…";
+
+function chartOptions() {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: tick, grid },
+      y: { ticks: { ...tick, callback: v => Number(v).toFixed(5) }, grid },
+    },
+  };
+}
+
+function el(tag, attrs) {
+  const node = document.createElement(tag);
+  if (!attrs) return node;
+  if (attrs.className) node.className = attrs.className;
+  if (attrs.text != null) node.textContent = String(attrs.text);
+  if (attrs.colSpan) node.colSpan = attrs.colSpan;
+  return node;
+}
+
+function setSource(text) {
+  sourceLabel = text;
+  const extra = rpcFailed ? " · RPC失敗" : "";
+  document.getElementById("source").textContent = text + extra;
+}
+
+function showBanner(text, kind) {
+  const banner = document.getElementById("statusBanner");
+  banner.hidden = false;
+  banner.className = "banner" + (kind === "warn" ? " warn" : "");
+  banner.textContent = text;
+}
+
+function updateBanner() {
+  const parts = [];
+  if (snapshotDegraded) parts.push("スナップショットの取得に失敗したため、埋め込みデータを表示しています。");
+  if (rpcFailed) parts.push("オンチェーン残高の更新に失敗しました。");
+  if (!parts.length) {
+    const banner = document.getElementById("statusBanner");
+    banner.hidden = true;
+    banner.textContent = "";
+    return;
+  }
+  showBanner(parts.join(" "), snapshotDegraded ? "err" : "warn");
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function withRetry(fn, attempts, baseMs, capMs) {
+  const maxAttempts = attempts == null ? 3 : attempts;
+  const base = baseMs == null ? 400 : baseMs;
+  const cap = capMs == null ? 4000 : capMs;
+  let lastErr;
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastErr = err;
+      console.warn("request failed", i + 1, "/", maxAttempts, err);
+      if (err && err.noRetry) break;
+      if (i === maxAttempts - 1) break;
+      await sleep(Math.min(cap, base * (2 ** i)));
+    }
+  }
+  throw lastErr;
+}
 
 function cls(n) { return n >= 0 ? "win" : "loss"; }
 function fmt(n, d=6) {
@@ -176,12 +271,19 @@ function kpis(s) {
     ["当日実現", fmt(st.daily_pnl_eth), `本日エントリー ${st.trades_today} 件`, cls(st.daily_pnl_eth)],
     ["累積実現", fmt(st.total_realized_eth), `決済 ${st.closed_trades} 件`, cls(st.total_realized_eth)],
     ["勝率", st.win_rate.toFixed(1) + "%", `${st.wins}勝 / ${st.losses}敗`, ""],
-    ["建玉", String(st.open_positions), `ライブリスク ${st.live_risk} / 上限 4`, ""],
+    ["建玉", String(st.open_positions), `ライブリスク ${st.live_risk}`, ""],
     ["ルート", st.sell_route_healthy ? "正常" : "注意", `連敗 ${st.consecutive_losses}`, st.sell_route_healthy ? "win" : "loss"],
   ];
-  document.getElementById("kpis").innerHTML = items.map(([label, value, sub, c]) =>
-    `<div class="kpi"><div class="label">${label}</div><div class="value ${c}">${value}</div><div class="sub">${sub}</div></div>`
-  ).join("");
+  const root = document.getElementById("kpis");
+  root.replaceChildren(...items.map(([label, value, sub, c]) => {
+    const kpi = el("div", { className: "kpi" });
+    kpi.append(
+      el("div", { className: "label", text: label }),
+      el("div", { className: c ? "value " + c : "value", text: value }),
+      el("div", { className: "sub", text: sub }),
+    );
+    return kpi;
+  }));
 }
 
 function lineChart(id, labels, data, color) {
@@ -201,15 +303,7 @@ function lineChart(id, labels, data, color) {
         borderWidth: 2,
       }],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: tick, grid },
-        y: { ticks: { ...tick, callback: v => Number(v).toFixed(5) }, grid },
-      },
-    },
+    options: chartOptions(),
   });
 }
 
@@ -225,15 +319,7 @@ function barChart(id, labels, data) {
         backgroundColor: data.map(v => v >= 0 ? "#22c55e" : "#ef4444"),
       }],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: tick, grid },
-        y: { ticks: { ...tick, callback: v => Number(v).toFixed(5) }, grid },
-      },
-    },
+    options: chartOptions(),
   });
 }
 
@@ -257,26 +343,47 @@ function render(s) {
     barChart("dailyChart", daily.map(p => p.day.slice(5)), daily.map(p => p.pnl_eth));
   }
 
-  document.getElementById("positions").innerHTML = (s.positions || []).map(p => `
-    <tr>
-      <td class="sym">${p.symbol || p.address.slice(0, 10)}</td>
-      <td>${p.live_risk ? "ライブ" : "同期"}</td>
-      <td class="num">${p.eth_spent.toFixed(6)}</td>
-      <td class="num">${p.remaining_pct.toFixed(0)}%</td>
-      <td class="num">${p.onchain_balance.toFixed(4)}</td>
-      <td>${when(p.entry_time)}</td>
-    </tr>
-  `).join("") || `<tr><td colspan="6">建玉なし</td></tr>`;
+  const posBody = document.getElementById("positions");
+  const positions = s.positions || [];
+  if (!positions.length) {
+    const empty = el("tr");
+    empty.appendChild(el("td", { text: "建玉なし", colSpan: 6 }));
+    posBody.replaceChildren(empty);
+  } else {
+    posBody.replaceChildren(...positions.map(p => {
+      const tr = el("tr");
+      const symbol = p.symbol || (p.address ? p.address.slice(0, 10) : "—");
+      tr.append(
+        el("td", { className: "sym", text: symbol }),
+        el("td", { text: p.live_risk ? "ライブ" : "同期" }),
+        el("td", { className: "num", text: Number(p.eth_spent || 0).toFixed(6) }),
+        el("td", { className: "num", text: Number(p.remaining_pct || 0).toFixed(0) + "%" }),
+        el("td", { className: "num", text: Number(p.onchain_balance || 0).toFixed(4) }),
+        el("td", { text: when(p.entry_time) }),
+      );
+      return tr;
+    }));
+  }
 
-  document.getElementById("trades").innerHTML = (s.recent_trades || []).slice(0, 16).map(t => `
-    <tr>
-      <td class="sym">${t.symbol}</td>
-      <td>${t.open ? "建中" : (t.is_win ? "勝" : "負")}</td>
-      <td class="num ${t.open ? "" : cls(t.pnl_eth)}">${t.open ? "—" : fmt(t.pnl_eth)}</td>
-      <td class="num ${t.open ? "" : cls(t.pnl_pct)}">${t.open ? "—" : fmt(t.pnl_pct, 2)}</td>
-      <td class="tag">${t.exit_reason || (t.open ? "open" : "")}</td>
-    </tr>
-  `).join("") || `<tr><td colspan="5">取引なし</td></tr>`;
+  const tradeBody = document.getElementById("trades");
+  const trades = (s.recent_trades || []).slice(0, 16);
+  if (!trades.length) {
+    const empty = el("tr");
+    empty.appendChild(el("td", { text: "取引なし", colSpan: 5 }));
+    tradeBody.replaceChildren(empty);
+  } else {
+    tradeBody.replaceChildren(...trades.map(t => {
+      const tr = el("tr");
+      tr.append(
+        el("td", { className: "sym", text: t.symbol || "—" }),
+        el("td", { text: t.open ? "建中" : (t.is_win ? "勝" : "負") }),
+        el("td", { className: t.open ? "num" : "num " + cls(t.pnl_eth), text: t.open ? "—" : fmt(t.pnl_eth) }),
+        el("td", { className: t.open ? "num" : "num " + cls(t.pnl_pct), text: t.open ? "—" : fmt(t.pnl_pct, 2) }),
+        el("td", { className: "tag", text: t.exit_reason || (t.open ? "open" : "") }),
+      );
+      return tr;
+    }));
+  }
 }
 
 function hexToEth(hex) {
@@ -285,15 +392,17 @@ function hexToEth(hex) {
 }
 
 async function rpc(method, params) {
-  const res = await fetch(RH_RPC, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+  return withRetry(async () => {
+    const res = await fetch(RH_RPC, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+    });
+    if (!res.ok) throw new Error("rpc " + res.status);
+    const body = await res.json();
+    if (body.error) throw new Error(body.error.message || "rpc");
+    return body.result;
   });
-  if (!res.ok) throw new Error("rpc " + res.status);
-  const body = await res.json();
-  if (body.error) throw new Error(body.error.message || "rpc");
-  return body.result;
 }
 
 async function refreshOnchain(s) {
@@ -313,37 +422,88 @@ async function refreshOnchain(s) {
   return s;
 }
 
+async function fetchJson(url) {
+  return withRetry(async () => {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) {
+      const err = new Error("snapshot " + res.status + " " + url);
+      if (res.status >= 400 && res.status < 500 && res.status !== 429) err.noRetry = true;
+      throw err;
+    }
+    return res.json();
+  });
+}
+
 async function fetchSnapshot() {
   const candidates = ["/api/snapshot", "./snapshot.json"];
+  const errors = [];
   for (const url of candidates) {
     try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (res.ok) {
-        document.getElementById("source").textContent =
-          url === "/api/snapshot" ? "ローカル 15秒更新" : "GitHub Pages";
-        return await res.json();
-      }
-    } catch (err) {}
+      const data = await fetchJson(url);
+      snapshotDegraded = false;
+      setSource(url === "/api/snapshot" ? "ローカル 15秒更新" : "GitHub Pages");
+      return data;
+    } catch (err) {
+      console.warn("snapshot candidate failed", url, err);
+      errors.push((err && err.message) || String(err));
+    }
   }
   if (window.__EMBEDDED_SNAPSHOT__) {
-    document.getElementById("source").textContent = "GitHub Pages";
-    return window.__EMBEDDED_SNAPSHOT__;
+    snapshotDegraded = true;
+    console.warn("using embedded snapshot after fetch failures", errors);
+    setSource("埋め込み（取得失敗）");
+    return JSON.parse(JSON.stringify(window.__EMBEDDED_SNAPSHOT__));
   }
-  throw new Error("snapshot unavailable");
+  throw new Error("snapshot unavailable: " + errors.join("; "));
+}
+
+function setFetchError(message) {
+  document.getElementById("dot").className = "dot err";
+  document.getElementById("generated").textContent = "取得失敗: " + message;
+  setSource("取得失敗");
+  showBanner("スナップショットを取得できません: " + message, "err");
 }
 
 async function refresh() {
-  const s = await fetchSnapshot();
-  render(s);
+  if (!hasRendered) {
+    document.getElementById("dot").className = "dot loading";
+    document.getElementById("source").textContent = "読み込み中…";
+    document.getElementById("generated").textContent = "スナップショット取得中…";
+  }
+  let s;
+  try {
+    s = await fetchSnapshot();
+    hasRendered = true;
+    render(s);
+    updateBanner();
+  } catch (err) {
+    console.warn("snapshot refresh failed", err);
+    setFetchError(err && err.message ? err.message : String(err));
+    return;
+  }
   try {
     render(await refreshOnchain(s));
-  } catch (err) {}
+    rpcFailed = false;
+    setSource(sourceLabel);
+    updateBanner();
+  } catch (err) {
+    console.warn("on-chain refresh failed", err);
+    rpcFailed = true;
+    if (s && s.wallet) s.wallet.ok = false;
+    render(s);
+    setSource(sourceLabel);
+    updateBanner();
+  }
 }
 
 refresh().catch(err => {
-  document.getElementById("generated").textContent = "取得失敗: " + err.message;
+  console.warn("initial refresh failed", err);
 });
-setInterval(() => refresh().catch(() => {}), 15000);
+setInterval(() => {
+  refresh().catch(err => {
+    console.warn("scheduled refresh failed", err);
+  });
+}, 15000);
 </script>
 </body>
 </html>
