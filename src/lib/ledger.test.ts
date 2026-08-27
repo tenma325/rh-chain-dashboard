@@ -2,14 +2,16 @@ import { describe, expect, it } from "vitest";
 import {
   AGI_ADDRESS,
   allowlist,
+  chartHoldings,
   countLivePositions,
   isDust,
   pnlBarKind,
+  tableHoldings,
   tradeOutcome,
   tradeStats,
   tradeUsd,
-  visibleHoldings,
 } from "./ledger";
+import { SNAPSHOT } from "./live";
 import type { Holding, SnapshotPosition, SnapshotTrade } from "./types";
 
 const trade = (partial: Partial<SnapshotTrade>): SnapshotTrade => ({
@@ -54,6 +56,8 @@ describe("allowlist", () => {
     expect(agi).toBeDefined();
     expect(agi?.ethSpent).toBeNull();
     expect(agi?.entryTime).toBeNull();
+    expect(agi?.remainingPct).toBeNull();
+    expect(agi?.entryPriceUsd).toBeNull();
     expect(agi?.observedBalance).toBeNull();
   });
 });
@@ -61,11 +65,12 @@ describe("allowlist", () => {
 describe("position counting", () => {
   it("does not count STONKBROKER dust or baked list length", () => {
     const rows = [
-      holding({ symbol: "WOOD", balance: 0, priceUsd: 0.01, balanceSource: "live" }),
+      holding({ symbol: "WOOD", balance: 0, priceUsd: 0.01, valueUsd: 0, balanceSource: "live" }),
       holding({
         symbol: "STONKBROKER",
         balance: 5.67890828982e-7,
         priceUsd: 0.01786,
+        valueUsd: 5.67890828982e-7 * 0.01786,
         balanceSource: "live",
       }),
       holding({
@@ -73,18 +78,30 @@ describe("position counting", () => {
         address: AGI_ADDRESS,
         balance: 1135,
         priceUsd: 0.002,
+        valueUsd: 2.27,
         balanceSource: "live",
       }),
       holding({
         symbol: "WOOD",
         balance: 95,
         priceUsd: 0.01,
+        valueUsd: 0.95,
         balanceSource: "snapshot",
       }),
     ];
     expect(isDust(rows[1])).toBe(true);
     expect(countLivePositions(rows)).toBe(1);
-    expect(visibleHoldings(rows).map((row) => row.symbol)).toEqual(["AGI", "WOOD"]);
+    expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["AGI"]);
+    expect(tableHoldings(rows).map((row) => row.symbol)).toEqual(["STONKBROKER", "AGI", "WOOD"]);
+  });
+
+  it("counts an unpriced live qty above 1e-6, and not RPC-null", () => {
+    expect(
+      countLivePositions([
+        holding({ balance: 1135, priceUsd: null, valueUsd: null, balanceSource: "live" }),
+        holding({ balance: null, priceUsd: 0.002, valueUsd: null, balanceSource: "unknown" }),
+      ]),
+    ).toBe(1);
   });
 });
 
@@ -106,6 +123,15 @@ describe("trade outcomes", () => {
     expect(stats.losses).toBe(1);
     expect(stats.flats).toBe(1);
     expect(stats.winRate).toBe(50);
+  });
+
+  it("excludes baked zero-PnL closes from the old 18L and does not mint a WOOD fill", () => {
+    const stats = tradeStats(SNAPSHOT.trades);
+    expect(stats.wins).toBe(8);
+    expect(stats.losses).toBe(12);
+    expect(stats.flats).toBe(6);
+    expect(stats.winRate).toBe(40);
+    expect(SNAPSHOT.trades.some((row) => row.symbol === "WOOD")).toBe(false);
   });
 
   it("does not back out USD from a percent when ethUsd is missing", () => {

@@ -33,4 +33,15 @@
   grid-template-rows: none;
   grid-auto-rows: minmax(42px, 1fr);
 }
-.quantity-unavailable { color: var(--muted); }
+.dust-chip {
+  letter-spacing: .08em;
+  border: 1px solid #555;
+  color: #9a9a94;
+  border-radius: 999px;
+  margin-left: 6px;
+  padding: 1px 5px;
+  font-size: 6px;
+  font-weight: 800;
+  vertical-align: middle;
+  display: inline-flex;
+}

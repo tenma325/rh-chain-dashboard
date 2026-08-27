@@ -1,4 +1,5 @@
 import { formatPct, formatQty, formatUsd, shortAddress, toneOf } from "../lib/format";
+import { isDustRow } from "../lib/ledger";
 import type { Holding } from "../lib/types";
 
 type Props = {
@@ -31,10 +32,13 @@ export function HoldingsTable({ holdings }: Props) {
                 <div className="asset-cell">
                   <span className="asset-mark">{row.symbol.slice(0, 1)}</span>
                   <span>
-                    <strong>{row.symbol}</strong>
+                    <strong>
+                      {row.symbol}
+                      {isDustRow(row) ? <span className="dust-chip">ダスト</span> : null}
+                    </strong>
                     <small>
                       {shortAddress(row.address)}
-                      {row.balanceSource !== "live" ? " · SNAPSHOT" : ""}
+                      {row.balanceSource === "snapshot" ? " · SNAPSHOT" : ""}
                     </small>
                   </span>
                 </div>
@@ -43,7 +47,9 @@ export function HoldingsTable({ holdings }: Props) {
                 {formatQty(row.balance)}
                 <small className="source-label">
                   {row.balanceSource === "live"
-                    ? "RPC"
+                    ? isDustRow(row)
+                      ? "ダスト"
+                      : "RPC"
                     : row.balanceSource === "snapshot"
                       ? "SNAPSHOT"
                       : "取得不可"}

@@ -9,11 +9,13 @@ import { TradeTable } from "./components/TradeTable";
 import { formatAge, formatJst, formatQty, formatUsd, toneOf } from "./lib/format";
 import { ACTION_LABELS, TABS, reasonJa, type TabId } from "./lib/labels";
 import {
+  chartHoldings,
   countLivePositions,
+  countsTowardHeader,
   performanceSeries,
   realizedUsd,
+  tableHoldings,
   tradeStats,
-  visibleHoldings,
 } from "./lib/ledger";
 import { SNAPSHOT, fetchLiveOverlay, loadingOverlay } from "./lib/live";
 import { assetsUsd, chipStatus, overviewLine, walletLabel, walletUsd } from "./lib/sync";
@@ -25,7 +27,7 @@ function tabFromPath(): TabId {
 
 function assetFromQuery(overlay: LiveOverlay): string {
   const symbol = new URLSearchParams(window.location.search).get("asset");
-  const shown = visibleHoldings(overlay.holdings);
+  const shown = chartHoldings(overlay.holdings);
   return (
     shown.find((row) => row.symbol.toLowerCase() === symbol?.toLowerCase())?.address ??
     shown[0]?.address ??
@@ -71,7 +73,7 @@ export function App() {
   }, [overlay]);
 
   useEffect(() => {
-    const shown = visibleHoldings(overlay.holdings);
+    const shown = chartHoldings(overlay.holdings);
     if (shown.length === 0) return;
     if (!shown.some((row) => row.address.toLowerCase() === selected.toLowerCase())) {
       setSelected(shown[0].address);
@@ -95,7 +97,8 @@ export function App() {
   const wallet = walletUsd(overlay);
   const assets = assetsUsd(overlay.holdings);
   const liveCount = countLivePositions(overlay.holdings);
-  const shownHoldings = visibleHoldings(overlay.holdings);
+  const chartRows = chartHoldings(overlay.holdings);
+  const tableRows = tableHoldings(overlay.holdings);
   const overview = overviewLine({
     loading: inFlight,
     walletUsd: wallet,
@@ -144,7 +147,7 @@ export function App() {
     setTab(next);
     if (next === "chart") {
       const symbol =
-        shownHoldings.find((row) => row.address === selected)?.symbol ?? shownHoldings[0]?.symbol;
+        chartRows.find((row) => row.address === selected)?.symbol ?? chartRows[0]?.symbol;
       window.history.pushState(
         {},
         "",
@@ -314,7 +317,7 @@ export function App() {
         >
           {tab === "chart" && (
             <MarketChart
-              holdings={shownHoldings}
+              holdings={chartRows}
               selectedAddress={selected}
               marketsStatus={overlay.marketsStatus}
               onSelect={(row) => {
@@ -362,10 +365,10 @@ export function App() {
                 <span>
                   保有評価額 <strong>{formatUsd(assets, { loading: inFlight })}</strong>
                 </span>
-                <span>{shownHoldings.filter((row) => row.liveRisk).length} live risk</span>
+                <span>{tableRows.filter((row) => row.liveRisk && countsTowardHeader(row)).length} live risk</span>
                 <span>価格: DEX Screener · 数量: ライブRPCのみ</span>
               </div>
-              <HoldingsTable holdings={shownHoldings} />
+              <HoldingsTable holdings={tableRows} />
             </div>
           )}
           {tab === "agents" && (

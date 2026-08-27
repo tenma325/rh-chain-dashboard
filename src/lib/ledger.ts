@@ -24,25 +24,47 @@ export function allowlist(positions: SnapshotPosition[]): SnapshotPosition[] {
   return hasAgi ? positions : [...positions, AGI_SPEC];
 }
 
-export function isDust(holding: Pick<Holding, "balance" | "priceUsd">): boolean {
-  if (!isFiniteNumber(holding.balance)) return true;
-  if (isFiniteNumber(holding.priceUsd)) {
-    return holding.balance * holding.priceUsd < DUST_USD;
-  }
-  return holding.balance < DUST_QTY;
+export function countsTowardHeader(
+  holding: Pick<Holding, "balance" | "priceUsd" | "valueUsd" | "balanceSource">,
+): boolean {
+  if (holding.balanceSource !== "live" || !isFiniteNumber(holding.balance)) return false;
+  const value = isFiniteNumber(holding.priceUsd)
+    ? holding.balance * holding.priceUsd
+    : holding.valueUsd;
+  if (isFiniteNumber(value)) return value >= DUST_USD;
+  return holding.balance > DUST_QTY;
+}
+
+export function isDust(
+  holding: Pick<Holding, "balance" | "priceUsd" | "valueUsd" | "balanceSource">,
+): boolean {
+  return isFiniteNumber(holding.balance) && holding.balance > 0 && !countsTowardHeader(holding);
+}
+
+export function isDustRow(holding: Holding): boolean {
+  return holding.balanceSource === "live" && isDust(holding);
 }
 
 export function countLivePositions(holdings: Holding[]): number {
-  return holdings.filter(
-    (row) => row.balanceSource === "live" && !isDust(row),
-  ).length;
+  return holdings.filter(countsTowardHeader).length;
+}
+
+/** Chart / header selection: live-valued rows plus RPC-unavailable qty. Dust stays off the rail. */
+export function chartHoldings(holdings: Holding[]): Holding[] {
+  return holdings.filter((row) => row.balance === null || countsTowardHeader(row));
+}
+
+/** Holdings table: live-valued, leftover dust, RPC-unavailable, and explicit SNAPSHOT rows. */
+export function tableHoldings(holdings: Holding[]): Holding[] {
+  return holdings.filter((row) => {
+    if (row.balance === null) return true;
+    if (row.balanceSource === "snapshot") return true;
+    return countsTowardHeader(row) || isDustRow(row);
+  });
 }
 
 export function visibleHoldings(holdings: Holding[]): Holding[] {
-  return holdings.filter((row) => {
-    if (row.balance === null) return true;
-    return !isDust(row);
-  });
+  return chartHoldings(holdings);
 }
 
 export function tradeOutcome(trade: SnapshotTrade): TradeOutcome {
