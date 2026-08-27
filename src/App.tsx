@@ -6,6 +6,7 @@ import { MetricCard } from "./components/MetricCard";
 import { Pager } from "./components/Pager";
 import { PerformanceChart } from "./components/PerformanceChart";
 import { TradeTable } from "./components/TradeTable";
+import { thisCycleVoteCopy } from "./lib/desk";
 import { formatAge, formatJst, formatQty, formatUsd, toneOf } from "./lib/format";
 import { ACTION_LABELS, TABS, reasonJa, type TabId } from "./lib/labels";
 import {
@@ -252,6 +253,7 @@ export function App() {
             <div className="signal-card__meta">
               <time dateTime={latest.time}>{formatJst(latest.time)}</time>
               <span>{snapshotAge}</span>
+              <span>{thisCycleVoteCopy()}</span>
             </div>
           </article>
         )}
