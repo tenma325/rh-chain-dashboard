@@ -22,9 +22,9 @@ export function ohlcvEmptyKind(input: {
   error: string | null;
 }): ChartEmptyKind {
   if (input.candles > 0) return "ready";
-  if (input.inFlight) return "in-flight";
   if (input.error) return "unavailable";
-  return "in-flight";
+  if (input.inFlight) return "in-flight";
+  return "unavailable";
 }
 
 export function ohlcvFooter(input: {
@@ -32,8 +32,8 @@ export function ohlcvFooter(input: {
   lastUpdated: Date | null;
   error: string | null;
 }): string {
-  if (input.inFlight && !input.lastUpdated) return "市場履歴を同期中";
   if (input.error && !input.lastUpdated) return "取得不可";
+  if (input.inFlight && !input.lastUpdated) return "市場履歴を同期中";
   if (input.lastUpdated) {
     return `最終更新 ${input.lastUpdated.toLocaleTimeString("ja-JP", {
       hour: "2-digit",
@@ -41,5 +41,16 @@ export function ohlcvFooter(input: {
       second: "2-digit",
     })}`;
   }
-  return "市場履歴を同期中";
+  return "取得不可";
+}
+
+export function ohlcvErrorMessage(caught: unknown): string {
+  const message = caught instanceof Error ? caught.message : "";
+  if (
+    caught instanceof TypeError ||
+    /failed to fetch|networkerror|load failed/i.test(message)
+  ) {
+    return "取得不可";
+  }
+  return message || "市場履歴を取得できませんでした";
 }

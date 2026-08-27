@@ -45,7 +45,7 @@ export function PerformanceChart({ series, period }: Props) {
       >
         <title id="performance-chart-title">{period}日間のウォレット残高と日次実現損益</title>
         <desc id="performance-chart-desc">
-          白い線がウォレット残高、縦棒が日ごとの実現損益です。緑は利益、赤は損失、灰色はフラットです。
+          白い線がウォレット残高、縦棒が日ごとの実現損益です。緑は利益、赤は損失です。損益ゼロの日は棒を描きません。
         </desc>
         {[42, 94, 158, 206].map((y) => (
           <line key={y} x1={48} x2={976} y1={y} y2={y} className="chart-grid" />
@@ -61,21 +61,23 @@ export function PerformanceChart({ series, period }: Props) {
           const kind = pnlBarKind(row.pnlUsd);
           const value = row.pnlUsd ?? 0;
           const top = Math.min(158, yPnl(value));
-          const height = Math.max(2, Math.abs(158 - yPnl(value)));
+          const height = Math.abs(158 - yPnl(value));
           return (
             <g key={row.key}>
-              <rect
-                x={x(index) - barWidth / 2}
-                y={kind === "flat" ? 157 : top}
-                width={barWidth}
-                height={kind === "flat" ? 2 : height}
-                rx="2"
-                className={`chart-bar chart-bar--${kind}`}
-              >
-                <title>
-                  {row.label}: {formatUsd(row.pnlUsd, { sign: true, precise: true })}
-                </title>
-              </rect>
+              {kind !== "flat" && (
+                <rect
+                  x={x(index) - barWidth / 2}
+                  y={top}
+                  width={barWidth}
+                  height={Math.max(height, 2)}
+                  rx="2"
+                  className={`chart-bar chart-bar--${kind}`}
+                >
+                  <title>
+                    {row.label}: {formatUsd(row.pnlUsd, { sign: true, precise: true })}
+                  </title>
+                </rect>
+              )}
               {(index % labelEvery === 0 || index === series.length - 1) && (
                 <text x={x(index)} y="222" textAnchor="middle" className="chart-label">
                   {row.label}

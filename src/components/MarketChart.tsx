@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { isGeckoPoolId, ohlcvEmptyKind, ohlcvFooter, pairEmptyKind } from "../lib/chart";
+import { isGeckoPoolId, ohlcvEmptyKind, ohlcvErrorMessage, ohlcvFooter, pairEmptyKind } from "../lib/chart";
 import {
   formatCompactUsd,
   formatPct,
@@ -255,7 +255,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
         setUpdatedAt(new Date());
       } catch (caught) {
         if (controller.signal.aborted) return;
-        setError(caught instanceof Error ? caught.message : "市場履歴を取得できませんでした");
+        setError(ohlcvErrorMessage(caught));
       } finally {
         if (!controller.signal.aborted) setInFlight(false);
       }
@@ -426,7 +426,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
           {pairKind === "ready" && ohlcvKind === "unavailable" && (
             <div className="chart-empty chart-empty--error" role="status">
               <strong>取得不可</strong>
-              <span>{error}</span>
+              <span>{error && error !== "取得不可" ? error : "市場履歴を取得できませんでした。"}</span>
             </div>
           )}
           {error && candles.length > 0 && (
