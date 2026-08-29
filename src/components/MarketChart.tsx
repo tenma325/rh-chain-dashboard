@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   fomoFamilyUrl,
-  geckoPoolAddress,
-  isGeckoPoolId,
+  fomoOhlcvUrl,
   ohlcvEmptyKind,
   ohlcvErrorMessage,
   ohlcvFooter,
-  pairEmptyKind,
+  parseFomoCandles,
 } from "../lib/chart";
 import {
   formatCompactUsd,
@@ -26,45 +25,13 @@ const INTERVALS = {
 
 type Interval = keyof typeof INTERVALS;
 
-function ohlcvUrl(pair: string, interval: Interval): string | null {
-  if (!isGeckoPoolId(pair)) return null;
-  const spec = INTERVALS[interval];
-  const url = new URL(
-    `https://api.geckoterminal.com/api/v2/networks/robinhood/pools/${pair}/ohlcv/${spec.timeframe}`,
-  );
-  url.searchParams.set("aggregate", spec.aggregate);
-  url.searchParams.set("limit", spec.limit);
-  url.searchParams.set("currency", "usd");
-  return url.toString();
-}
-
-function parseCandles(payload: { data?: { attributes?: { ohlcv_list?: unknown } } }): Candle[] {
-  const list = payload?.data?.attributes?.ohlcv_list;
-  if (!Array.isArray(list)) return [];
-  return list
-    .flatMap((row) => {
-      if (!Array.isArray(row) || row.length < 6) return [];
-      const nums = row.slice(0, 6).map(Number);
-      const [time, open, high, low, close, volumeUsd] = nums;
-      if (
-        nums.some((value) => !Number.isFinite(value)) ||
-        time <= 0 ||
-        open <= 0 ||
-        high <= 0 ||
-        low <= 0 ||
-        close <= 0 ||
-        volumeUsd < 0
-      ) {
-        return [];
-      }
-      return [{ time, open, high, low, close, volumeUsd }];
-    })
-    .sort((a, b) => a.time - b.time);
-}
-
-async function fetchCandles(pair: string, interval: Interval, signal: AbortSignal): Promise<Candle[]> {
-  const url = ohlcvUrl(pair, interval);
-  if (!url) throw new Error("有効な市場ペアがありません");
+async function fetchFomoCandles(
+  address: string,
+  interval: Interval,
+  signal: AbortSignal,
+): Promise<Candle[]> {
+  const url = fomoOhlcvUrl(address, interval, Number(INTERVALS[interval].limit));
+  if (!url) throw new Error("有効なFOMOチャート対象がありません");
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
       const response = await fetch(url, {
@@ -73,18 +40,18 @@ async function fetchCandles(pair: string, interval: Interval, signal: AbortSigna
       });
       if (!response.ok) {
         throw response.status === 429
-          ? new Error("市場履歴APIが混雑しています。自動的に再試行します")
-          : new Error(`市場履歴を取得できませんでした (${response.status})`);
+          ? new Error("FOMOチャートAPIが混雑しています。自動的に再試行します")
+          : new Error(`FOMOチャートを取得できませんでした (${response.status})`);
       }
-      const candles = parseCandles(await response.json());
-      if (candles.length === 0) throw new Error("この時間軸の市場履歴はまだありません");
+      const candles = parseFomoCandles(await response.json());
+      if (candles.length === 0) throw new Error("この時間軸のFOMO履歴はまだありません");
       return candles;
     } catch (error) {
       if (signal.aborted || attempt === 1) throw error;
       await new Promise((resolve) => setTimeout(resolve, 1200));
     }
   }
-  throw new Error("市場履歴を取得できませんでした");
+  throw new Error("FOMOチャートを取得できませんでした");
 }
 
 function maPath(
@@ -136,8 +103,8 @@ function Candles({ candles, interval, symbol }: { candles: Candle[]; interval: I
 
   return (
     <svg className="candlestick-chart" viewBox="0 0 1200 480" preserveAspectRatio="none" role="img">
-      <title>{symbol}のリアルタイムローソク足チャート</title>
-      <desc>GeckoTerminalから取得した実市場のOHLCVデータです。緑は上昇、赤は下落、下段は出来高を表します。</desc>
+      <title>{symbol}のFOMO.familyリアルタイムチャート</title>
+      <desc>fomo.family（Mobula FOMO API）の実市場OHLCVです。緑は上昇、赤は下落、下段は出来高を表します。</desc>
       {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
         const y = plot.top + (plot.bottom - plot.top) * ratio;
         const price = hi - span * ratio;
@@ -229,10 +196,10 @@ type Props = {
   holdings: Holding[];
   selectedAddress: string;
   onSelect: (holding: Holding) => void;
-  marketsStatus: LiveOverlay["marketsStatus"];
+  marketsStatus?: LiveOverlay["marketsStatus"];
 };
 
-export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus }: Props) {
+export function MarketChart({ holdings, selectedAddress, onSelect }: Props) {
   const selected = holdings.find((row) => row.address === selectedAddress) ?? holdings[0];
   const [interval, setInterval] = useState<Interval>("5m");
   const [candles, setCandles] = useState<Candle[]>([]);
@@ -240,16 +207,10 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
   const [inFlight, setInFlight] = useState(false);
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null);
   const last = candles.at(-1);
-  const poolAddress = selected
-    ? geckoPoolAddress(selected.address, selected.pairAddress)
-    : null;
-  const pairKind = pairEmptyKind({
-    marketsStatus,
-    pairAddress: poolAddress,
-  });
+  const tokenAddress = selected?.address ?? "";
 
   useEffect(() => {
-    if (!poolAddress) {
+    if (!tokenAddress) {
       setCandles([]);
       setError(null);
       setInFlight(false);
@@ -260,7 +221,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
     const load = async (showLoader: boolean) => {
       if (showLoader) setInFlight(true);
       try {
-        const next = await fetchCandles(poolAddress, interval, controller.signal);
+        const next = await fetchFomoCandles(tokenAddress, interval, controller.signal);
         setCandles(next);
         setError(null);
         setUpdatedAt(new Date());
@@ -277,7 +238,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
       controller.abort();
       window.clearInterval(timer);
     };
-  }, [interval, poolAddress]);
+  }, [interval, tokenAddress]);
 
   const change = useMemo(() => {
     const first = candles[0];
@@ -429,33 +390,20 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
               </span>
             </div>
           </div>
-          {pairKind === "in-flight" && (
-            <div className="chart-empty" role="status">
-              <span className="chart-loader" aria-hidden="true" />
-              <strong>{selected.symbol}の市場ペアを同期中</strong>
-              <span>ライブ価格を取得でき次第、実市場のローソク足を表示します。</span>
-            </div>
-          )}
-          {pairKind === "unavailable" && (
-            <div className="chart-empty chart-empty--error" role="status">
-              <strong>取得不可</strong>
-              <span>{selected.symbol}の市場ペアを取得できませんでした。</span>
-            </div>
-          )}
-          {pairKind === "ready" && ohlcvKind === "ready" && (
+          {ohlcvKind === "ready" && (
             <Candles candles={candles} interval={interval} symbol={selected.symbol} />
           )}
-          {pairKind === "ready" && ohlcvKind === "in-flight" && (
+          {ohlcvKind === "in-flight" && (
             <div className="chart-empty" role="status">
               <span className="chart-loader" aria-hidden="true" />
-              <strong>実市場のローソク足を取得中</strong>
-              <span>GeckoTerminal OHLCV · Robinhood Chain</span>
+              <strong>FOMO.familyのローソク足を取得中</strong>
+              <span>fomo-api.mobula.io · Robinhood Chain 4663</span>
             </div>
           )}
-          {pairKind === "ready" && ohlcvKind === "unavailable" && (
+          {ohlcvKind === "unavailable" && (
             <div className="chart-empty chart-empty--error" role="status">
               <strong>取得不可</strong>
-              <span>{error && error !== "取得不可" ? error : "市場履歴を取得できませんでした。"}</span>
+              <span>{error && error !== "取得不可" ? error : "FOMOチャートを取得できませんでした。"}</span>
             </div>
           )}
           {error && candles.length > 0 && (
@@ -465,12 +413,12 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
           )}
         </div>
         <div className="market-disclosure">
-          <span>主チャート: FOMO.family（外部表示）</span>
+          <span>主チャート: FOMO.family API（保有銘柄のみ）</span>
           <span>
             <i />
-            保有評価額 15秒 / OHLCV 30秒更新
+            保有評価額 15秒 / FOMO OHLCV 30秒更新
           </span>
-          <span>実市場ローソク足・出来高: GeckoTerminal</span>
+          <span>ローソク足: fomo-api.mobula.io / token/ohlcv-history</span>
           <span>
             {ohlcvFooter({
               inFlight,

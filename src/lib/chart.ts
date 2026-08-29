@@ -1,12 +1,71 @@
-import type { ChartEmptyKind } from "./types";
+import { CASHCAT_ADDRESS } from "./ledger";
+import type { Candle, ChartEmptyKind } from "./types";
 
 /** GeckoTerminal pool ids are 20-byte addresses or 32-byte hashes. */
 export const GECKO_POOL_ID_RE = /^0x[a-f\d]{40}([a-f\d]{24})?$/i;
 export const EVM_ADDRESS_RE = /^0x[a-f\d]{40}$/i;
+export const FOMO_OHLCV_PATH = "/api/fomo-ohlcv";
+export const FOMO_PERIODS = ["5m", "1h", "1d"] as const;
 
 export function fomoFamilyUrl(address: string): string | null {
   if (!EVM_ADDRESS_RE.test(address)) return null;
-  return 'https://fomo.family/tokens/robinhood/' + address.toLowerCase();
+  return "https://fomo.family/tokens/robinhood/" + address.toLowerCase();
+}
+
+export function defaultChartAddress(holdings: { address: string }[]): string {
+  const cashcat = holdings.find(
+    (row) => row.address.toLowerCase() === CASHCAT_ADDRESS.toLowerCase(),
+  );
+  return cashcat?.address ?? holdings[0]?.address ?? "";
+}
+
+export function fomoOhlcvUrl(
+  address: string,
+  period: string,
+  amount = 100,
+): string | null {
+  if (!EVM_ADDRESS_RE.test(address)) return null;
+  if (!(FOMO_PERIODS as readonly string[]).includes(period)) return null;
+  if (!Number.isFinite(amount) || amount < 1 || amount > 200) return null;
+  return (
+    `${FOMO_OHLCV_PATH}?address=${address.toLowerCase()}` +
+    `&period=${period}&amount=${Math.floor(amount)}`
+  );
+}
+
+export function parseFomoCandles(payload: unknown): Candle[] {
+  if (!payload || typeof payload !== "object") return [];
+  const data = (payload as { data?: unknown }).data;
+  if (!Array.isArray(data)) return [];
+  return data
+    .flatMap((row) => {
+      if (!row || typeof row !== "object") return [];
+      const item = row as Record<string, unknown>;
+      const nums = [item.t, item.o, item.h, item.l, item.c, item.v].map(Number);
+      const [time, open, high, low, close, volumeUsd] = nums;
+      if (
+        nums.some((value) => !Number.isFinite(value)) ||
+        time <= 0 ||
+        open <= 0 ||
+        high <= 0 ||
+        low <= 0 ||
+        close <= 0 ||
+        volumeUsd < 0
+      ) {
+        return [];
+      }
+      return [
+        {
+          time: time > 1e12 ? time / 1000 : time,
+          open,
+          high,
+          low,
+          close,
+          volumeUsd,
+        },
+      ];
+    })
+    .sort((a, b) => a.time - b.time);
 }
 
 export function isGeckoPoolId(value: string): boolean {

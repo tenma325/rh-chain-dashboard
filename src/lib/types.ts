@@ -5,6 +5,7 @@ export type SnapshotPosition = {
   symbol: string;
   ethSpent: number | null;
   remainingPct: number | null;
+  bookBalance?: number | null;
   observedBalance: number | null;
   balanceObserved?: boolean;
   balanceObservedAt?: string | null;

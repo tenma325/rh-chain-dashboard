@@ -1,5 +1,5 @@
 import snapshotJson from "../data/snapshot.json";
-import { AGI_ADDRESS, allowlist } from "./ledger";
+import { AGI_ADDRESS, allowlist, resolveHeldBalance } from "./ledger";
 import type { Holding, LiveOverlay, Snapshot, SnapshotPosition } from "./types";
 import { isFiniteNumber } from "./format";
 
@@ -90,13 +90,13 @@ export function loadingOverlay(snapshot: Snapshot = SNAPSHOT): LiveOverlay {
         : null,
     ethUsd: isFiniteNumber(snapshot.observedEthUsd) ? snapshot.observedEthUsd : null,
     holdings: allowlist(snapshot.positions).map((spec) => {
-      const observed = spec.balanceObserved && isFiniteNumber(spec.observedBalance);
-      return toHolding(
-        spec,
-        observed ? spec.observedBalance : null,
-        undefined,
-        observed ? "snapshot" : "unknown",
-      );
+      const held = resolveHeldBalance({
+        remainingPct: spec.remainingPct,
+        ethSpent: spec.ethSpent,
+        bookBalance: spec.bookBalance,
+        observedBalance: spec.balanceObserved ? spec.observedBalance : null,
+      });
+      return toHolding(spec, held.balance, undefined, held.source);
     }),
     refreshedAt: snapshot.generatedAt,
     issues: [],
@@ -131,14 +131,16 @@ export async function fetchLiveOverlay(snapshot: Snapshot = SNAPSHOT): Promise<L
   if (dexResult.status === "rejected") issues.push("トークン市場価格を取得できませんでした");
 
   const holdings = tokens.map((spec) => {
-    const observed = spec.balanceObserved && isFiniteNumber(spec.observedBalance);
-    if (!observed) issues.push(`${spec.symbol}の保有数量を取得できませんでした`);
-    return toHolding(
-      spec,
-      observed ? spec.observedBalance : null,
-      bestPair(pairs, spec.address),
-      observed ? "snapshot" : "unknown",
-    );
+    const held = resolveHeldBalance({
+      remainingPct: spec.remainingPct,
+      ethSpent: spec.ethSpent,
+      bookBalance: spec.bookBalance,
+      observedBalance: spec.balanceObserved ? spec.observedBalance : null,
+    });
+    if (held.source === "unknown") {
+      issues.push(`${spec.symbol}の保有数量を取得できませんでした`);
+    }
+    return toHolding(spec, held.balance, bestPair(pairs, spec.address), held.source);
   });
 
   return {

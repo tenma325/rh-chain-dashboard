@@ -10,7 +10,7 @@ import {
   evaluateHeldPriceSurges,
   type PriceAlertState,
 } from "./lib/alerts";
-import { fomoFamilyUrl } from "./lib/chart";
+import { defaultChartAddress, fomoFamilyUrl } from "./lib/chart";
 import { formatAge, formatJst, formatQty, formatUsd, toneOf } from "./lib/format";
 import { ACTION_LABELS, TABS, reasonJa, type TabId } from "./lib/labels";
 import {
@@ -57,8 +57,7 @@ function assetFromQuery(overlay: LiveOverlay): string {
   const shown = chartHoldings(overlay.holdings);
   return (
     shown.find((row) => row.symbol.toLowerCase() === symbol?.toLowerCase())?.address ??
-    shown[0]?.address ??
-    ""
+    defaultChartAddress(shown)
   );
 }
 
@@ -471,7 +470,7 @@ export function App() {
                 {mismatchCount > 0 ? (
                   <span>残存率とオンチェーン数量が不一致 {mismatchCount}</span>
                 ) : null}
-                <span>価格: DEX Screener · 数量: 二重RPC一致時のみ</span>
+                <span>価格: DEX Screener · 数量: 帳簿残存またはライブRPC · Chart: FOMO API</span>
               </div>
               <HoldingsTable holdings={tableRows} />
             </div>

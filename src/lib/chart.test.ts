@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
+  defaultChartAddress,
+  fomoFamilyUrl,
+  fomoOhlcvUrl,
   geckoPoolAddress,
   isGeckoPoolId,
   ohlcvEmptyKind,
   ohlcvErrorMessage,
   ohlcvFooter,
   pairEmptyKind,
-  fomoFamilyUrl,
+  parseFomoCandles,
 } from "./chart";
 
 describe("chart empty states", () => {
@@ -90,5 +93,35 @@ describe("chart empty states", () => {
     ).toBe(
       "https://fomo.family/tokens/robinhood/0x020bfc650a365f8bb26819deaabf3e21291018b4",
     );
+  });
+
+  it("prefers CASHCAT as the default held chart", () => {
+    expect(
+      defaultChartAddress([
+        { address: "0x39dBED3a2bd333467115dE45665cC57F813C4571" },
+        { address: "0x020bfC650A365f8BB26819deAAbF3E21291018b4" },
+      ]),
+    ).toBe("0x020bfC650A365f8BB26819deAAbF3E21291018b4");
+  });
+
+  it("builds the FOMO Mobula OHLCV proxy URL for a held token", () => {
+    expect(
+      fomoOhlcvUrl("0x020bfC650A365f8BB26819deAAbF3E21291018b4", "5m", 100),
+    ).toBe(
+      "/api/fomo-ohlcv?address=0x020bfc650a365f8bb26819deaabf3e21291018b4&period=5m&amount=100",
+    );
+    expect(fomoOhlcvUrl("WOOD", "5m")).toBeNull();
+  });
+
+  it("parses FOMO Mobula millisecond candles into the desk series", () => {
+    const candles = parseFomoCandles({
+      data: [
+        { t: 1_756_453_200_000, o: 0.18, h: 0.2, l: 0.17, c: 0.19, v: 1200 },
+        { t: 1_756_453_500_000, o: 0.19, h: 0.21, l: 0.18, c: 0.2, v: 800 },
+      ],
+    });
+    expect(candles).toHaveLength(2);
+    expect(candles[0]?.time).toBe(1_756_453_200);
+    expect(candles[1]?.close).toBe(0.2);
   });
 });
