@@ -132,6 +132,35 @@ describe("position counting", () => {
 
     expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["HELD"]);
   });
+
+  it("charts an open book bag even when RPC reports dust", () => {
+    const rows = [
+      holding({
+        symbol: "CASHCAT",
+        address: "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
+        remainingPct: 80,
+        ethSpent: 0.0002,
+        bookBalance: 2.1055,
+        observedBalance: 5.3e-7,
+        balance: 2.1055,
+        priceUsd: 0.19,
+        valueUsd: 0.4,
+        balanceSource: "snapshot",
+      }),
+      holding({
+        symbol: "WOOD",
+        remainingPct: 0,
+        ethSpent: 0,
+        bookBalance: 0,
+        observedBalance: 0,
+        balance: 0,
+        priceUsd: 0.01,
+        valueUsd: 0,
+        balanceSource: "live",
+      }),
+    ];
+    expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["CASHCAT"]);
+  });
 });
 
 describe("book vs chain", () => {

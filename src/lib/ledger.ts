@@ -1,16 +1,25 @@
-import type { Holding, SnapshotPosition, TradeOutcome, SnapshotTrade } from "./types";
+import type {
+  BalanceSource,
+  Holding,
+  SnapshotPosition,
+  SnapshotTrade,
+  TradeOutcome,
+} from "./types";
 import { isFiniteNumber } from "./format";
 
 export const DUST_USD = 0.01;
 export const DUST_QTY = 1e-6;
+export const OPEN_BOOK_PCT = 5;
 
 export const AGI_ADDRESS = "0x5a8625d314fDd298101d87932A784b756A401e18";
+export const CASHCAT_ADDRESS = "0x020bfC650A365f8BB26819deAAbF3E21291018b4";
 
 export const AGI_SPEC: SnapshotPosition = {
   address: AGI_ADDRESS,
   symbol: "AGI",
   ethSpent: null,
   remainingPct: null,
+  bookBalance: null,
   observedBalance: null,
   entryPriceUsd: null,
   entryTime: null,
@@ -53,16 +62,66 @@ export function countTrackedPositions(holdings: Holding[]): number {
   return holdings.length;
 }
 
+export function isOpenBookPosition(
+  holding: Pick<Holding | SnapshotPosition, "remainingPct">,
+): boolean {
+  return isFiniteNumber(holding.remainingPct) && holding.remainingPct >= OPEN_BOOK_PCT;
+}
+
+export function resolveHeldBalance(input: {
+  remainingPct: number | null;
+  ethSpent: number | null;
+  bookBalance?: number | null;
+  observedBalance: number | null;
+  liveBalance?: number | null;
+  liveOk?: boolean;
+}): { balance: number | null; source: BalanceSource } {
+  const live = input.liveOk === true && isFiniteNumber(input.liveBalance) ? input.liveBalance : null;
+  if (live !== null && live > DUST_QTY) return { balance: live, source: "live" };
+
+  const book = isFiniteNumber(input.bookBalance) ? input.bookBalance : null;
+  if (isOpenBookPosition(input) && book !== null && book > DUST_QTY) {
+    return { balance: book, source: "snapshot" };
+  }
+
+  const observed = isFiniteNumber(input.observedBalance) ? input.observedBalance : null;
+  if (isOpenBookPosition(input) && observed !== null && observed > DUST_QTY) {
+    return { balance: observed, source: "snapshot" };
+  }
+
+  if (live !== null) return { balance: live, source: "live" };
+  if (observed !== null) return { balance: observed, source: "snapshot" };
+  return { balance: null, source: "unknown" };
+}
+
+export function isCurrentlyHeld(holding: Holding): boolean {
+  if (countsTowardHeader(holding)) return true;
+  if (!isOpenBookPosition(holding)) return false;
+  if (isFiniteNumber(holding.ethSpent) && holding.ethSpent > 0) return true;
+  if (isFiniteNumber(holding.bookBalance) && holding.bookBalance > DUST_QTY) return true;
+  return false;
+}
+
 export function bookChainMismatch(holding: Holding): boolean {
-  if (holding.remainingPct === null || holding.remainingPct < 5) return false;
+  if (!isOpenBookPosition(holding)) return false;
+  const rpc = holding.observedBalance;
+  const book = holding.bookBalance;
+  if (
+    isFiniteNumber(book) &&
+    book > DUST_QTY &&
+    isFiniteNumber(rpc) &&
+    rpc <= DUST_QTY
+  ) {
+    return true;
+  }
   if (holding.balanceSource === "unknown") return false;
   if (!isFiniteNumber(holding.balance)) return false;
   return !countsTowardHeader(holding);
 }
 
-/** Chart selection is fail-closed: only confirmed, non-dust wallet holdings. */
+/** Chart the bags we currently hold: live non-dust, or an open book remainder. */
 export function chartHoldings(holdings: Holding[]): Holding[] {
-  return holdings.filter(countsTowardHeader);
+  return holdings.filter(isCurrentlyHeld);
 }
 
 /** Holdings table: live-valued, leftover dust, RPC-unavailable, and explicit SNAPSHOT rows. */

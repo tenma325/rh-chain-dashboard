@@ -25,6 +25,7 @@ function observedSnapshot(): Snapshot {
     observedEthUsd: 2500,
     positions: SNAPSHOT.positions.map((position, index) => ({
       ...position,
+      bookBalance: index === 0 ? 2 : position.bookBalance,
       observedBalance: index === 0 ? 2 : 5e-7,
       balanceObserved: true,
       balanceObservedAt: '2026-08-29T03:00:00+00:00',
@@ -42,6 +43,8 @@ describe('loadingOverlay', () => {
       observedEthUsd: undefined,
       positions: SNAPSHOT.positions.map((position) => ({
         ...position,
+        bookBalance: null,
+        remainingPct: null,
         balanceObserved: undefined,
       })),
     }
