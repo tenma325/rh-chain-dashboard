@@ -6,6 +6,8 @@ import { isFiniteNumber } from "./format";
 export const SNAPSHOT = snapshotJson as Snapshot;
 
 export const DEXSCREENER_TOKENS = '/api/dex-tokens?addresses=';
+export const DEXSCREENER_DIRECT =
+  'https://api.dexscreener.com/tokens/v1/robinhood/';
 
 type DexPair = {
   baseToken?: { address?: string };
@@ -21,11 +23,24 @@ type DexPair = {
 
 export async function fetchDexPairs(tokens: SnapshotPosition[]): Promise<DexPair[]> {
   const addresses = tokens.map((row) => row.address).join(",");
-  const response = await fetch(`${DEXSCREENER_TOKENS}${addresses}`, {
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!response.ok) throw new Error(`DEX Screener HTTP ${response.status}`);
-  return (await response.json()) as DexPair[];
+  const endpoints = [
+    `${DEXSCREENER_TOKENS}${addresses}`,
+    `${DEXSCREENER_DIRECT}${addresses}`,
+  ];
+  let lastError: unknown = new Error("DEX Screener unavailable");
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!response.ok) throw new Error(`DEX Screener HTTP ${response.status}`);
+      return (await response.json()) as DexPair[];
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError;
 }
 
 export function bestPair(pairs: DexPair[], token: string): DexPair | undefined {

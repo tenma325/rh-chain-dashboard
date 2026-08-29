@@ -80,6 +80,33 @@ describe('fetchLiveOverlay', () => {
     expect(overlay.issues).toEqual([])
   })
 
+
+  it('falls back to direct DEX Screener when the edge proxy is rate limited', async () => {
+    const snapshot = observedSnapshot()
+    const first = snapshot.positions[0]
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ error: 'rate limited' }, false, 429))
+      .mockResolvedValueOnce(
+        jsonResponse([
+          {
+            baseToken: { address: first.address },
+            priceUsd: '0.2',
+            liquidity: { usd: 1000 },
+          },
+        ]),
+      )
+    vi.stubGlobal('fetch', fetchMock)
+
+    const overlay = await fetchLiveOverlay(snapshot)
+
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(String(fetchMock.mock.calls[0][0])).toContain('/api/dex-tokens')
+    expect(String(fetchMock.mock.calls[1][0])).toContain('api.dexscreener.com')
+    expect(overlay.marketsStatus).toBe('ready')
+    expect(overlay.holdings[0].priceUsd).toBe(0.2)
+  })
+
   it('includes AGI in the DEX request but never invents its balance', async () => {
     let requested = ''
     vi.stubGlobal(
