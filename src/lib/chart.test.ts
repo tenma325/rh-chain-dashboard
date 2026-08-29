@@ -5,6 +5,7 @@ import {
   ohlcvErrorMessage,
   ohlcvFooter,
   pairEmptyKind,
+  fomoFamilyUrl,
 } from "./chart";
 
 describe("chart empty states", () => {
@@ -64,5 +65,13 @@ describe("chart empty states", () => {
       isGeckoPoolId("0x056b42e26a9ffa9d09684ab2ed95f60a113d152881ac5b0c65e71205658a7ab9"),
     ).toBe(true);
     expect(isGeckoPoolId("WOOD")).toBe(false);
+  });
+
+  it("builds the canonical FOMO.family chart URL for a holding", () => {
+    expect(
+      fomoFamilyUrl("0x020bfC650A365f8BB26819deAAbF3E21291018b4"),
+    ).toBe(
+      "https://fomo.family/tokens/robinhood/0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    );
   });
 });

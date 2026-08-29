@@ -1,5 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { isGeckoPoolId, ohlcvEmptyKind, ohlcvErrorMessage, ohlcvFooter, pairEmptyKind } from "../lib/chart";
+import {
+  fomoFamilyUrl,
+  isGeckoPoolId,
+  ohlcvEmptyKind,
+  ohlcvErrorMessage,
+  ohlcvFooter,
+  pairEmptyKind,
+} from "../lib/chart";
 import {
   formatCompactUsd,
   formatPct,
@@ -285,6 +292,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
 
   const ohlcvKind = ohlcvEmptyKind({ inFlight, candles: candles.length, error });
   const ohlcvLive = ohlcvKind === "ready";
+  const fomoUrl = fomoFamilyUrl(selected.address);
 
   return (
     <div className="market-chart-layout">
@@ -338,11 +346,28 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
               {formatPct(selected.change24h, true)} 24H
             </span>
           </div>
-          {selected.marketUrl && (
-            <a className="market-external" href={selected.marketUrl} target="_blank" rel="noreferrer">
-              DEX Screenerで開く <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          <div className="market-links">
+            {fomoUrl && (
+              <a
+                className="market-external market-external--primary"
+                href={fomoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                FOMO.family Chart <span aria-hidden="true">↗</span>
+              </a>
+            )}
+            {selected.marketUrl && (
+              <a
+                className="market-external"
+                href={selected.marketUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                DEX Screener <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
         </header>
         <div className="market-stats" aria-label={`${selected.symbol}の市場・保有指標`}>
           <Stat label="保有評価額" value={formatUsd(selected.valueUsd, { precise: true })} />
@@ -436,6 +461,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
           )}
         </div>
         <div className="market-disclosure">
+          <span>主チャート: FOMO.family（外部表示）</span>
           <span>
             <i />
             保有評価額 15秒 / OHLCV 30秒更新

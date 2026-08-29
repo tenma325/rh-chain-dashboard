@@ -1,325 +1,494 @@
 {
-  "generatedAt": "2026-08-25T12:55:12+09:00",
+  "generatedAt": "2026-08-29T02:44:44.785041+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00757007753987572,
+  "lastObservedWalletEth": 0.00410077,
   "positions": [
-    {
-      "address": "0xF8BC08092C06dB6148114DCf82AF881F1085f92b",
-      "symbol": "WOOD",
-      "ethSpent": 0.0002,
-      "remainingPct": 58.9,
-      "observedBalance": 95.24716708321048,
-      "entryPriceUsd": 0.005814,
-      "entryTime": "2026-08-21T14:39:48.237548+09:00",
-      "liveRisk": true
-    },
-    {
-      "address": "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9",
-      "symbol": "TENDIES",
-      "ethSpent": 0,
-      "remainingPct": 26.9,
-      "observedBalance": 15.750566050652175,
-      "entryPriceUsd": 0.01363,
-      "entryTime": "2026-08-21T15:42:33.618810+09:00",
-      "liveRisk": false
-    },
-    {
-      "address": "0x5f62C57e5C537887117EeF828b7E3Ad41C009FEb",
-      "symbol": "GOOD",
-      "ethSpent": 0.0002,
-      "remainingPct": 5,
-      "observedBalance": 5.256639722876371,
-      "entryPriceUsd": 0.004512,
-      "entryTime": "2026-08-21T18:39:25.950474+09:00",
-      "liveRisk": true
-    },
-    {
-      "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
-      "symbol": "STONKBROKER",
-      "ethSpent": 0.0002,
-      "remainingPct": 100,
-      "observedBalance": 5.67890828982e-7,
-      "entryPriceUsd": 0.01786,
-      "entryTime": "2026-08-25T09:56:32.887396+09:00",
-      "liveRisk": true
-    },
     {
       "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
       "symbol": "CASHCAT",
       "ethSpent": 0.0002,
-      "remainingPct": 100,
-      "observedBalance": 2.2764711665805244,
-      "entryPriceUsd": 0.2219,
-      "entryTime": "2026-08-25T09:56:41.429910+09:00",
+      "remainingPct": 80.0,
+      "observedBalance": 2.1055225339678447,
+      "entryPriceUsd": 0.1895,
+      "entryTime": "2026-08-28T16:42:53.109458+00:00",
       "liveRisk": true
+    },
+    {
+      "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "symbol": "PONS",
+      "ethSpent": 0.0002,
+      "remainingPct": 55.0,
+      "observedBalance": 2.2342418077362303,
+      "entryPriceUsd": 0.1187,
+      "entryTime": "2026-08-28T16:29:50.280318+00:00",
+      "liveRisk": true
+    },
+    {
+      "address": "0x5a8625d314fdd298101d87932a784b756a401e18",
+      "symbol": "AGI",
+      "ethSpent": 0.0,
+      "remainingPct": 100.0,
+      "observedBalance": 1135.1265745248243,
+      "entryPriceUsd": 0.0024,
+      "entryTime": "2026-08-28T00:28:50.643789+00:00",
+      "liveRisk": false
     }
   ],
   "trades": [
     {
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-28T16:44:00.146226+00:00",
+      "exitTime": "2026-08-28T20:07:52.679680+00:00",
+      "pnlEth": -6.445e-05,
+      "pnlPct": -32.22662060153149,
+      "exitReason": "stop_loss",
+      "isWin": false
+    },
+    {
       "symbol": "CASHCAT",
-      "entryTime": "2026-07-26T22:45:44.807912+09:00",
-      "exitTime": "2026-07-27T02:55:43.423363+09:00",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "time_exit",
+      "entryTime": "2026-08-28T16:43:02.514876+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
       "isWin": false
     },
     {
       "symbol": "PONS",
-      "entryTime": "2026-07-26T23:17:36.468985+09:00",
-      "exitTime": "2026-07-27T03:19:34.197500+09:00",
-      "pnlEth": 0.00006570605187319846,
-      "pnlPct": 2.1902017291066325,
-      "exitReason": "time_exit",
-      "isWin": true
+      "entryTime": "2026-08-28T16:30:05.565450+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
     },
     {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-26T23:17:43.003129+09:00",
-      "exitTime": "2026-07-27T03:45:51.917467+09:00",
-      "pnlEth": 0.00016368563685636864,
-      "pnlPct": 5.456187895212289,
-      "exitReason": "time_exit_force",
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-28T14:44:19.101095+00:00",
+      "exitTime": "2026-08-28T16:37:37.061313+00:00",
+      "pnlEth": 0.00018033,
+      "pnlPct": 90.16458207227193,
+      "exitReason": "stop_loss",
       "isWin": true
     },
     {
       "symbol": "CASHCAT",
-      "entryTime": "2026-07-27T22:12:00.727269+09:00",
-      "exitTime": "2026-07-28T03:02:45.695615+09:00",
-      "pnlEth": 0.00011954148471615775,
-      "pnlPct": 3.984716157205248,
+      "entryTime": "2026-08-28T14:01:07.063118+00:00",
+      "exitTime": "2026-08-28T16:02:33.283260+00:00",
+      "pnlEth": -1.719e-05,
+      "pnlPct": -8.592887260732917,
+      "exitReason": "stop_loss",
+      "isWin": false
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-08-28T12:50:56.288096+00:00",
+      "exitTime": "2026-08-28T16:25:55.683360+00:00",
+      "pnlEth": -4.831e-05,
+      "pnlPct": -24.154390580246897,
+      "exitReason": "stop_loss",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-28T11:33:58.039672+00:00",
+      "exitTime": "2026-08-28T23:35:32.508950+00:00",
+      "pnlEth": -1.235e-05,
+      "pnlPct": -6.177239154751739,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-28T02:34:40.026661+00:00",
+      "exitTime": "2026-08-28T14:38:56.193530+00:00",
+      "pnlEth": 0.00012438,
+      "pnlPct": 62.191354486899364,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-08-28T00:49:20.155253+00:00",
+      "exitTime": "2026-08-28T12:51:46.178851+00:00",
+      "pnlEth": -1.81e-05,
+      "pnlPct": -9.049803887053578,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-28T00:48:43.288395+00:00",
+      "exitTime": "2026-08-28T11:10:13.286032+00:00",
+      "pnlEth": -2.103e-05,
+      "pnlPct": -10.51623624033554,
+      "exitReason": "stop_loss",
+      "isWin": false
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-08-28T00:48:06.936877+00:00",
+      "exitTime": "2026-08-28T12:48:38.665207+00:00",
+      "pnlEth": 4.2e-06,
+      "pnlPct": 2.099028228217962,
       "exitReason": "time_exit",
       "isWin": true
     },
     {
       "symbol": "PONS",
-      "entryTime": "2026-07-27T22:15:19.436163+09:00",
-      "exitTime": "2026-07-28T07:19:04.601033+09:00",
-      "pnlEth": -0.0005531293249269572,
-      "pnlPct": -18.437644164231905,
+      "entryTime": "2026-08-26T11:09:55.681981+00:00",
+      "exitTime": "2026-08-28T00:45:41.858560+00:00",
+      "pnlEth": -5.458e-05,
+      "pnlPct": -6.367090189140705,
       "exitReason": "time_exit",
       "isWin": false
     },
     {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-27T23:22:55.882970+09:00",
-      "exitTime": "2026-07-28T07:19:16.183849+09:00",
-      "pnlEth": -0.0002841181165203514,
-      "pnlPct": -5.682362330407016,
-      "exitReason": "time_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-28T14:26:39.240543+09:00",
-      "exitTime": "2026-07-28T17:28:55.092500+09:00",
-      "pnlEth": -0.000014127662665108017,
-      "pnlPct": -3.4105962379332486,
-      "exitReason": "stale_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "CASHCAT",
-      "entryTime": "2026-07-28T16:08:04.985983+09:00",
-      "exitTime": "2026-07-28T18:17:35.402330+09:00",
-      "pnlEth": -0.000047353429312753674,
-      "pnlPct": -11.548501685552592,
-      "exitReason": "stale_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-28T19:26:09.308913+09:00",
-      "exitTime": "2026-07-28T21:31:47.313957+09:00",
-      "pnlEth": -0.000023176977547700796,
-      "pnlPct": -5.603781091397645,
-      "exitReason": "stale_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "CASHCAT",
-      "entryTime": "2026-07-28T20:24:56.487209+09:00",
-      "exitTime": "2026-07-28T23:09:54.897872+09:00",
-      "pnlEth": -0.000019250193714082813,
-      "pnlPct": -4.702052798371136,
-      "exitReason": "stale_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-28T22:38:05.617874+09:00",
-      "exitTime": "2026-07-29T04:39:39.349744+09:00",
-      "pnlEth": -0.000014098175737699769,
-      "pnlPct": -6.826818345718126,
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-25T20:09:52.834353+00:00",
+      "exitTime": "2026-08-26T11:13:16.506346+00:00",
+      "pnlEth": -0.00043178,
+      "pnlPct": -43.17766792529481,
       "exitReason": "time_exit",
       "isWin": false
     },
     {
       "symbol": "CASHCAT",
-      "entryTime": "2026-07-29T10:08:17.443739+09:00",
-      "exitTime": "2026-07-29T13:59:58.041127+09:00",
-      "pnlEth": -0.00002479999101650927,
-      "pnlPct": -11.798745549231365,
-      "exitReason": "stale_exit",
-      "isWin": false
-    },
-    {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-07-29T11:07:10.529492+09:00",
-      "exitTime": "2026-07-29T17:08:00.286238+09:00",
-      "pnlEth": 0.000011463718770271243,
-      "pnlPct": 5.510444555589308,
+      "entryTime": "2026-08-25T20:09:28.498314+00:00",
+      "exitTime": "2026-08-28T00:45:17.717056+00:00",
+      "pnlEth": 0.00040443,
+      "pnlPct": 40.44254670666951,
       "exitReason": "time_exit",
       "isWin": true
     },
     {
-      "symbol": "CASHCAT",
-      "entryTime": "2026-07-29T15:04:11.646404+09:00",
-      "exitTime": "2026-07-29T17:08:10.430677+09:00",
-      "pnlEth": -0.000014320061341303278,
-      "pnlPct": -6.892794883868724,
-      "exitReason": "stale_exit",
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-25T20:09:18.314459+00:00",
+      "exitTime": "2026-08-27T06:19:25.746165+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "orphan_zero_balance_audit",
       "isWin": false
     },
     {
       "symbol": "PONS",
-      "entryTime": "2026-07-30T08:08:05.373859+09:00",
-      "exitTime": "2026-08-21T13:21:57.441479+09:00",
-      "pnlEth": -0.00004877491420000971,
-      "pnlPct": -23.259493452177697,
-      "exitReason": "time_exit",
+      "entryTime": "2026-08-25T18:30:23.074056+00:00",
+      "exitTime": "2026-08-25T21:24:25.673524+00:00",
+      "pnlEth": -5.375e-05,
+      "pnlPct": -5.375040391387325,
+      "exitReason": "stop_loss",
       "isWin": false
     },
     {
       "symbol": "CASHCAT",
-      "entryTime": "2026-07-30T08:08:17.541009+09:00",
-      "exitTime": "2026-08-21T13:22:20.147850+09:00",
-      "pnlEth": 0.0012295328452282613,
-      "pnlPct": 586.3323725296981,
+      "entryTime": "2026-08-25T15:22:51.157362+00:00",
+      "exitTime": "2026-08-25T17:37:38.360758+00:00",
+      "pnlEth": -5.905e-05,
+      "pnlPct": -5.904863664466138,
+      "exitReason": "stop_loss",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-25T06:37:34.047400+00:00",
+      "exitTime": "2026-08-25T16:24:08.617634+00:00",
+      "pnlEth": 0.00094329,
+      "pnlPct": 471.6463028589691,
+      "exitReason": "stop_loss",
+      "isWin": true
+    },
+    {
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-25T06:20:11.368335+00:00",
+      "exitTime": "2026-08-25T18:31:09.252118+00:00",
+      "pnlEth": -0.00110798,
+      "pnlPct": -86.5699736827091,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-25T06:05:16.018497+00:00",
+      "exitTime": "2026-08-25T06:41:21.851989+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "duplicate_entry_consolidated_into_c05593b7",
+      "isWin": false
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-08-25T05:04:48.759600+00:00",
+      "exitTime": "2026-08-25T17:14:20.330052+00:00",
+      "pnlEth": 8.96e-06,
+      "pnlPct": 4.479232722159884,
       "exitReason": "time_exit",
       "isWin": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-08-25T00:56:42.661151+00:00",
+      "exitTime": "2026-08-25T13:50:25.492700+00:00",
+      "pnlEth": 0.00067953,
+      "pnlPct": 339.76364746282655,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-25T00:56:34.259010+00:00",
+      "exitTime": "2026-08-25T03:20:39.972079+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": -90.28,
+      "exitReason": "manual_close",
+      "isWin": false
     },
     {
       "symbol": "PIPEDOG",
-      "entryTime": "2026-08-21T14:40:04.272494+09:00",
-      "exitTime": "2026-08-25T10:07:02.888916+09:00",
-      "pnlEth": 0,
-      "pnlPct": 0,
+      "entryTime": "2026-08-21T09:42:33.221415+00:00",
+      "exitTime": "2026-08-25T01:07:02.888916+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
       "exitReason": "orphan_dust_audit",
       "isWin": false
     },
     {
+      "symbol": "GOOD",
+      "entryTime": "2026-08-21T09:39:25.950474+00:00",
+      "exitTime": "2026-08-25T04:01:01.962133+00:00",
+      "pnlEth": -0.00013257,
+      "pnlPct": -66.28549597127618,
+      "exitReason": "trailing_stop",
+      "isWin": false
+    },
+    {
       "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T15:00:22.017829+09:00",
-      "exitTime": "2026-08-21T15:03:17.335174+09:00",
-      "pnlEth": 0.00018056935469638584,
-      "pnlPct": 90.28467734819291,
-      "exitReason": "stop_loss",
+      "entryTime": "2026-08-21T09:39:22.755090+00:00",
+      "exitTime": "2026-08-25T01:07:02.888916+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "orphan_reconciled",
+      "isWin": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-08-21T08:47:14.335673+00:00",
+      "exitTime": "2026-08-25T01:07:02.888916+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "orphan_reconciled",
+      "isWin": false
+    },
+    {
+      "symbol": "TENDIES",
+      "entryTime": "2026-08-21T06:41:25.851204+00:00",
+      "exitTime": "2026-08-25T04:00:35.198297+00:00",
+      "pnlEth": 0.00641152,
+      "pnlPct": 3205.7608339152603,
+      "exitReason": "trailing_stop",
       "isWin": true
     },
     {
       "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T15:04:01.849828+09:00",
-      "exitTime": "2026-08-21T15:06:06.466949+09:00",
-      "pnlEth": 0.00018967356615592952,
-      "pnlPct": 94.83678307796475,
-      "exitReason": "stop_loss",
-      "isWin": true
-    },
-    {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T15:08:45.320994+09:00",
-      "exitTime": "2026-08-21T15:09:21.850992+09:00",
-      "pnlEth": -0.000010733843111176462,
-      "pnlPct": -5.366921555588231,
+      "entryTime": "2026-08-21T06:17:10.948104+00:00",
+      "exitTime": "2026-08-21T06:18:38.352793+00:00",
+      "pnlEth": -5.88e-06,
+      "pnlPct": -2.9377832313368994,
       "exitReason": "stop_loss",
       "isWin": false
     },
     {
       "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T15:15:13.254242+09:00",
-      "exitTime": "2026-08-21T15:16:18.816121+09:00",
-      "pnlEth": 0.0001683955562506988,
+      "entryTime": "2026-08-21T06:15:13.254242+00:00",
+      "exitTime": "2026-08-21T06:16:18.816121+00:00",
+      "pnlEth": 0.0001684,
       "pnlPct": 84.1977781253494,
       "exitReason": "stop_loss",
       "isWin": true
     },
     {
       "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T15:17:10.948104+09:00",
-      "exitTime": "2026-08-21T15:18:38.352793+09:00",
-      "pnlEth": -0.000005875566462673799,
-      "pnlPct": -2.9377832313368994,
+      "entryTime": "2026-08-21T06:08:45.320994+00:00",
+      "exitTime": "2026-08-21T06:09:21.850992+00:00",
+      "pnlEth": -1.073e-05,
+      "pnlPct": -5.366921555588231,
       "exitReason": "stop_loss",
       "isWin": false
     },
     {
-      "symbol": "TENDIES",
-      "entryTime": "2026-08-21T15:41:25.851204+09:00",
-      "exitTime": "",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "",
-      "isWin": false
-    },
-    {
-      "symbol": "CASHCAT",
-      "entryTime": "2026-08-21T17:47:14.335673+09:00",
-      "exitTime": "2026-08-25T10:07:02.888916+09:00",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "orphan_reconciled",
-      "isWin": false
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-08-21T06:04:01.849828+00:00",
+      "exitTime": "2026-08-21T06:06:06.466949+00:00",
+      "pnlEth": 0.00018967,
+      "pnlPct": 94.83678307796475,
+      "exitReason": "stop_loss",
+      "isWin": true
     },
     {
       "symbol": "STONKBROKER",
-      "entryTime": "2026-08-21T18:39:22.755090+09:00",
-      "exitTime": "2026-08-25T10:07:02.888916+09:00",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "orphan_reconciled",
-      "isWin": false
-    },
-    {
-      "symbol": "GOOD",
-      "entryTime": "2026-08-21T18:39:25.950474+09:00",
-      "exitTime": "",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "",
-      "isWin": false
+      "entryTime": "2026-08-21T06:00:22.017829+00:00",
+      "exitTime": "2026-08-21T06:03:17.335174+00:00",
+      "pnlEth": 0.00018057,
+      "pnlPct": 90.28467734819291,
+      "exitReason": "stop_loss",
+      "isWin": true
     },
     {
       "symbol": "PIPEDOG",
-      "entryTime": "2026-08-21T18:42:33.221415+09:00",
-      "exitTime": "2026-08-25T10:07:02.888916+09:00",
-      "pnlEth": 0,
-      "pnlPct": 0,
+      "entryTime": "2026-08-21T05:40:04.272494+00:00",
+      "exitTime": "2026-08-25T01:07:02.888916+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
       "exitReason": "orphan_dust_audit",
       "isWin": false
     },
     {
-      "symbol": "STONKBROKER",
-      "entryTime": "2026-08-25T09:56:34.259010+09:00",
-      "exitTime": "2026-08-25T12:20:39.972079+09:00",
-      "pnlEth": 0,
-      "pnlPct": -90.28,
-      "exitReason": "manual_close",
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-29T23:08:17.541009+00:00",
+      "exitTime": "2026-08-21T04:22:20.147850+00:00",
+      "pnlEth": 0.00122953,
+      "pnlPct": 586.3323725296981,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-07-29T23:08:05.373859+00:00",
+      "exitTime": "2026-08-21T04:21:57.441479+00:00",
+      "pnlEth": -4.877e-05,
+      "pnlPct": -23.259493452177697,
+      "exitReason": "time_exit",
       "isWin": false
     },
     {
       "symbol": "CASHCAT",
-      "entryTime": "2026-08-25T09:56:42.661151+09:00",
-      "exitTime": "",
-      "pnlEth": 0,
-      "pnlPct": 0,
-      "exitReason": "",
+      "entryTime": "2026-07-29T06:04:11.646404+00:00",
+      "exitTime": "2026-07-29T08:08:10.430677+00:00",
+      "pnlEth": -1.432e-05,
+      "pnlPct": -6.892794883868724,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-29T02:07:10.529492+00:00",
+      "exitTime": "2026-07-29T08:08:00.286238+00:00",
+      "pnlEth": 1.146e-05,
+      "pnlPct": 5.510444555589308,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-29T01:08:17.443739+00:00",
+      "exitTime": "2026-07-29T04:59:58.041127+00:00",
+      "pnlEth": -2.48e-05,
+      "pnlPct": -11.798745549231365,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-28T13:38:05.617874+00:00",
+      "exitTime": "2026-07-28T19:39:39.349744+00:00",
+      "pnlEth": -1.41e-05,
+      "pnlPct": -6.826818345718126,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-28T11:24:56.487209+00:00",
+      "exitTime": "2026-07-28T14:09:54.897872+00:00",
+      "pnlEth": -1.925e-05,
+      "pnlPct": -4.702052798371136,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-28T10:26:09.308913+00:00",
+      "exitTime": "2026-07-28T12:31:47.313957+00:00",
+      "pnlEth": -2.318e-05,
+      "pnlPct": -5.603781091397645,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-28T07:08:04.985983+00:00",
+      "exitTime": "2026-07-28T09:17:35.402330+00:00",
+      "pnlEth": -4.735e-05,
+      "pnlPct": -11.548501685552592,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-28T05:26:39.240543+00:00",
+      "exitTime": "2026-07-28T08:28:55.092500+00:00",
+      "pnlEth": -1.413e-05,
+      "pnlPct": -3.4105962379332486,
+      "exitReason": "stale_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-27T14:22:55.882970+00:00",
+      "exitTime": "2026-07-27T22:19:16.183849+00:00",
+      "pnlEth": -0.00028412,
+      "pnlPct": -5.682362330407016,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-07-27T13:15:19.436163+00:00",
+      "exitTime": "2026-07-27T22:19:04.601033+00:00",
+      "pnlEth": -0.00055313,
+      "pnlPct": -18.437644164231905,
+      "exitReason": "time_exit",
+      "isWin": false
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-27T13:12:00.727269+00:00",
+      "exitTime": "2026-07-27T18:02:45.695615+00:00",
+      "pnlEth": 0.00011954,
+      "pnlPct": 3.984716157205248,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-07-26T14:17:43.003129+00:00",
+      "exitTime": "2026-07-26T18:45:51.917467+00:00",
+      "pnlEth": 0.00016369,
+      "pnlPct": 5.456187895212289,
+      "exitReason": "time_exit_force",
+      "isWin": true
+    },
+    {
+      "symbol": "PONS",
+      "entryTime": "2026-07-26T14:17:36.468985+00:00",
+      "exitTime": "2026-07-26T18:19:34.197500+00:00",
+      "pnlEth": 6.571e-05,
+      "pnlPct": 2.1902017291066325,
+      "exitReason": "time_exit",
+      "isWin": true
+    },
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-07-26T13:45:44.807912+00:00",
+      "exitTime": "2026-07-26T17:55:43.423363+00:00",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "time_exit",
       "isWin": false
     }
   ],
   "council": [
     {
-      "time": "2026-08-25T11:20:46.526876+09:00",
+      "time": "2026-08-25T02:20:46.526876+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
@@ -328,7 +497,7 @@
       "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:21:01.553713+09:00",
+      "time": "2026-08-25T02:21:01.553713+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
@@ -337,7 +506,7 @@
       "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:28:08.836989+09:00",
+      "time": "2026-08-25T02:28:08.836989+00:00",
       "allow": true,
       "side": "sell",
       "action": "time_exit",
@@ -346,7 +515,7 @@
       "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:28:24.479361+09:00",
+      "time": "2026-08-25T02:28:24.479361+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
@@ -355,7 +524,7 @@
       "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:28:39.456507+09:00",
+      "time": "2026-08-25T02:28:39.456507+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
@@ -364,7 +533,7 @@
       "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:32:21.888943+09:00",
+      "time": "2026-08-25T02:32:21.888943+00:00",
       "allow": true,
       "side": "sell",
       "action": "time_exit",
@@ -373,7 +542,7 @@
       "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:32:36.855428+09:00",
+      "time": "2026-08-25T02:32:36.855428+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
@@ -382,51 +551,1383 @@
       "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
     },
     {
-      "time": "2026-08-25T11:32:52.200693+09:00",
+      "time": "2026-08-25T02:32:52.200693+00:00",
       "allow": true,
       "side": "sell",
       "action": "trailing_stop",
       "symbol": "GOOD",
       "reason": "mandatory trailing_stop; tape/dissent cannot block",
       "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
+    },
+    {
+      "time": "2026-08-25T04:00:19.311361+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "TENDIES",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
+    },
+    {
+      "time": "2026-08-25T04:00:41.186226+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "GOOD",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve"
+    },
+    {
+      "time": "2026-08-25T05:04:43.885281+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T06:05:11.491829+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "STONKBROKER",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T06:20:07.261943+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "TENDIES",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T06:37:29.339976+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "STONKBROKER",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T06:41:43.158395+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "WOOD",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T13:49:44.883597+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "CASHCAT",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T15:22:46.440118+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "CASHCAT",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T16:23:51.879090+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "STONKBROKER",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T17:14:09.341479+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "PONS",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T17:37:16.022445+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "CASHCAT",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T18:30:18.723056+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T18:30:49.557370+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "TENDIES",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T20:09:14.146431+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "STONKBROKER",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T20:09:24.089535+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "CASHCAT",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T20:09:48.593164+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "TENDIES",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-25T21:23:42.137049+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "PONS",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T11:09:36.214260+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "9 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T11:12:05.057264+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "TENDIES",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T22:11:26.843645+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "CASHCAT",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T22:12:05.704542+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "TENDIES",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T22:29:34.062826+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T23:06:17.307392+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "TENDIES",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T23:14:25.427587+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T23:30:56.863106+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "PONS",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-26T23:39:58.444298+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-27T00:19:24.423666+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "CASHCAT",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-27T00:27:07.194391+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "STONKBROKER",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-27T02:15:23.493908+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "TENDIES",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-27T02:24:22.309295+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "TENDIES",
+      "reason": "8 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-27T02:33:24.481032+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "TENDIES",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
+    },
+    {
+      "time": "2026-08-28T00:45:05.927198+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "CASHCAT",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T00:45:19.433961+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "PONS",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T00:48:02.246257+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "6 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T00:48:39.003852+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "STONKBROKER",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T00:49:15.383181+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "CASHCAT",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T02:31:40.991170+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "TENDIES",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T02:34:34.906797+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "TENDIES",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T03:07:44.939451+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T03:14:27.557052+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T05:20:53.201570+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T05:36:55.651724+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "TENDIES",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T07:00:38.909247+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T11:09:59.903233+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "STONKBROKER",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T11:33:53.487702+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "STONKBROKER",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T12:48:16.257374+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "PONS",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T12:50:50.724977+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T12:51:35.104966+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "CASHCAT",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T14:00:39.062849+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "CASHCAT",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T14:37:08.008492+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "TENDIES",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T14:43:57.319447+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "TENDIES",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T14:47:14.405956+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T15:11:04.929068+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "CASHCAT",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T16:02:17.856750+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "CASHCAT",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T16:22:44.704088+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "PONS",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T16:29:33.436204+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T16:36:18.276906+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "TENDIES",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T16:37:49.687541+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T16:42:37.490953+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "CASHCAT",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T16:43:34.609162+00:00",
+      "allow": true,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "TENDIES",
+      "reason": "5 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
+    },
+    {
+      "time": "2026-08-28T17:20:50.227206+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T17:24:18.315628+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T17:27:50.618712+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T17:30:48.920792+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T17:33:51.029611+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T17:55:09.547938+00:00",
+      "allow": false,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "need 4 approvals, got 3 (tape=abstain; intel=abstain; chain=approve; buy_gate=approve; size=approve; slippage=abstain; correlation=abstain; dissent=abstain)",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T18:01:16.257095+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T20:07:03.053413+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "TENDIES",
+      "reason": "mandatory stop_loss; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T23:02:15.562010+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "PONS",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-28T23:35:11.060138+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "time_exit",
+      "symbol": "STONKBROKER",
+      "reason": "mandatory time_exit; tape/dissent cannot block",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=abstain, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve, 決済③見送り/反対=abstain"
+    },
+    {
+      "time": "2026-08-29T00:03:36.023147+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "CASHCAT",
+      "reason": "4 agents approved after consult",
+      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
     }
   ],
   "walletHistory": [
     {
-      "time": "2026-08-23T02:59:47+09:00",
+      "time": "2026-08-23T01:09:32.630747+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T03:59:48+09:00",
+      "time": "2026-08-23T01:09:47.820880+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T04:59:47+09:00",
+      "time": "2026-08-23T01:10:02.649293+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T05:59:47+09:00",
+      "time": "2026-08-23T01:10:17.711256+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T06:59:48+09:00",
+      "time": "2026-08-23T01:10:32.771794+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T07:59:47+09:00",
+      "time": "2026-08-23T01:10:47.745569+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T08:59:47+09:00",
+      "time": "2026-08-23T01:11:02.664819+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T09:59:47+09:00",
+      "time": "2026-08-23T01:11:17.723518+00:00",
       "totalEth": 0.01991388
     },
     {
-      "time": "2026-08-23T10:54:02+09:00",
+      "time": "2026-08-23T01:11:32.662268+00:00",
       "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:11:47.771137+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:12:02.694133+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:12:17.815077+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:12:32.685360+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:12:47.625344+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:13:02.713437+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:13:17.760702+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:13:32.715066+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:13:47.749984+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:14:02.763342+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:14:17.728014+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:14:32.687905+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:14:47.674267+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:15:02.894805+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:15:17.617208+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:15:32.720955+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:15:47.737931+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:16:02.660363+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:16:17.633831+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:16:32.727258+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:16:47.655637+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:17:02.685053+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:17:17.703304+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:17:32.767376+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:17:47.677275+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:18:02.633165+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:18:17.878714+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:18:32.647572+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:18:47.675007+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:19:02.683369+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:19:18.839417+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:19:32.724883+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:19:47.771234+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:20:02.658469+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:20:17.716531+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:20:32.697039+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:20:47.724367+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:21:02.653863+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:21:17.664479+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:21:32.664144+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:21:47.647668+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:22:02.706206+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:22:17.814686+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:22:32.664917+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:22:47.655873+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:23:02.677660+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:23:17.602024+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:23:32.712546+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:23:47.658561+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:24:02.732940+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:24:17.695471+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:24:32.652790+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:24:47.696413+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:25:02.707233+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:25:17.648474+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:25:32.712012+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:25:47.683362+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:26:02.611883+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:26:17.763382+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:26:32.666387+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:26:47.718126+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:27:02.678544+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:27:17.689650+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:27:32.712881+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:27:47.696400+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:28:02.637129+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:28:17.706066+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:28:32.794731+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:28:47.660036+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:29:02.610402+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:29:17.687302+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:29:32.616177+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:29:47.741023+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:30:02.624615+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:30:17.610769+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:30:32.679685+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:30:47.654475+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:31:02.646772+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:31:17.717820+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:31:32.651183+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:31:47.660690+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:32:02.700471+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:32:17.847660+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:32:32.673301+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:32:47.654385+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:33:02.797679+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:33:17.719813+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:33:32.714428+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:33:47.724365+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:34:02.759948+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:34:17.739331+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:34:32.683118+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:34:47.656176+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:35:02.776013+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:35:17.718269+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:35:32.729897+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:35:47.693706+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:36:02.747803+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:36:17.882769+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:36:32.588197+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:36:47.662096+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:37:02.732113+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:37:17.670856+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:37:32.705467+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:37:47.742788+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:38:02.722689+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:38:17.693534+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:38:32.678503+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:38:47.697796+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:39:02.692276+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:39:17.724274+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:39:32.740228+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:39:47.638730+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:40:02.666033+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:40:17.721543+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:40:32.695347+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:40:47.700349+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:41:02.774136+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:41:17.798123+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:41:32.674968+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:41:47.748058+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:42:02.697865+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:42:17.670164+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:42:32.871351+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:42:47.639208+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:43:02.698994+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:43:17.762286+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:43:32.727983+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:43:47.651356+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:44:02.669762+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:44:17.756791+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:44:32.747604+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:44:47.654692+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:45:02.692511+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:45:17.683520+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:45:32.728942+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:45:47.705436+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:46:02.624258+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:46:17.617060+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:46:32.692500+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:46:47.676042+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:47:02.672925+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:47:17.766768+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:47:32.932325+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:47:47.650517+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:48:02.692555+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:48:17.688469+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:48:32.640822+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:48:47.684641+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:49:02.686489+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:49:17.705271+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:49:32.820636+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:49:47.672577+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:50:02.656186+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:50:17.691323+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:50:32.711926+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:50:47.679775+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:51:02.689675+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:51:17.752264+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:51:32.701794+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:51:47.680465+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:52:02.677385+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:52:17.725635+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:52:32.672829+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:52:47.711190+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:53:02.763367+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:53:17.663470+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:53:32.649385+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:53:48.227510+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-23T01:54:02.780857+00:00",
+      "totalEth": 0.01991388
+    },
+    {
+      "time": "2026-08-29T02:44:44.772583+00:00",
+      "totalEth": 0.00410077
     }
   ]
 }

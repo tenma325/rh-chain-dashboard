@@ -71,3 +71,55 @@
 .agent-list-wrap .agent-list {
   height: auto;
 }
+
+.alert-button {
+  min-height: 30px;
+  color: var(--muted);
+  cursor: pointer;
+  background: #0e0e0e;
+  border: 1px solid #353535;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.alert-button:hover {
+  color: #fff;
+  border-color: #666;
+}
+.alert-button.active {
+  color: var(--positive);
+  background: #70efb50d;
+  border-color: #70efb559;
+}
+.market-links {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  display: flex;
+}
+.market-external--primary {
+  color: #050505;
+  background: var(--positive);
+  border-color: var(--positive);
+}
+.market-external--primary:hover {
+  color: #050505;
+  background: #9af5cb;
+  border-color: #9af5cb;
+}
+
+@media (max-width: 700px) {
+  .alert-button {
+    min-height: 27px;
+    max-width: 92px;
+    padding: 0 7px;
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 380px) {
+  .alert-button {
+    display: none;
+  }
+}

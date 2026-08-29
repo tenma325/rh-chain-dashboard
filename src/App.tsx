@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HoldingsTable } from "./components/HoldingsTable";
 import { JudgmentList } from "./components/JudgmentList";
 import { MarketChart } from "./components/MarketChart";
@@ -6,7 +6,11 @@ import { MetricCard } from "./components/MetricCard";
 import { Pager } from "./components/Pager";
 import { PerformanceChart } from "./components/PerformanceChart";
 import { TradeTable } from "./components/TradeTable";
-import { thisCycleVoteCopy } from "./lib/desk";
+import {
+  evaluateHeldPriceSurges,
+  type PriceAlertState,
+} from "./lib/alerts";
+import { fomoFamilyUrl } from "./lib/chart";
 import { formatAge, formatJst, formatQty, formatUsd, toneOf } from "./lib/format";
 import { ACTION_LABELS, TABS, reasonJa, type TabId } from "./lib/labels";
 import {
@@ -18,9 +22,29 @@ import {
   tableHoldings,
   tradeStats,
 } from "./lib/ledger";
-import { SNAPSHOT, fetchLiveOverlay, loadingOverlay } from "./lib/live";
+import {
+  SNAPSHOT as BAKED_SNAPSHOT,
+  fetchLiveOverlay,
+  loadingOverlay,
+} from "./lib/live";
+import { fetchLatestSnapshot } from "./lib/snapshot";
 import { assetsUsd, chipStatus, overviewLine, walletLabel, walletUsd } from "./lib/sync";
-import type { LiveOverlay } from "./lib/types";
+import type { LiveOverlay, Snapshot } from "./lib/types";
+
+const PRICE_ALERT_STORAGE = "ferris-price-alerts-v1";
+
+function storedPriceAlerts(): PriceAlertState {
+  try {
+    const value = JSON.parse(window.localStorage.getItem(PRICE_ALERT_STORAGE) ?? "{}");
+    return value && typeof value === "object" ? (value as PriceAlertState) : {};
+  } catch {
+    return {};
+  }
+}
+
+function notificationPermission(): NotificationPermission | "unsupported" {
+  return "Notification" in window ? Notification.permission : "unsupported";
+}
 
 function tabFromPath(): TabId {
   return window.location.pathname.replace(/\/+$/, "") === "/chart" ? "chart" : "performance";
@@ -37,31 +61,91 @@ function assetFromQuery(overlay: LiveOverlay): string {
 }
 
 export function App() {
-  const [overlay, setOverlay] = useState<LiveOverlay>(() => loadingOverlay(SNAPSHOT));
+  const [snapshot, setSnapshot] = useState<Snapshot>(BAKED_SNAPSHOT);
+  const [overlay, setOverlay] = useState<LiveOverlay>(() =>
+    loadingOverlay(BAKED_SNAPSHOT),
+  );
   const [inFlight, setInFlight] = useState(true);
+  const [alertPermission, setAlertPermission] = useState(notificationPermission);
   const [period, setPeriod] = useState(7);
   const [tab, setTab] = useState<TabId>(tabFromPath);
-  const [selected, setSelected] = useState(() => assetFromQuery(loadingOverlay(SNAPSHOT)));
+  const [selected, setSelected] = useState(() =>
+    assetFromQuery(loadingOverlay(BAKED_SNAPSHOT)),
+  );
   const [tradePage, setTradePage] = useState(0);
   const [agentPage, setAgentPage] = useState(0);
+  const snapshotRef = useRef<Snapshot>(BAKED_SNAPSHOT);
+  const priceAlertsRef = useRef<PriceAlertState>(storedPriceAlerts());
 
-  const resync = useCallback(async () => {
-    setInFlight(true);
-    const next = await fetchLiveOverlay(SNAPSHOT);
-    setOverlay(next);
-    setInFlight(false);
+  const processPriceAlerts = useCallback((next: LiveOverlay) => {
+    const result = evaluateHeldPriceSurges(
+      priceAlertsRef.current,
+      next.holdings,
+    );
+    priceAlertsRef.current = result.state;
+    try {
+      window.localStorage.setItem(
+        PRICE_ALERT_STORAGE,
+        JSON.stringify(result.state),
+      );
+    } catch {
+      // Alerts still work for the current tab when storage is unavailable.
+    }
+    if (!("Notification" in window) || Notification.permission !== "granted") {
+      return;
+    }
+    for (const alert of result.alerts) {
+      const notice = new Notification(
+        alert.symbol + " 急騰 +" + alert.changePct.toFixed(1) + "%",
+        {
+          body: "保有銘柄が5分以内に上昇しました。FOMO.familyで確認できます。",
+          tag: "held-surge-" + alert.address.toLowerCase(),
+        },
+      );
+      notice.onclick = () => {
+        const url = fomoFamilyUrl(alert.address);
+        if (url) window.open(url, "_blank", "noopener,noreferrer");
+      };
+    }
   }, []);
 
+  const resync = useCallback(async (showLoading = true) => {
+    if (showLoading) setInFlight(true);
+    const latest = await fetchLatestSnapshot(snapshotRef.current);
+    const next = await fetchLiveOverlay(latest);
+    snapshotRef.current = latest;
+    setSnapshot(latest);
+    setOverlay(next);
+    processPriceAlerts(next);
+    if (showLoading) setInFlight(false);
+  }, [processPriceAlerts]);
+
   useEffect(() => {
-    let cancelled = false;
-    fetchLiveOverlay(SNAPSHOT).then((next) => {
-      if (cancelled) return;
-      setOverlay(next);
-      setInFlight(false);
-    });
+    void resync(true);
+  }, [resync]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      void resync(false);
+    }, 15_000);
     return () => {
-      cancelled = true;
+      window.clearInterval(timer);
     };
+  }, [resync]);
+
+  const enableNotifications = useCallback(async () => {
+    if (!("Notification" in window)) {
+      setAlertPermission("unsupported");
+      return;
+    }
+    const permission = await Notification.requestPermission();
+    setAlertPermission(permission);
+    if (permission === "granted") {
+      new Notification("Ferris.GG 急騰通知を有効にしました", {
+        body: "オンチェーンで保有確認済みの銘柄だけを監視します。",
+        tag: "held-surge-enabled",
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -81,20 +165,7 @@ export function App() {
     }
   }, [overlay.holdings, selected]);
 
-  useEffect(() => {
-    let cancelled = false;
-    const timer = window.setInterval(() => {
-      fetchLiveOverlay(SNAPSHOT).then((next) => {
-        if (!cancelled) setOverlay(next);
-      });
-    }, 15_000);
-    return () => {
-      cancelled = true;
-      window.clearInterval(timer);
-    };
-  }, []);
-
-  const stats = useMemo(() => tradeStats(SNAPSHOT.trades), []);
+  const stats = useMemo(() => tradeStats(snapshot.trades), [snapshot.trades]);
   const wallet = walletUsd(overlay);
   const assets = assetsUsd(overlay.holdings);
   const liveCount = countLivePositions(overlay.holdings);
@@ -109,30 +180,30 @@ export function App() {
   const series = useMemo(
     () =>
       performanceSeries(
-        SNAPSHOT.trades,
-        SNAPSHOT.walletHistory,
+        snapshot.trades,
+        snapshot.walletHistory,
         overlay.walletEth,
         overlay.ethUsd,
         period,
       ),
-    [overlay.ethUsd, overlay.walletEth, period],
+    [overlay.ethUsd, overlay.walletEth, period, snapshot.trades, snapshot.walletHistory],
   );
   const trades = useMemo(
     () =>
-      [...SNAPSHOT.trades].sort(
+      [...snapshot.trades].sort(
         (a, b) =>
           new Date(b.exitTime || b.entryTime).getTime() -
           new Date(a.exitTime || a.entryTime).getTime(),
       ),
-    [],
+    [snapshot.trades],
   );
-  const council = useMemo(() => [...SNAPSHOT.council].reverse(), []);
+  const council = useMemo(() => [...snapshot.council].reverse(), [snapshot.council]);
   const latest = council[0];
   const tradePages = Math.max(1, Math.ceil(trades.length / 8));
   const agentPages = Math.max(1, Math.ceil(council.length / 4));
   const tradeSlice = trades.slice(tradePage * 8, (tradePage + 1) * 8);
   const agentSlice = council.slice(agentPage * 4, (agentPage + 1) * 4);
-  const snapshotAge = formatAge(SNAPSHOT.generatedAt);
+  const snapshotAge = formatAge(snapshot.generatedAt);
   const title = TABS.find((item) => item.id === tab)?.label ?? "";
   const chip = chipStatus({
     inFlight,
@@ -171,8 +242,8 @@ export function App() {
         </div>
         <div className="network-meta">
           <span>ROBINHOOD CHAIN · 4663</span>
-          <span title={SNAPSHOT.walletAddress}>
-            {SNAPSHOT.walletAddress.slice(0, 6)}…{SNAPSHOT.walletAddress.slice(-4)}
+          <span title={snapshot.walletAddress}>
+            {snapshot.walletAddress.slice(0, 6)}…{snapshot.walletAddress.slice(-4)}
           </span>
         </div>
         <div className="sync-cluster">
@@ -188,6 +259,20 @@ export function App() {
             />
             {chip}
           </span>
+          <button
+            className={alertPermission === "granted" ? "alert-button active" : "alert-button"}
+            type="button"
+            onClick={() => void enableNotifications()}
+            title="保有確認済み銘柄の5分以内+5%上昇をブラウザ通知"
+          >
+            {alertPermission === "granted"
+              ? "急騰通知 ON"
+              : alertPermission === "denied"
+                ? "通知ブロック中"
+                : alertPermission === "unsupported"
+                  ? "通知非対応"
+                  : "急騰通知"}
+          </button>
           <button
             className="refresh-button"
             type="button"
@@ -218,7 +303,7 @@ export function App() {
           featured
         />
         {[1, 7, 30].map((days) => {
-          const pnl = realizedUsd(SNAPSHOT.trades, overlay.ethUsd, days);
+          const pnl = realizedUsd(snapshot.trades, overlay.ethUsd, days);
           return (
             <MetricCard
               key={days}
@@ -238,7 +323,7 @@ export function App() {
           <article className="signal-card">
             <div className="signal-card__topline">
               <p>最新エージェント判断</p>
-              <span className="snapshot-chip">SNAPSHOT</span>
+              <span className="snapshot-chip">BOT DATA</span>
               <span
                 className={`decision-badge ${latest.allow ? "decision-badge--allow" : "decision-badge--block"}`}
               >
@@ -253,7 +338,7 @@ export function App() {
             <div className="signal-card__meta">
               <time dateTime={latest.time}>{formatJst(latest.time)}</time>
               <span>{snapshotAge}</span>
-              <span>{thisCycleVoteCopy()}</span>
+              <span>評議会ログ自動更新</span>
             </div>
           </article>
         )}
@@ -349,7 +434,7 @@ export function App() {
                   <small>CoinGecko</small>
                 </div>
                 <div>
-                  <span>SNAPSHOT</span>
+                  <span>BOT DATA</span>
                   <strong>{snapshotAge}</strong>
                   <small>判断・履歴</small>
                 </div>
@@ -374,14 +459,14 @@ export function App() {
             </div>
           )}
           {tab === "agents" && (
-            <JudgmentList entries={agentSlice} generatedAt={SNAPSHOT.generatedAt} />
+            <JudgmentList entries={agentSlice} generatedAt={snapshot.generatedAt} />
           )}
           {tab === "ledger" && (
             <div className="ledger-panel">
               <div className="panel-summary">
                 <span>全 {trades.length} 件</span>
                 <span>1ページ 8 件</span>
-                <span>実現損益は決済済み取引のみ · ジャーナルは SNAPSHOT</span>
+                <span>実現損益は決済済み取引のみ · ボットデータを自動同期</span>
               </div>
               <TradeTable trades={tradeSlice} ethUsd={overlay.ethUsd} />
             </div>

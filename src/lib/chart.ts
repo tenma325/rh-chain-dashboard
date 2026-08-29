@@ -2,6 +2,12 @@ import type { ChartEmptyKind } from "./types";
 
 /** GeckoTerminal pool ids are 20-byte addresses or 32-byte hashes. */
 export const GECKO_POOL_ID_RE = /^0x[a-f\d]{40}([a-f\d]{24})?$/i;
+export const EVM_ADDRESS_RE = /^0x[a-f\d]{40}$/i;
+
+export function fomoFamilyUrl(address: string): string | null {
+  if (!EVM_ADDRESS_RE.test(address)) return null;
+  return 'https://fomo.family/tokens/robinhood/' + address.toLowerCase();
+}
 
 export function isGeckoPoolId(value: string): boolean {
   return GECKO_POOL_ID_RE.test(value);

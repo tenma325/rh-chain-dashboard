@@ -103,6 +103,34 @@ describe("position counting", () => {
       ]),
     ).toBe(1);
   });
+
+  it("never offers a chart for an RPC-unconfirmed holding", () => {
+    const rows = [
+      holding({
+        symbol: "HELD",
+        balance: 10,
+        priceUsd: 1,
+        valueUsd: 10,
+        balanceSource: "live",
+      }),
+      holding({
+        symbol: "UNKNOWN",
+        balance: null,
+        priceUsd: 1,
+        valueUsd: null,
+        balanceSource: "unknown",
+      }),
+      holding({
+        symbol: "ZERO",
+        balance: 0,
+        priceUsd: 1,
+        valueUsd: 0,
+        balanceSource: "live",
+      }),
+    ];
+
+    expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["HELD"]);
+  });
 });
 
 describe("trade outcomes", () => {
@@ -125,12 +153,13 @@ describe("trade outcomes", () => {
     expect(stats.winRate).toBe(50);
   });
 
-  it("excludes baked zero-PnL closes from the old 18L and does not mint a WOOD fill", () => {
+  it("keeps generated history internally consistent and does not mint a WOOD fill", () => {
     const stats = tradeStats(SNAPSHOT.trades);
-    expect(stats.wins).toBe(8);
-    expect(stats.losses).toBe(12);
-    expect(stats.flats).toBe(6);
-    expect(stats.winRate).toBe(40);
+    expect(stats.closed).toBeGreaterThan(0);
+    expect(stats.wins + stats.losses + stats.flats).toBe(stats.closed);
+    expect(stats.flats).toBe(
+      SNAPSHOT.trades.filter((row) => row.exitTime && row.pnlEth === 0).length,
+    );
     expect(SNAPSHOT.trades.some((row) => row.symbol === "WOOD")).toBe(false);
   });
 

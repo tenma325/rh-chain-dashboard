@@ -4,3 +4,5 @@ dist
 *.local
 coverage
 .playwright-mcp
+.playwright-cli
+output/playwright

@@ -49,9 +49,9 @@ export function countLivePositions(holdings: Holding[]): number {
   return holdings.filter(countsTowardHeader).length;
 }
 
-/** Chart / header selection: live-valued rows plus RPC-unavailable qty. Dust stays off the rail. */
+/** Chart selection is fail-closed: only confirmed, non-dust wallet holdings. */
 export function chartHoldings(holdings: Holding[]): Holding[] {
-  return holdings.filter((row) => row.balance === null || countsTowardHeader(row));
+  return holdings.filter(countsTowardHeader);
 }
 
 /** Holdings table: live-valued, leftover dust, RPC-unavailable, and explicit SNAPSHOT rows. */
