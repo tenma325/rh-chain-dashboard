@@ -19,6 +19,7 @@ describe("formatQty", () => {
   it("does not coerce null to 0", () => {
     expect(formatQty(null)).toBe("取得不可");
     expect(formatQty(0)).toBe("0");
+    expect(formatQty(4.13e-7)).toBe("<0.000001");
     expect(formatQty(null, true)).toBe("同期中");
   });
 });

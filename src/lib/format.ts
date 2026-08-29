@@ -28,6 +28,7 @@ export function formatQty(value: number | null | undefined, loading = false): st
   if (value === null || value === undefined || !Number.isFinite(value)) {
     return UNAVAILABLE;
   }
+  if (value > 0 && value < 1e-6) return "<0.000001";
   return new Intl.NumberFormat("en-US", {
     maximumFractionDigits: value < 1 ? 6 : 3,
   }).format(value);
