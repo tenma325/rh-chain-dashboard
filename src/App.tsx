@@ -28,7 +28,7 @@ import {
   loadingOverlay,
 } from "./lib/live";
 import { fetchLatestSnapshot } from "./lib/snapshot";
-import { assetsUsd, chipStatus, overviewLine, walletLabel, walletUsd } from "./lib/sync";
+import { assetsUsd, chipStatus, hasUnverifiedHeldBalance, overviewLine, walletLabel, walletUsd } from "./lib/sync";
 import type { LiveOverlay, Snapshot } from "./lib/types";
 
 const PRICE_ALERT_STORAGE = "ferris-price-alerts-v1";
@@ -169,13 +169,14 @@ export function App() {
   const wallet = walletUsd(overlay);
   const assets = assetsUsd(overlay.holdings);
   const liveCount = countLivePositions(overlay.holdings);
+  const positionCount = hasUnverifiedHeldBalance(overlay.holdings) ? null : liveCount;
   const chartRows = chartHoldings(overlay.holdings);
   const tableRows = tableHoldings(overlay.holdings);
   const overview = overviewLine({
     loading: inFlight,
     walletUsd: wallet,
     assetsUsd: assets,
-    positionCount: inFlight ? null : liveCount,
+    positionCount: inFlight ? null : positionCount,
   });
   const series = useMemo(
     () =>

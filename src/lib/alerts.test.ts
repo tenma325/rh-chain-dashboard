@@ -35,7 +35,7 @@ describe('evaluateHeldPriceSurges', () => {
 
     const jumped = evaluateHeldPriceSurges(
       initial.state,
-      [holding({ priceUsd: 0.211 })],
+      [holding({ priceUsd: 0.211, balanceSource: 'snapshot' })],
       61_000,
     )
     expect(jumped.alerts).toHaveLength(1)

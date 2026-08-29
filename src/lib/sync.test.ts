@@ -78,7 +78,7 @@ describe("walletUsd / assetsUsd", () => {
     expect(walletUsd({ walletEth: 0.005, weth: 0, ethUsd: 2500 })).toBeCloseTo(12.5);
   });
 
-  it("does not present Dex price × snapshot qty as LIVE Assets", () => {
+  it("values provenance-marked snapshot qty with the current DEX price", () => {
     expect(
       assetsUsd([
         holding({
@@ -88,17 +88,33 @@ describe("walletUsd / assetsUsd", () => {
           valueUsd: 0.95,
         }),
       ]),
-    ).toBeNull();
+    ).toBeCloseTo(0.95);
   });
 
-  it("sums only live qty × live price", () => {
+  it("sums browser-live and locally observed quantities", () => {
     expect(
       assetsUsd([
         holding({ balanceSource: "live", balance: 10, priceUsd: 2 }),
         holding({ balanceSource: "snapshot", balance: 95, priceUsd: 1 }),
       ]),
-    ).toBe(20);
+    ).toBe(115);
   });
+
+  it("does not report a partial asset total when a previously held balance is unverified", () => {
+    expect(
+      assetsUsd([
+        holding({ balanceSource: "snapshot", balance: 10, priceUsd: 2 }),
+        holding({
+          balanceSource: "unknown",
+          balance: null,
+          observedBalance: 95,
+          priceUsd: 1,
+          valueUsd: null,
+        }),
+      ]),
+    ).toBeNull();
+  });
+
 });
 
 describe("walletLabel", () => {

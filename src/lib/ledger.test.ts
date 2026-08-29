@@ -90,8 +90,8 @@ describe("position counting", () => {
       }),
     ];
     expect(isDust(rows[1])).toBe(true);
-    expect(countLivePositions(rows)).toBe(1);
-    expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["AGI"]);
+    expect(countLivePositions(rows)).toBe(2);
+    expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["AGI", "WOOD"]);
     expect(tableHoldings(rows).map((row) => row.symbol)).toEqual(["STONKBROKER", "AGI", "WOOD"]);
   });
 

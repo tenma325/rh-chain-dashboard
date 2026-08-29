@@ -27,7 +27,7 @@ export function allowlist(positions: SnapshotPosition[]): SnapshotPosition[] {
 export function countsTowardHeader(
   holding: Pick<Holding, "balance" | "priceUsd" | "valueUsd" | "balanceSource">,
 ): boolean {
-  if (holding.balanceSource !== "live" || !isFiniteNumber(holding.balance)) return false;
+  if (holding.balanceSource === "unknown" || !isFiniteNumber(holding.balance)) return false;
   const value = isFiniteNumber(holding.priceUsd)
     ? holding.balance * holding.priceUsd
     : holding.valueUsd;
@@ -42,7 +42,7 @@ export function isDust(
 }
 
 export function isDustRow(holding: Holding): boolean {
-  return holding.balanceSource === "live" && isDust(holding);
+  return holding.balanceSource !== "unknown" && isDust(holding);
 }
 
 export function countLivePositions(holdings: Holding[]): number {

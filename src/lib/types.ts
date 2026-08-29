@@ -6,6 +6,8 @@ export type SnapshotPosition = {
   ethSpent: number | null;
   remainingPct: number | null;
   observedBalance: number | null;
+  balanceObserved?: boolean;
+  balanceObservedAt?: string | null;
   entryPriceUsd: number | null;
   entryTime: string | null;
   liveRisk: boolean;
@@ -40,6 +42,11 @@ export type Snapshot = {
   generatedAt: string;
   walletAddress: string;
   lastObservedWalletEth: number;
+  walletObserved?: boolean;
+  observedWalletEth?: number | null;
+  observedWeth?: number | null;
+  observedEthUsd?: number | null;
+  walletObservedAt?: string | null;
   positions: SnapshotPosition[];
   trades: SnapshotTrade[];
   council: SnapshotCouncil[];

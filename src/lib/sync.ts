@@ -55,8 +55,18 @@ export function walletUsd(overlay: Pick<LiveOverlay, "walletEth" | "weth" | "eth
   return (overlay.walletEth + overlay.weth) * overlay.ethUsd;
 }
 
+export function hasUnverifiedHeldBalance(holdings: Holding[]): boolean {
+  return holdings.some(
+    (row) =>
+      row.balanceSource === "unknown" &&
+      isFiniteNumber(row.observedBalance) &&
+      row.observedBalance > 0,
+  );
+}
+
 export function assetsUsd(holdings: Holding[]): number | null {
-  const live = holdings.filter((row) => row.balanceSource === "live" && isFiniteNumber(row.balance));
+  if (hasUnverifiedHeldBalance(holdings)) return null;
+  const live = holdings.filter((row) => row.balanceSource !== "unknown" && isFiniteNumber(row.balance));
   if (live.length === 0) return null;
   const unpriced = live.filter(
     (row) => isFiniteNumber(row.balance) && row.balance > 0 && !isFiniteNumber(row.priceUsd),

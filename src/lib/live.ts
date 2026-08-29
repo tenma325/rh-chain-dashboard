@@ -5,11 +5,7 @@ import { isFiniteNumber } from "./format";
 
 export const SNAPSHOT = snapshotJson as Snapshot;
 
-export const RH_RPC = "https://rpc.mainnet.chain.robinhood.com";
-export const COINGECKO_ETH =
-  "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_last_updated_at=true";
-export const DEXSCREENER_TOKENS = "https://api.dexscreener.com/tokens/v1/robinhood/";
-export const WETH = "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+export const DEXSCREENER_TOKENS = '/api/dex-tokens?addresses=';
 
 type DexPair = {
   baseToken?: { address?: string };
@@ -22,52 +18,6 @@ type DexPair = {
   dexId?: string;
   url?: string;
 };
-
-async function rpc(method: string, params: unknown[]): Promise<string> {
-  const response = await fetch(RH_RPC, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", method, params, id: 1 }),
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!response.ok) throw new Error(`RPC HTTP ${response.status}`);
-  const body = (await response.json()) as {
-    error?: { message?: string };
-    result?: string;
-  };
-  if (body.error || body.result === undefined) {
-    throw new Error(body.error?.message ?? "RPC result missing");
-  }
-  return body.result;
-}
-
-function hexToQty(hex: string, decimals: number): number {
-  return Number(BigInt(hex)) / 10 ** decimals;
-}
-
-function balanceOfData(wallet: string): string {
-  return `0x70a08231${wallet.toLowerCase().replace("0x", "").padStart(64, "0")}`;
-}
-
-export async function fetchWalletEth(wallet: string): Promise<number> {
-  return hexToQty(await rpc("eth_getBalance", [wallet, "latest"]), 18);
-}
-
-export async function fetchTokenQty(token: string, wallet: string): Promise<number> {
-  const [balanceHex, decimalsHex] = await Promise.all([
-    rpc("eth_call", [{ to: token, data: balanceOfData(wallet) }, "latest"]),
-    rpc("eth_call", [{ to: token, data: "0x313ce567" }, "latest"]),
-  ]);
-  return hexToQty(balanceHex, Number(BigInt(decimalsHex)));
-}
-
-export async function fetchEthUsd(): Promise<number> {
-  const response = await fetch(COINGECKO_ETH, { signal: AbortSignal.timeout(8000) });
-  if (!response.ok) throw new Error(`CoinGecko HTTP ${response.status}`);
-  const usd = (await response.json()).ethereum?.usd;
-  if (!isFiniteNumber(usd)) throw new Error("ETH/USD price missing");
-  return usd;
-}
 
 export async function fetchDexPairs(tokens: SnapshotPosition[]): Promise<DexPair[]> {
   const addresses = tokens.map((row) => row.address).join(",");
@@ -98,7 +48,7 @@ export function toHolding(
     balance: liveQty,
     priceUsd: livePrice,
     valueUsd:
-      liveQty !== null && livePrice !== null && source === "live"
+      liveQty !== null && livePrice !== null && source !== "unknown"
         ? liveQty * livePrice
         : null,
     change1h: isFiniteNumber(pair?.priceChange?.h1) ? (pair?.priceChange?.h1 ?? null) : null,
@@ -115,15 +65,27 @@ export function toHolding(
 
 export function loadingOverlay(snapshot: Snapshot = SNAPSHOT): LiveOverlay {
   return {
-    walletEth: null,
-    weth: null,
-    ethUsd: null,
-    holdings: allowlist(snapshot.positions).map((spec) =>
-      toHolding(spec, null, undefined, "unknown"),
-    ),
+    walletEth:
+      snapshot.walletObserved && isFiniteNumber(snapshot.observedWalletEth)
+        ? snapshot.observedWalletEth
+        : null,
+    weth:
+      snapshot.walletObserved && isFiniteNumber(snapshot.observedWeth)
+        ? snapshot.observedWeth
+        : null,
+    ethUsd: isFiniteNumber(snapshot.observedEthUsd) ? snapshot.observedEthUsd : null,
+    holdings: allowlist(snapshot.positions).map((spec) => {
+      const observed = spec.balanceObserved && isFiniteNumber(spec.observedBalance);
+      return toHolding(
+        spec,
+        observed ? spec.observedBalance : null,
+        undefined,
+        observed ? "snapshot" : "unknown",
+      );
+    }),
     refreshedAt: snapshot.generatedAt,
     issues: [],
-    walletSource: "unavailable",
+    walletSource: snapshot.walletObserved ? "snapshot" : "unavailable",
     marketsStatus: "loading",
   };
 }
@@ -131,38 +93,36 @@ export function loadingOverlay(snapshot: Snapshot = SNAPSHOT): LiveOverlay {
 export async function fetchLiveOverlay(snapshot: Snapshot = SNAPSHOT): Promise<LiveOverlay> {
   const issues: string[] = [];
   const tokens = allowlist(snapshot.positions);
-  const core = Promise.allSettled([
-    fetchEthUsd(),
-    fetchWalletEth(snapshot.walletAddress),
-    fetchTokenQty(WETH, snapshot.walletAddress),
-    fetchDexPairs(tokens),
-  ]);
-  const qtyFetches = Promise.allSettled(
-    tokens.map((token) => fetchTokenQty(token.address, snapshot.walletAddress)),
+  const dexResult = await Promise.resolve(fetchDexPairs(tokens)).then(
+    (value) => ({ status: "fulfilled" as const, value }),
+    () => ({ status: "rejected" as const }),
   );
-  const [[ethUsdResult, walletResult, wethResult, dexResult], qtyResults] =
-    await Promise.all([core, qtyFetches]);
 
-  const ethUsd = ethUsdResult.status === "fulfilled" ? ethUsdResult.value : null;
-  const walletEth = walletResult.status === "fulfilled" ? walletResult.value : null;
-  const weth = wethResult.status === "fulfilled" ? wethResult.value : null;
+  const ethUsd = isFiniteNumber(snapshot.observedEthUsd)
+    ? snapshot.observedEthUsd
+    : null;
+  const walletEth =
+    snapshot.walletObserved && isFiniteNumber(snapshot.observedWalletEth)
+      ? snapshot.observedWalletEth
+      : null;
+  const weth =
+    snapshot.walletObserved && isFiniteNumber(snapshot.observedWeth)
+      ? snapshot.observedWeth
+      : null;
   const pairs = dexResult.status === "fulfilled" ? dexResult.value : [];
 
-  if (ethUsdResult.status === "rejected") issues.push("ETH/USD価格を取得できませんでした");
-  if (walletResult.status === "rejected" || wethResult.status === "rejected") {
-    issues.push("ウォレット残高の一部を再取得できませんでした");
-  }
+  if (ethUsd === null) issues.push("ETH/USD価格を取得できませんでした");
+  if (walletEth === null || weth === null) issues.push("ウォレット残高を取得できませんでした");
   if (dexResult.status === "rejected") issues.push("トークン市場価格を取得できませんでした");
 
-  const holdings = tokens.map((spec, index) => {
-    const qty = qtyResults[index];
-    const live = qty?.status === "fulfilled";
-    if (!live) issues.push(`${spec.symbol}の保有数量を取得できませんでした`);
+  const holdings = tokens.map((spec) => {
+    const observed = spec.balanceObserved && isFiniteNumber(spec.observedBalance);
+    if (!observed) issues.push(`${spec.symbol}の保有数量を取得できませんでした`);
     return toHolding(
       spec,
-      live ? qty.value : null,
+      observed ? spec.observedBalance : null,
       bestPair(pairs, spec.address),
-      live ? "live" : "unknown",
+      observed ? "snapshot" : "unknown",
     );
   });
 
@@ -173,7 +133,7 @@ export async function fetchLiveOverlay(snapshot: Snapshot = SNAPSHOT): Promise<L
     holdings,
     refreshedAt: new Date().toISOString(),
     issues,
-    walletSource: walletResult.status === "fulfilled" ? "rpc" : "unavailable",
+    walletSource: snapshot.walletObserved ? "snapshot" : "unavailable",
     marketsStatus: dexResult.status === "fulfilled" ? "ready" : "unavailable",
   };
 }
