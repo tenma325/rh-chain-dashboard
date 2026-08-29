@@ -16,8 +16,9 @@ export function overviewLine(input: {
   walletUsd: number | null;
   assetsUsd: number | null;
   positionCount: number | null;
+  trackedCount?: number | null;
 }): { total: { value: number | null; loading: boolean }; detail: string } {
-  const { loading, walletUsd, assetsUsd, positionCount } = input;
+  const { loading, walletUsd, assetsUsd, positionCount, trackedCount } = input;
   if (loading) {
     return {
       total: { value: null, loading: true },
@@ -26,7 +27,10 @@ export function overviewLine(input: {
   }
   const wallet = walletUsd === null || !Number.isFinite(walletUsd) ? "取得不可" : formatPlainUsd(walletUsd);
   const assets = assetsUsd === null || !Number.isFinite(assetsUsd) ? "取得不可" : formatPlainUsd(assetsUsd);
-  const count = positionCount === null ? "—" : `${positionCount} positions`;
+  const live = positionCount === null ? "—" : String(positionCount);
+  const tracked = trackedCount === null || trackedCount === undefined ? null : String(trackedCount);
+  const count =
+    tracked === null ? `${live === "—" ? "—" : `${live} positions`}` : `ライブ ${live} / 追跡 ${tracked}`;
   return {
     total: { value: sumKnown(walletUsd, assetsUsd), loading: false },
     detail: `Wallet ${wallet} · Assets ${assets} · ${count}`,

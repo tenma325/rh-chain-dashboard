@@ -1,5 +1,5 @@
 import { formatPct, formatQty, formatUsd, shortAddress, toneOf } from "../lib/format";
-import { isDustRow } from "../lib/ledger";
+import { bookChainMismatch, isDustRow } from "../lib/ledger";
 import type { Holding } from "../lib/types";
 
 type Props = {
@@ -35,6 +35,9 @@ export function HoldingsTable({ holdings }: Props) {
                     <strong>
                       {row.symbol}
                       {isDustRow(row) ? <span className="dust-chip">ダスト</span> : null}
+                      {bookChainMismatch(row) ? (
+                        <span className="mismatch-chip">残存不一致</span>
+                      ) : null}
                     </strong>
                     <small>
                       {shortAddress(row.address)}

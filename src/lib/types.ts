@@ -47,6 +47,8 @@ export type Snapshot = {
   observedWeth?: number | null;
   observedEthUsd?: number | null;
   walletObservedAt?: string | null;
+  tradingMode?: string | null;
+  activeRuleset?: string | null;
   positions: SnapshotPosition[];
   trades: SnapshotTrade[];
   council: SnapshotCouncil[];

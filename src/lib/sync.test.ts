@@ -70,6 +70,18 @@ describe("overviewLine", () => {
     expect(missing.total.value).toBeNull();
     expect(missing.detail).toContain("Assets 取得不可");
   });
+
+  it("separates live wallet balances from tracked book positions", () => {
+    const line = overviewLine({
+      loading: false,
+      walletUsd: 10,
+      assetsUsd: 0.4,
+      positionCount: 1,
+      trackedCount: 5,
+    });
+    expect(line.detail).toContain("ライブ 1 / 追跡 5");
+    expect(line.detail).not.toContain("5 positions");
+  });
 });
 
 describe("walletUsd / assetsUsd", () => {

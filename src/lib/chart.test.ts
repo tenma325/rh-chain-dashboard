@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  geckoPoolAddress,
   isGeckoPoolId,
   ohlcvEmptyKind,
   ohlcvErrorMessage,
@@ -57,6 +58,22 @@ describe("chart empty states", () => {
     expect(
       ohlcvFooter({ inFlight: false, lastUpdated: null, error: null }),
     ).toBe("取得不可");
+  });
+
+  it("maps STONKBROKER to the known GeckoTerminal pool even if Dex pair differs", () => {
+    expect(
+      geckoPoolAddress(
+        "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
+        "0xdeaddeaddeaddeaddeaddeaddeaddeaddeaddead",
+      ),
+    ).toBe("0x9cd74d5980A4BF60408B9bA2B0F6a3d368EBf594");
+    expect(
+      geckoPoolAddress(
+        "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
+        "0x056b42e26a9ffa9d09684ab2ed95f60a113d1528",
+      ),
+    ).toBe("0x056b42e26a9ffa9d09684ab2ed95f60a113d1528");
+    expect(geckoPoolAddress("0x020bfC650A365f8BB26819deAAbF3E21291018b4", null)).toBeNull();
   });
 
   it("accepts 20-byte addresses and 32-byte GeckoTerminal pool hashes", () => {

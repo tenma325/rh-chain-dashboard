@@ -45,6 +45,18 @@
   vertical-align: middle;
   display: inline-flex;
 }
+.mismatch-chip {
+  letter-spacing: .08em;
+  border: 1px solid #ffd36c80;
+  color: var(--warning);
+  border-radius: 999px;
+  margin-left: 6px;
+  padding: 1px 5px;
+  font-size: 6px;
+  font-weight: 800;
+  vertical-align: middle;
+  display: inline-flex;
+}
 .agent-list-wrap {
   grid-template-rows: 28px minmax(0, 1fr);
   width: 100%;

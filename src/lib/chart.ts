@@ -13,6 +13,19 @@ export function isGeckoPoolId(value: string): boolean {
   return GECKO_POOL_ID_RE.test(value);
 }
 
+export function geckoPoolAddress(token: string, pairAddress: string | null): string | null {
+  const mapped = GECKO_POOL_BY_TOKEN[token.toLowerCase()];
+  if (mapped) return mapped;
+  if (pairAddress && isGeckoPoolId(pairAddress)) return pairAddress;
+  return null;
+}
+
+/** Known GeckoTerminal pools when DexScreener pair IDs are not OHLCV-ready. */
+export const GECKO_POOL_BY_TOKEN: Record<string, string> = {
+  "0xe934e36a439c94017b64a3fece66af12099abf50":
+    "0x9cd74d5980A4BF60408B9bA2B0F6a3d368EBf594",
+};
+
 export function pairEmptyKind(input: {
   marketsStatus: "loading" | "ready" | "unavailable";
   pairAddress: string | null;

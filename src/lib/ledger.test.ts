@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   AGI_ADDRESS,
   allowlist,
+  bookChainMismatch,
   chartHoldings,
   countLivePositions,
   isDust,
@@ -130,6 +131,42 @@ describe("position counting", () => {
     ];
 
     expect(chartHoldings(rows).map((row) => row.symbol)).toEqual(["HELD"]);
+  });
+});
+
+describe("book vs chain", () => {
+  it("warns when remaining percent is still on the book but the live bag is dust", () => {
+    expect(
+      bookChainMismatch(
+        holding({
+          remainingPct: 80,
+          balance: 5e-7,
+          priceUsd: 0.2,
+          valueUsd: 1e-7,
+          balanceSource: "live",
+        }),
+      ),
+    ).toBe(true);
+    expect(
+      bookChainMismatch(
+        holding({
+          remainingPct: 80,
+          balance: null,
+          balanceSource: "unknown",
+        }),
+      ),
+    ).toBe(false);
+    expect(
+      bookChainMismatch(
+        holding({
+          remainingPct: 80,
+          balance: 2.1,
+          priceUsd: 0.2,
+          valueUsd: 0.42,
+          balanceSource: "live",
+        }),
+      ),
+    ).toBe(false);
   });
 });
 

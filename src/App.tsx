@@ -16,11 +16,13 @@ import { ACTION_LABELS, TABS, reasonJa, type TabId } from "./lib/labels";
 import {
   chartHoldings,
   countLivePositions,
+  countTrackedPositions,
   countsTowardHeader,
   performanceSeries,
   realizedUsd,
   tableHoldings,
   tradeStats,
+  bookChainMismatch,
 } from "./lib/ledger";
 import {
   SNAPSHOT as BAKED_SNAPSHOT,
@@ -169,14 +171,17 @@ export function App() {
   const wallet = walletUsd(overlay);
   const assets = assetsUsd(overlay.holdings);
   const liveCount = countLivePositions(overlay.holdings);
+  const trackedCount = countTrackedPositions(overlay.holdings);
   const positionCount = hasUnverifiedHeldBalance(overlay.holdings) ? null : liveCount;
   const chartRows = chartHoldings(overlay.holdings);
   const tableRows = tableHoldings(overlay.holdings);
+  const mismatchCount = tableRows.filter(bookChainMismatch).length;
   const overview = overviewLine({
     loading: inFlight,
     walletUsd: wallet,
     assetsUsd: assets,
     positionCount: inFlight ? null : positionCount,
+    trackedCount: inFlight ? null : trackedCount,
   });
   const series = useMemo(
     () =>
@@ -246,6 +251,12 @@ export function App() {
           <span title={snapshot.walletAddress}>
             {snapshot.walletAddress.slice(0, 6)}…{snapshot.walletAddress.slice(-4)}
           </span>
+          {(snapshot.tradingMode || snapshot.activeRuleset) && (
+            <span title="読み取り専用。公開サイトは注文しません">
+              {(snapshot.tradingMode || "observe").toUpperCase()}
+              {snapshot.activeRuleset ? ` · ${snapshot.activeRuleset}` : ""}
+            </span>
+          )}
         </div>
         <div className="sync-cluster">
           <span className={`live-status${chip === "DEGRADED" ? " live-status--degraded" : ""}`}>
@@ -453,8 +464,14 @@ export function App() {
                 <span>
                   保有評価額 <strong>{formatUsd(assets, { loading: inFlight })}</strong>
                 </span>
+                <span>
+                  ライブ {inFlight ? "—" : liveCount} / 追跡 {inFlight ? "—" : trackedCount}
+                </span>
                 <span>{tableRows.filter((row) => row.liveRisk && countsTowardHeader(row)).length} live risk</span>
-                <span>価格: DEX Screener · 数量: ライブRPCのみ</span>
+                {mismatchCount > 0 ? (
+                  <span>残存率とオンチェーン数量が不一致 {mismatchCount}</span>
+                ) : null}
+                <span>価格: DEX Screener · 数量: 二重RPC一致時のみ</span>
               </div>
               <HoldingsTable holdings={tableRows} />
             </div>
@@ -475,6 +492,10 @@ export function App() {
         </div>
         <footer className="console-footer">
           <span>READ ONLY · NO PRIVATE KEY</span>
+          <span>
+            {(snapshot.tradingMode || "observe").toUpperCase()}
+            {snapshot.activeRuleset ? ` · ${snapshot.activeRuleset}` : ""}
+          </span>
           <span>最終同期 {formatJst(overlay.refreshedAt)}</span>
           <span>投資助言ではありません</span>
         </footer>

@@ -49,6 +49,17 @@ export function countLivePositions(holdings: Holding[]): number {
   return holdings.filter(countsTowardHeader).length;
 }
 
+export function countTrackedPositions(holdings: Holding[]): number {
+  return holdings.length;
+}
+
+export function bookChainMismatch(holding: Holding): boolean {
+  if (holding.remainingPct === null || holding.remainingPct < 5) return false;
+  if (holding.balanceSource === "unknown") return false;
+  if (!isFiniteNumber(holding.balance)) return false;
+  return !countsTowardHeader(holding);
+}
+
 /** Chart selection is fail-closed: only confirmed, non-dust wallet holdings. */
 export function chartHoldings(holdings: Holding[]): Holding[] {
   return holdings.filter(countsTowardHeader);

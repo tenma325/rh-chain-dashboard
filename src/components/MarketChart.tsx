@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   fomoFamilyUrl,
+  geckoPoolAddress,
   isGeckoPoolId,
   ohlcvEmptyKind,
   ohlcvErrorMessage,
@@ -239,13 +240,16 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
   const [inFlight, setInFlight] = useState(false);
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null);
   const last = candles.at(-1);
+  const poolAddress = selected
+    ? geckoPoolAddress(selected.address, selected.pairAddress)
+    : null;
   const pairKind = pairEmptyKind({
     marketsStatus,
-    pairAddress: selected?.pairAddress ?? null,
+    pairAddress: poolAddress,
   });
 
   useEffect(() => {
-    if (!selected?.pairAddress) {
+    if (!poolAddress) {
       setCandles([]);
       setError(null);
       setInFlight(false);
@@ -256,7 +260,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
     const load = async (showLoader: boolean) => {
       if (showLoader) setInFlight(true);
       try {
-        const next = await fetchCandles(selected.pairAddress as string, interval, controller.signal);
+        const next = await fetchCandles(poolAddress, interval, controller.signal);
         setCandles(next);
         setError(null);
         setUpdatedAt(new Date());
@@ -273,7 +277,7 @@ export function MarketChart({ holdings, selectedAddress, onSelect, marketsStatus
       controller.abort();
       window.clearInterval(timer);
     };
-  }, [interval, selected?.pairAddress]);
+  }, [interval, poolAddress]);
 
   const change = useMemo(() => {
     const first = candles[0];
