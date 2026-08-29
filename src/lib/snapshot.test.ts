@@ -1,6 +1,10 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { Snapshot } from './types'
-import { fetchLatestSnapshot, isSnapshot } from './snapshot'
+import {
+  fetchLatestSnapshot,
+  isSnapshot,
+  RAW_SNAPSHOT_ENDPOINT,
+} from './snapshot'
 
 const fallback: Snapshot = {
   generatedAt: '2026-08-25T12:55:12+09:00',
@@ -35,13 +39,31 @@ describe('fetchLatestSnapshot', () => {
     vi.stubGlobal('fetch', fetchMock)
 
     await expect(fetchLatestSnapshot(fallback, 123)).resolves.toEqual(fresh)
-    expect(fetchMock).toHaveBeenCalledWith('/snapshot.json?ts=123', {
+    expect(fetchMock).toHaveBeenCalledWith(RAW_SNAPSHOT_ENDPOINT + '?ts=123', {
       cache: 'no-store',
       signal: expect.any(AbortSignal),
     })
   })
 
-  it('keeps the last good snapshot when the endpoint is HTML or unavailable', async () => {
+  it('falls back to the deployed snapshot when GitHub raw is unavailable', async () => {
+    const deployed = { ...fallback, generatedAt: '2026-08-29T02:05:00+00:00' }
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new TypeError('network error'))
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => deployed,
+      })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(fetchLatestSnapshot(fallback, 123)).resolves.toEqual(deployed)
+    expect(fetchMock).toHaveBeenNthCalledWith(2, '/snapshot.json?ts=123', {
+      cache: 'no-store',
+      signal: expect.any(AbortSignal),
+    })
+  })
+
+  it('keeps the last good snapshot when every endpoint is invalid', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(async () => ({
