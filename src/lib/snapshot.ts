@@ -24,19 +24,29 @@ export async function fetchLatestSnapshot(
   fallback: Snapshot,
   timestamp = Date.now(),
 ): Promise<Snapshot> {
-  for (const endpoint of SNAPSHOT_ENDPOINTS) {
-    try {
-      const response = await fetch(endpoint + '?ts=' + timestamp, {
-        cache: 'no-store',
-        signal: AbortSignal.timeout(8_000),
-      })
-      if (!response.ok) continue
-      const payload: unknown = await response.json()
-      if (isSnapshot(payload)) return payload
-    } catch {
-      continue
-    }
-  }
+  const candidates = await Promise.all(
+    SNAPSHOT_ENDPOINTS.map(async (endpoint): Promise<Snapshot | null> => {
+      try {
+        const response = await fetch(endpoint + '?ts=' + timestamp, {
+          cache: 'no-store',
+          signal: AbortSignal.timeout(8_000),
+        })
+        if (!response.ok) return null
+        const payload: unknown = await response.json()
+        return isSnapshot(payload) ? payload : null
+      } catch {
+        return null
+      }
+    }),
+  )
 
-  return fallback
+  return candidates.reduce<Snapshot>((newest, candidate) => {
+    if (!candidate) return newest
+    const candidateTime = Date.parse(candidate.generatedAt)
+    const newestTime = Date.parse(newest.generatedAt)
+    if (!Number.isFinite(candidateTime)) return newest
+    if (!Number.isFinite(newestTime) || candidateTime > newestTime) return candidate
+    return newest
+  }, fallback)
 }
+

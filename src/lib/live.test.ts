@@ -34,7 +34,18 @@ function observedSnapshot(): Snapshot {
 
 describe('loadingOverlay', () => {
   it('does not invent balances for a legacy snapshot without observation provenance', () => {
-    const overlay = loadingOverlay(SNAPSHOT)
+    const legacy: Snapshot = {
+      ...SNAPSHOT,
+      walletObserved: undefined,
+      observedWalletEth: undefined,
+      observedWeth: undefined,
+      observedEthUsd: undefined,
+      positions: SNAPSHOT.positions.map((position) => ({
+        ...position,
+        balanceObserved: undefined,
+      })),
+    }
+    const overlay = loadingOverlay(legacy)
     expect(overlay.weth).toBeNull()
     expect(overlay.walletEth).toBeNull()
     expect(overlay.ethUsd).toBeNull()

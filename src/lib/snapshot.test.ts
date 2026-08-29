@@ -45,6 +45,24 @@ describe('fetchLatestSnapshot', () => {
     })
   })
 
+
+  it('chooses the newest valid snapshot when GitHub raw cache is stale', async () => {
+    const staleRaw = { ...fallback, generatedAt: '2026-08-29T02:00:00+00:00' }
+    const freshDeployed = {
+      ...fallback,
+      generatedAt: '2026-08-29T03:00:00+00:00',
+      walletObserved: true,
+    }
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: true, json: async () => staleRaw })
+      .mockResolvedValueOnce({ ok: true, json: async () => freshDeployed })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(fetchLatestSnapshot(fallback, 123)).resolves.toEqual(freshDeployed)
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+
   it('falls back to the deployed snapshot when GitHub raw is unavailable', async () => {
     const deployed = { ...fallback, generatedAt: '2026-08-29T02:05:00+00:00' }
     const fetchMock = vi
