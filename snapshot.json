@@ -1,7 +1,12 @@
 {
-  "generatedAt": "2026-08-29T02:44:44.785041+00:00",
+  "generatedAt": "2026-08-29T04:02:43.675115+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00410077,
+  "lastObservedWalletEth": 4.1e-07,
+  "walletObserved": true,
+  "observedWalletEth": 4.1e-07,
+  "observedWeth": 0.0,
+  "observedEthUsd": 2434.68,
+  "walletObservedAt": "2026-08-29T04:02:23.691837+00:00",
   "positions": [
     {
       "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
@@ -9,6 +14,8 @@
       "ethSpent": 0.0002,
       "remainingPct": 80.0,
       "observedBalance": 2.1055225339678447,
+      "balanceObserved": false,
+      "balanceObservedAt": null,
       "entryPriceUsd": 0.1895,
       "entryTime": "2026-08-28T16:42:53.109458+00:00",
       "liveRisk": true
@@ -19,6 +26,8 @@
       "ethSpent": 0.0002,
       "remainingPct": 55.0,
       "observedBalance": 2.2342418077362303,
+      "balanceObserved": false,
+      "balanceObservedAt": null,
       "entryPriceUsd": 0.1187,
       "entryTime": "2026-08-28T16:29:50.280318+00:00",
       "liveRisk": true
@@ -29,6 +38,8 @@
       "ethSpent": 0.0,
       "remainingPct": 100.0,
       "observedBalance": 1135.1265745248243,
+      "balanceObserved": false,
+      "balanceObservedAt": null,
       "entryPriceUsd": 0.0024,
       "entryTime": "2026-08-28T00:28:50.643789+00:00",
       "liveRisk": false
@@ -1210,26 +1221,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-08-23T01:09:32.630747+00:00",
-      "totalEth": 0.01991388
-    },
-    {
-      "time": "2026-08-23T01:09:47.820880+00:00",
-      "totalEth": 0.01991388
-    },
-    {
-      "time": "2026-08-23T01:10:02.649293+00:00",
-      "totalEth": 0.01991388
-    },
-    {
-      "time": "2026-08-23T01:10:17.711256+00:00",
-      "totalEth": 0.01991388
-    },
-    {
-      "time": "2026-08-23T01:10:32.771794+00:00",
-      "totalEth": 0.01991388
-    },
-    {
       "time": "2026-08-23T01:10:47.745569+00:00",
       "totalEth": 0.01991388
     },
@@ -1928,6 +1919,26 @@
     {
       "time": "2026-08-29T02:44:44.772583+00:00",
       "totalEth": 0.00410077
+    },
+    {
+      "time": "2026-08-29T03:14:27.160656+00:00",
+      "totalEth": 4.1e-07
+    },
+    {
+      "time": "2026-08-29T03:18:26.750648+00:00",
+      "totalEth": 4.1e-07
+    },
+    {
+      "time": "2026-08-29T03:35:02.612883+00:00",
+      "totalEth": 4.1e-07
+    },
+    {
+      "time": "2026-08-29T03:53:56.896605+00:00",
+      "totalEth": 4.1e-07
+    },
+    {
+      "time": "2026-08-29T04:02:43.658716+00:00",
+      "totalEth": 4.1e-07
     }
   ]
 }
