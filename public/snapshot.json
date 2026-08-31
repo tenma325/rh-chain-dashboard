@@ -1,55 +1,15 @@
 {
-  "generatedAt": "2026-08-31T09:43:38.216542+00:00",
+  "generatedAt": "2026-08-31T09:46:57.933653+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 1.39e-06,
   "walletObserved": true,
   "observedWalletEth": 1.39e-06,
   "observedWeth": 0.0,
-  "observedEthUsd": 2448.43,
-  "walletObservedAt": "2026-08-31T09:43:25.049964+00:00",
+  "observedEthUsd": 2455.21,
+  "walletObservedAt": "2026-08-31T09:46:45.456123+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
-  "positions": [
-    {
-      "address": "0x5a8625d314fdd298101d87932a784b756a401e18",
-      "symbol": "AGI",
-      "ethSpent": 0.0,
-      "remainingPct": 0.0,
-      "bookBalance": 5.24824342374e-07,
-      "observedBalance": 5.24824342374e-07,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-08-31T09:43:27.627923+00:00",
-      "entryPriceUsd": 0.0024,
-      "entryTime": "2026-08-28T00:28:50.643789+00:00",
-      "liveRisk": false
-    },
-    {
-      "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
-      "symbol": "CASHCAT",
-      "ethSpent": 0.0,
-      "remainingPct": 0.0,
-      "bookBalance": 5.33967844768e-07,
-      "observedBalance": 5.33967844768e-07,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-08-31T09:43:29.703385+00:00",
-      "entryPriceUsd": 0.2037,
-      "entryTime": "2026-08-31T08:33:49.842793+00:00",
-      "liveRisk": false
-    },
-    {
-      "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
-      "symbol": "PONS",
-      "ethSpent": 0.0,
-      "remainingPct": 0.0,
-      "bookBalance": 8.07736230362e-07,
-      "observedBalance": 8.07736230362e-07,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-08-31T09:43:31.773056+00:00",
-      "entryPriceUsd": 0.3521,
-      "entryTime": "2026-08-31T09:21:46.615544+00:00",
-      "liveRisk": false
-    }
-  ],
+  "positions": [],
   "trades": [
     {
       "symbol": "TENDIES",
@@ -1226,14 +1186,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-08-23T01:17:17.703304+00:00",
-      "totalEth": 0.01991388
-    },
-    {
-      "time": "2026-08-23T01:17:32.767376+00:00",
-      "totalEth": 0.01991388
-    },
-    {
       "time": "2026-08-23T01:17:47.677275+00:00",
       "totalEth": 0.01991388
     },
@@ -1943,6 +1895,14 @@
     },
     {
       "time": "2026-08-31T09:43:38.210011+00:00",
+      "totalEth": 1.39e-06
+    },
+    {
+      "time": "2026-08-31T09:46:48.096580+00:00",
+      "totalEth": 1.39e-06
+    },
+    {
+      "time": "2026-08-31T09:46:57.919951+00:00",
       "totalEth": 1.39e-06
     }
   ]
