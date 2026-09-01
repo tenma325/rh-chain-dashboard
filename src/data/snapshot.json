@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-01T22:06:44.126640+00:00",
+  "generatedAt": "2026-09-01T22:10:00.846478+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.01484149,
   "walletObserved": true,
   "observedWalletEth": 0.01484149,
   "observedWeth": 0.0,
-  "observedEthUsd": 2413.82,
-  "walletObservedAt": "2026-09-01T22:06:34.098323+00:00",
+  "observedEthUsd": 2416.42,
+  "walletObservedAt": "2026-09-01T22:09:50.638933+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 5.1149645916525515,
       "observedBalance": 5.1149645916525515,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T22:06:39.069687+00:00",
+      "balanceObservedAt": "2026-09-01T22:09:55.732984+00:00",
       "entryPriceUsd": 0.219,
       "entryTime": "2026-09-01T22:00:33.272979+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 2.5766930872714693,
       "observedBalance": 2.5766930872714693,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T22:06:35.858843+00:00",
+      "balanceObservedAt": "2026-09-01T22:09:52.498536+00:00",
       "entryPriceUsd": 0.3992,
       "entryTime": "2026-09-01T17:30:08.134046+00:00",
       "liveRisk": true
@@ -44,7 +44,7 @@
       "bookBalance": 32.387757786394175,
       "observedBalance": 32.387757786394175,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T22:06:37.442586+00:00",
+      "balanceObservedAt": "2026-09-01T22:09:54.161582+00:00",
       "entryPriceUsd": 0.02345,
       "entryTime": "2026-09-01T21:09:28.378986+00:00",
       "liveRisk": true
@@ -1271,10 +1271,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-01T11:45:31.934495+00:00",
-      "totalEth": 0.00127665
-    },
-    {
       "time": "2026-09-01T11:48:50.979574+00:00",
       "totalEth": 0.00127665
     },
@@ -1988,6 +1984,10 @@
     },
     {
       "time": "2026-09-01T22:06:44.121536+00:00",
+      "totalEth": 0.01484149
+    },
+    {
+      "time": "2026-09-01T22:10:00.842160+00:00",
       "totalEth": 0.01484149
     }
   ]
