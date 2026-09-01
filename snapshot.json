@@ -1,28 +1,15 @@
 {
-  "generatedAt": "2026-09-01T21:56:53.691930+00:00",
+  "generatedAt": "2026-09-01T22:00:10.234602+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.01513426,
+  "lastObservedWalletEth": 0.0154188,
   "walletObserved": true,
-  "observedWalletEth": 0.01513426,
+  "observedWalletEth": 0.0154188,
   "observedWeth": 0.0,
-  "observedEthUsd": 2417.04,
-  "walletObservedAt": "2026-09-01T21:56:43.631872+00:00",
+  "observedEthUsd": 2414.58,
+  "walletObservedAt": "2026-09-01T21:59:59.817716+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
-    {
-      "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
-      "symbol": "CASHCAT",
-      "ethSpent": 0.00067664,
-      "remainingPct": 80.0,
-      "bookBalance": 6.350007217659951,
-      "observedBalance": 6.350007217659951,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T21:56:45.392392+00:00",
-      "entryPriceUsd": 0.2008,
-      "entryTime": "2026-09-01T16:50:54.674813+00:00",
-      "liveRisk": true
-    },
     {
       "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
       "symbol": "PONS",
@@ -31,7 +18,7 @@
       "bookBalance": 2.5766930872714693,
       "observedBalance": 2.5766930872714693,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T21:56:46.992432+00:00",
+      "balanceObservedAt": "2026-09-01T22:00:01.637747+00:00",
       "entryPriceUsd": 0.3992,
       "entryTime": "2026-09-01T17:30:08.134046+00:00",
       "liveRisk": true
@@ -44,7 +31,7 @@
       "bookBalance": 32.387757786394175,
       "observedBalance": 32.387757786394175,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-01T21:56:48.787669+00:00",
+      "balanceObservedAt": "2026-09-01T22:00:03.238582+00:00",
       "entryPriceUsd": 0.02345,
       "entryTime": "2026-09-01T21:09:28.378986+00:00",
       "liveRisk": true
@@ -72,10 +59,10 @@
     {
       "symbol": "CASHCAT",
       "entryTime": "2026-09-01T16:51:00.420046+00:00",
-      "exitTime": "",
-      "pnlEth": 0.0,
-      "pnlPct": 0.0,
-      "exitReason": "",
+      "exitTime": "2026-09-01T21:58:56.447004+00:00",
+      "pnlEth": -0.00031311,
+      "pnlPct": -46.27355535860104,
+      "exitReason": "trailing_stop",
       "isWin": false
     },
     {
@@ -1262,10 +1249,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-01T11:35:33.520848+00:00",
-      "totalEth": 0.00127665
-    },
-    {
       "time": "2026-09-01T11:38:53.809679+00:00",
       "totalEth": 0.00127665
     },
@@ -1980,6 +1963,10 @@
     {
       "time": "2026-09-01T21:56:53.687488+00:00",
       "totalEth": 0.01513426
+    },
+    {
+      "time": "2026-09-01T22:00:10.229662+00:00",
+      "totalEth": 0.0154188
     }
   ]
 }
