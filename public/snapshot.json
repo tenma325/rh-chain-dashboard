@@ -1,28 +1,15 @@
 {
-  "generatedAt": "2026-09-02T23:17:24.134608+00:00",
+  "generatedAt": "2026-09-02T23:20:42.625784+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00352828,
+  "lastObservedWalletEth": 0.00362269,
   "walletObserved": true,
-  "observedWalletEth": 0.00352828,
+  "observedWalletEth": 0.00362269,
   "observedWeth": 0.0,
-  "observedEthUsd": 2383.86,
-  "walletObservedAt": "2026-09-02T23:17:12.404563+00:00",
+  "observedEthUsd": 2384.5,
+  "walletObservedAt": "2026-09-02T23:20:30.416292+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
-    {
-      "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
-      "symbol": "PONS",
-      "ethSpent": 0.0002,
-      "remainingPct": 80.0,
-      "bookBalance": 0.9300471326930309,
-      "observedBalance": 0.9300471326930309,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T23:17:14.539473+00:00",
-      "entryPriceUsd": 0.4115,
-      "entryTime": "2026-09-02T18:48:54.818953+00:00",
-      "liveRisk": true
-    },
     {
       "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
       "symbol": "STONKBROKER",
@@ -31,7 +18,7 @@
       "bookBalance": 18.229413267154207,
       "observedBalance": 18.229413267154207,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T23:17:16.408800+00:00",
+      "balanceObservedAt": "2026-09-02T23:20:32.664812+00:00",
       "entryPriceUsd": 0.02015,
       "entryTime": "2026-09-02T19:56:42.343612+00:00",
       "liveRisk": false
@@ -86,10 +73,10 @@
     {
       "symbol": "PONS",
       "entryTime": "2026-09-02T18:48:56.011306+00:00",
-      "exitTime": "",
-      "pnlEth": 0.0,
-      "pnlPct": 0.0,
-      "exitReason": "",
+      "exitTime": "2026-09-02T23:18:40.926023+00:00",
+      "pnlEth": -0.00014835,
+      "pnlPct": -74.17322707956504,
+      "exitReason": "trailing_stop",
       "isWin": false
     },
     {
@@ -688,15 +675,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-30T02:48:03.098997+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "PONS",
-      "reason": "4 agents approved after consult",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
-    },
     {
       "time": "2026-08-30T04:28:46.409033+00:00",
       "allow": true,
@@ -1407,13 +1385,18 @@
       "symbol": "PONS",
       "reason": "4 agents approved after consult | execution=filled",
       "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-02T23:18:29.370976+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "PONS",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-02T13:09:29.086407+00:00",
-      "totalEth": 0.00928232
-    },
     {
       "time": "2026-09-02T13:12:49.248833+00:00",
       "totalEth": 0.00928232
@@ -2129,6 +2112,10 @@
     {
       "time": "2026-09-02T23:17:24.123487+00:00",
       "totalEth": 0.00352828
+    },
+    {
+      "time": "2026-09-02T23:20:42.620980+00:00",
+      "totalEth": 0.00362269
     }
   ]
 }
