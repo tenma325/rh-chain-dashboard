@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T14:27:01.706919+00:00",
+  "generatedAt": "2026-09-02T14:30:27.822132+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.007822,
   "walletObserved": true,
   "observedWalletEth": 0.007822,
   "observedWeth": 0.0,
-  "observedEthUsd": 2402.43,
-  "walletObservedAt": "2026-09-02T14:26:43.773875+00:00",
+  "observedEthUsd": 2400.72,
+  "walletObservedAt": "2026-09-02T14:30:08.525400+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 134.5875914785064,
       "observedBalance": 134.5875914785064,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:26:51.812652+00:00",
+      "balanceObservedAt": "2026-09-02T14:30:15.270558+00:00",
       "entryPriceUsd": 0.003499,
       "entryTime": "2026-09-02T14:11:29.140731+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 1.4859766488971784,
       "observedBalance": 1.4859766488971784,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:26:47.952935+00:00",
+      "balanceObservedAt": "2026-09-02T14:30:11.430322+00:00",
       "entryPriceUsd": 0.2545,
       "entryTime": "2026-09-02T11:29:53.278676+00:00",
       "liveRisk": true
@@ -44,7 +44,7 @@
       "bookBalance": 16.547470856738222,
       "observedBalance": 16.547470856738222,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:26:53.804110+00:00",
+      "balanceObservedAt": "2026-09-02T14:30:17.200301+00:00",
       "entryPriceUsd": 0.0287,
       "entryTime": "2026-09-02T14:12:23.794661+00:00",
       "liveRisk": true
@@ -57,7 +57,7 @@
       "bookBalance": 10.388339745029866,
       "observedBalance": 10.388339745029866,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:26:49.883848+00:00",
+      "balanceObservedAt": "2026-09-02T14:30:13.320003+00:00",
       "entryPriceUsd": 0.03883,
       "entryTime": "2026-09-02T14:09:44.742144+00:00",
       "liveRisk": true
@@ -66,14 +66,14 @@
       "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
       "symbol": "STONKBROKER",
       "ethSpent": 0.00024399,
-      "remainingPct": 80.0,
+      "remainingPct": 100.0,
       "bookBalance": 22.786766583942757,
       "observedBalance": 22.786766583942757,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:26:45.999261+00:00",
+      "balanceObservedAt": "2026-09-02T14:30:21.101972+00:00",
       "entryPriceUsd": 0.01985,
-      "entryTime": "2026-09-02T10:44:44.134710+00:00",
-      "liveRisk": true
+      "entryTime": "2026-09-02T10:44:45.490889+00:00",
+      "liveRisk": false
     }
   ],
   "trades": [
@@ -1396,10 +1396,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-02T04:05:59.913525+00:00",
-      "totalEth": 0.00982907
-    },
-    {
       "time": "2026-09-02T04:10:20.641821+00:00",
       "totalEth": 0.00982907
     },
@@ -2113,6 +2109,10 @@
     },
     {
       "time": "2026-09-02T14:27:01.702175+00:00",
+      "totalEth": 0.007822
+    },
+    {
+      "time": "2026-09-02T14:30:27.816925+00:00",
       "totalEth": 0.007822
     }
   ]
