@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T20:34:51.273675+00:00",
+  "generatedAt": "2026-09-02T20:38:12.230016+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.0038777,
+  "lastObservedWalletEth": 0.00373381,
   "walletObserved": true,
-  "observedWalletEth": 0.0038777,
+  "observedWalletEth": 0.00373381,
   "observedWeth": 0.0,
-  "observedEthUsd": 2395.0,
-  "walletObservedAt": "2026-09-02T20:34:34.816064+00:00",
+  "observedEthUsd": 2395.19,
+  "walletObservedAt": "2026-09-02T20:37:57.662063+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 2.482120628510734,
       "observedBalance": 2.482120628510734,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T20:34:37.103567+00:00",
+      "balanceObservedAt": "2026-09-02T20:37:59.966808+00:00",
       "entryPriceUsd": 0.0287,
       "entryTime": "2026-09-02T14:12:23.794661+00:00",
       "liveRisk": true
@@ -31,22 +31,9 @@
       "bookBalance": 1.1625589158662886,
       "observedBalance": 1.1625589158662886,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T20:34:39.061158+00:00",
+      "balanceObservedAt": "2026-09-02T20:38:01.928467+00:00",
       "entryPriceUsd": 0.4115,
       "entryTime": "2026-09-02T18:48:54.818953+00:00",
-      "liveRisk": true
-    },
-    {
-      "address": "0x5F038759F6DE38fD3A85C0440daff1240238BaC8",
-      "symbol": "SEMI",
-      "ethSpent": 0.0002,
-      "remainingPct": 15.0,
-      "bookBalance": 1.5350805794986013,
-      "observedBalance": 1.5350805794986013,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T20:34:41.047785+00:00",
-      "entryPriceUsd": 0.04115,
-      "entryTime": "2026-09-02T18:52:25.882569+00:00",
       "liveRisk": true
     },
     {
@@ -57,7 +44,7 @@
       "bookBalance": 18.229413267154207,
       "observedBalance": 18.229413267154207,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T20:34:43.061758+00:00",
+      "balanceObservedAt": "2026-09-02T20:38:04.076969+00:00",
       "entryPriceUsd": 0.02015,
       "entryTime": "2026-09-02T19:56:42.343612+00:00",
       "liveRisk": false
@@ -94,10 +81,10 @@
     {
       "symbol": "SEMI",
       "entryTime": "2026-09-02T18:52:27.108953+00:00",
-      "exitTime": "",
-      "pnlEth": 0.0,
-      "pnlPct": 0.0,
-      "exitReason": "",
+      "exitTime": "2026-09-02T20:37:40.233672+00:00",
+      "pnlEth": -0.00055638,
+      "pnlPct": -278.1920804775803,
+      "exitReason": "trailing_stop",
       "isWin": false
     },
     {
@@ -1437,10 +1424,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-02T10:25:46.486081+00:00",
-      "totalEth": 0.00990118
-    },
-    {
       "time": "2026-09-02T10:29:05.676236+00:00",
       "totalEth": 0.00993343
     },
@@ -2155,6 +2138,10 @@
     {
       "time": "2026-09-02T20:34:51.264244+00:00",
       "totalEth": 0.0038777
+    },
+    {
+      "time": "2026-09-02T20:38:12.224950+00:00",
+      "totalEth": 0.00373381
     }
   ]
 }
