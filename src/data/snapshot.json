@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T11:59:32.855144+00:00",
+  "generatedAt": "2026-09-02T12:02:56.748563+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00930195,
+  "lastObservedWalletEth": 0.00928232,
   "walletObserved": true,
-  "observedWalletEth": 0.00930195,
+  "observedWalletEth": 0.00928232,
   "observedWeth": 0.0,
-  "observedEthUsd": 2381.49,
-  "walletObservedAt": "2026-09-02T11:59:02.753327+00:00",
+  "observedEthUsd": 2379.81,
+  "walletObservedAt": "2026-09-02T12:02:44.536856+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 1.8574708111214728,
       "observedBalance": 1.8574708111214728,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T11:59:16.099512+00:00",
+      "balanceObservedAt": "2026-09-02T12:02:50.685129+00:00",
       "entryPriceUsd": 0.2545,
       "entryTime": "2026-09-02T11:29:53.278676+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 1.2020254676325592,
       "observedBalance": 1.2020254676325592,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T11:59:08.140376+00:00",
+      "balanceObservedAt": "2026-09-02T12:02:46.803923+00:00",
       "entryPriceUsd": 0.3625,
       "entryTime": "2026-09-02T10:15:04.507554+00:00",
       "liveRisk": true
@@ -41,10 +41,10 @@
       "symbol": "STONKBROKER",
       "ethSpent": 0.00024399,
       "remainingPct": 80.0,
-      "bookBalance": 28.48345822992845,
-      "observedBalance": 28.48345822992845,
+      "bookBalance": 22.786766583942757,
+      "observedBalance": 22.786766583942757,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T11:59:12.167604+00:00",
+      "balanceObservedAt": "2026-09-02T12:02:48.753484+00:00",
       "entryPriceUsd": 0.01985,
       "entryTime": "2026-09-02T10:44:44.134710+00:00",
       "liveRisk": true
@@ -602,15 +602,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-28T00:49:15.383181+00:00",
-      "allow": true,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "CASHCAT",
-      "reason": "5 agents approved after consult",
-      "votes": "市場①流動性・出来高・1h=approve, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject, 決済③見送り/反対=reject"
-    },
     {
       "time": "2026-08-28T02:31:40.991170+00:00",
       "allow": true,
@@ -1321,13 +1312,18 @@
       "symbol": "CASHCAT",
       "reason": "8 agents approved after consult",
       "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=reject, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject"
+    },
+    {
+      "time": "2026-09-02T11:59:03.392549+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "STONKBROKER",
+      "reason": "4 agents approved after consult | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-02T01:32:32.619282+00:00",
-      "totalEth": 0.01488809
-    },
     {
       "time": "2026-09-02T01:36:48.558797+00:00",
       "totalEth": 0.01488809
@@ -2043,6 +2039,10 @@
     {
       "time": "2026-09-02T11:59:32.849925+00:00",
       "totalEth": 0.00930195
+    },
+    {
+      "time": "2026-09-02T12:02:56.743878+00:00",
+      "totalEth": 0.00928232
     }
   ]
 }
