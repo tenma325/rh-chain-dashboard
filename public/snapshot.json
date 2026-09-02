@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T02:14:49.596175+00:00",
+  "generatedAt": "2026-09-02T02:18:08.202687+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.01488809,
   "walletObserved": true,
   "observedWalletEth": 0.01488809,
   "observedWeth": 0.0,
-  "observedEthUsd": 2402.06,
-  "walletObservedAt": "2026-09-02T02:14:36.933355+00:00",
+  "observedEthUsd": 2404.33,
+  "walletObservedAt": "2026-09-02T02:17:56.214250+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 5.1149645916525515,
       "observedBalance": 5.1149645916525515,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T02:14:39.263075+00:00",
+      "balanceObservedAt": "2026-09-02T02:17:58.469017+00:00",
       "entryPriceUsd": 0.219,
       "entryTime": "2026-09-01T22:00:33.272979+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 33.50263621864626,
       "observedBalance": 33.50263621864626,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T02:14:41.168047+00:00",
+      "balanceObservedAt": "2026-09-02T02:18:00.348455+00:00",
       "entryPriceUsd": 0.02446,
       "entryTime": "2026-09-02T01:15:07.059167+00:00",
       "liveRisk": true
@@ -544,15 +544,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-26T22:29:34.062826+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "PONS",
-      "reason": "8 agents approved after consult",
-      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
-    },
     {
       "time": "2026-08-26T23:06:17.307392+00:00",
       "allow": true,
@@ -1263,13 +1254,18 @@
       "symbol": "PONS",
       "reason": "mandatory trailing_stop; tape/dissent cannot block | execution=filled",
       "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
+    },
+    {
+      "time": "2026-09-02T02:17:43.887518+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "PONS",
+      "reason": "fomo veto: fomo.family dump sell heat 0.80; fomoapi.io sell trader=MikeVickEBC usd=12000 MikeVickEBC sold $PONS (+$1",
+      "votes": "市場①FOMO(fomo.family)=reject, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-01T15:41:20.682606+00:00",
-      "totalEth": 0.01770748
-    },
     {
       "time": "2026-09-01T15:44:39.303890+00:00",
       "totalEth": 0.01770748
@@ -1984,6 +1980,10 @@
     },
     {
       "time": "2026-09-02T02:14:49.591259+00:00",
+      "totalEth": 0.01488809
+    },
+    {
+      "time": "2026-09-02T02:18:08.191231+00:00",
       "totalEth": 0.01488809
     }
   ]
