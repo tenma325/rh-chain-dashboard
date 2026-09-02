@@ -1,15 +1,28 @@
 {
-  "generatedAt": "2026-09-02T14:06:05.056053+00:00",
+  "generatedAt": "2026-09-02T14:09:39.621437+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00924958,
+  "lastObservedWalletEth": 0.00867346,
   "walletObserved": true,
-  "observedWalletEth": 0.00924958,
+  "observedWalletEth": 0.00867346,
   "observedWeth": 0.0,
-  "observedEthUsd": 2402.07,
-  "walletObservedAt": "2026-09-02T14:05:52.655215+00:00",
+  "observedEthUsd": 2406.58,
+  "walletObservedAt": "2026-09-02T14:09:13.093153+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
+    {
+      "address": "0xdCe5C6317222C5b6e5d963EeAC010DFc4dA9e6da",
+      "symbol": "$1",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 117.68855273970749,
+      "observedBalance": 117.68855273970749,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-02T14:09:33.323598+00:00",
+      "entryPriceUsd": 0.004837,
+      "entryTime": "2026-09-02T14:08:00.500451+00:00",
+      "liveRisk": true
+    },
     {
       "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
       "symbol": "CASHCAT",
@@ -18,7 +31,7 @@
       "bookBalance": 1.4859766488971784,
       "observedBalance": 1.4859766488971784,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:05:59.198055+00:00",
+      "balanceObservedAt": "2026-09-02T14:09:29.284999+00:00",
       "entryPriceUsd": 0.2545,
       "entryTime": "2026-09-02T11:29:53.278676+00:00",
       "liveRisk": true
@@ -31,7 +44,7 @@
       "bookBalance": 1.2020254676325592,
       "observedBalance": 1.2020254676325592,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:05:55.335493+00:00",
+      "balanceObservedAt": "2026-09-02T14:09:15.338907+00:00",
       "entryPriceUsd": 0.3625,
       "entryTime": "2026-09-02T10:15:04.507554+00:00",
       "liveRisk": true
@@ -44,13 +57,44 @@
       "bookBalance": 22.786766583942757,
       "observedBalance": 22.786766583942757,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:05:57.258990+00:00",
+      "balanceObservedAt": "2026-09-02T14:09:24.540475+00:00",
       "entryPriceUsd": 0.01985,
       "entryTime": "2026-09-02T10:44:44.134710+00:00",
+      "liveRisk": true
+    },
+    {
+      "address": "0xD5f1afEA47b1A9eab414D2ee740cF1d6d039E725",
+      "symbol": "microduck",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 12.024307949684657,
+      "observedBalance": 12.024307949684657,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-02T14:09:31.288647+00:00",
+      "entryPriceUsd": 0.03872,
+      "entryTime": "2026-09-02T14:07:07.136423+00:00",
       "liveRisk": true
     }
   ],
   "trades": [
+    {
+      "symbol": "$1",
+      "entryTime": "2026-09-02T14:08:02.153298+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
+    {
+      "symbol": "microduck",
+      "entryTime": "2026-09-02T14:07:08.454767+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
     {
       "symbol": "CASHCAT",
       "entryTime": "2026-09-02T11:29:55.384902+00:00",
@@ -1325,10 +1369,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-02T03:44:31.292589+00:00",
-      "totalEth": 0.00982907
-    },
-    {
       "time": "2026-09-02T03:47:51.200653+00:00",
       "totalEth": 0.00982907
     },
@@ -2043,6 +2083,10 @@
     {
       "time": "2026-09-02T14:06:05.049510+00:00",
       "totalEth": 0.00924958
+    },
+    {
+      "time": "2026-09-02T14:09:39.598848+00:00",
+      "totalEth": 0.00867346
     }
   ]
 }
