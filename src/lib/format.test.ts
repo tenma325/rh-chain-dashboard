@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatAge, formatQty, formatUsd } from "./format";
+import { formatAge, formatJst, formatQty, formatUsd } from "./format";
 
 describe("formatUsd", () => {
   it("keeps numeric zero distinct from null", () => {
@@ -21,6 +21,14 @@ describe("formatQty", () => {
     expect(formatQty(0)).toBe("0");
     expect(formatQty(4.13e-7)).toBe("<0.000001");
     expect(formatQty(null, true)).toBe("同期中");
+  });
+});
+
+describe("formatJst", () => {
+  it("labels an empty SNAPSHOT exit as 保有中, not Invalid Date", () => {
+    expect(formatJst("")).toBe("保有中");
+    expect(formatJst(null)).toBe("保有中");
+    expect(formatJst(undefined)).toBe("保有中");
   });
 });
 
