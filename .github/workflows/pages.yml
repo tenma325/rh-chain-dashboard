@@ -1,3 +1,8 @@
+# Direct Upload on purpose: Git Provider stays No.
+# Connecting Cloudflare Pages Git is irreversible, would dual-deploy
+# against this wrangler-action, and recreating the project would drop
+# trade.ferrisgg.vip plus Pages Functions secrets.
+# https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/
 name: Deploy Pages
 
 on:
