@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T14:40:38.625627+00:00",
+  "generatedAt": "2026-09-02T14:44:02.220794+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00758309,
+  "lastObservedWalletEth": 0.00734499,
   "walletObserved": true,
-  "observedWalletEth": 0.00758309,
+  "observedWalletEth": 0.00734499,
   "observedWeth": 0.0,
-  "observedEthUsd": 2398.58,
-  "walletObservedAt": "2026-09-02T14:40:22.175645+00:00",
+  "observedEthUsd": 2401.86,
+  "walletObservedAt": "2026-09-02T14:43:45.491615+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 16.547470856738222,
       "observedBalance": 16.547470856738222,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:40:26.400156+00:00",
+      "balanceObservedAt": "2026-09-02T14:43:49.840921+00:00",
       "entryPriceUsd": 0.0287,
       "entryTime": "2026-09-02T14:12:23.794661+00:00",
       "liveRisk": true
@@ -27,11 +27,11 @@
       "address": "0x5F038759F6DE38fD3A85C0440daff1240238BaC8",
       "symbol": "SEMI",
       "ethSpent": 0.0002,
-      "remainingPct": 100.0,
+      "remainingPct": 80.0,
       "bookBalance": 10.388339745029866,
-      "observedBalance": 10.388339745029866,
+      "observedBalance": 8.310671796023893,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:40:24.435693+00:00",
+      "balanceObservedAt": "2026-09-02T14:43:47.831049+00:00",
       "entryPriceUsd": 0.03883,
       "entryTime": "2026-09-02T14:09:44.742144+00:00",
       "liveRisk": true
@@ -44,7 +44,7 @@
       "bookBalance": 22.786766583942757,
       "observedBalance": 22.786766583942757,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T14:40:28.391247+00:00",
+      "balanceObservedAt": "2026-09-02T14:43:51.870814+00:00",
       "entryPriceUsd": 0.01985,
       "entryTime": "2026-09-02T10:44:45.490889+00:00",
       "liveRisk": false
@@ -647,15 +647,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-28T14:47:14.405956+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "PONS",
-      "reason": "4 agents approved after consult",
-      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
-    },
     {
       "time": "2026-08-28T15:11:04.929068+00:00",
       "allow": true,
@@ -1366,13 +1357,18 @@
       "symbol": "CACHE",
       "reason": "mandatory stop_loss; tape/dissent cannot block | execution=filled",
       "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=abstain, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
+    },
+    {
+      "time": "2026-09-02T14:43:12.460729+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "SEMI",
+      "reason": "3 agents approved after consult | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=abstain, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-02T04:20:29.601498+00:00",
-      "totalEth": 0.00967654
-    },
     {
       "time": "2026-09-02T04:23:48.364249+00:00",
       "totalEth": 0.00967654
@@ -2088,6 +2084,10 @@
     {
       "time": "2026-09-02T14:40:38.619913+00:00",
       "totalEth": 0.00758309
+    },
+    {
+      "time": "2026-09-02T14:44:02.214791+00:00",
+      "totalEth": 0.00734499
     }
   ]
 }
