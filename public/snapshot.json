@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T19:37:25.811808+00:00",
+  "generatedAt": "2026-09-02T19:40:48.510913+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.00399117,
   "walletObserved": true,
   "observedWalletEth": 0.00399117,
   "observedWeth": 0.0,
-  "observedEthUsd": 2384.34,
-  "walletObservedAt": "2026-09-02T19:37:07.277101+00:00",
+  "observedEthUsd": 2387.6,
+  "walletObservedAt": "2026-09-02T19:40:32.243364+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -15,10 +15,10 @@
       "symbol": "CHUMP",
       "ethSpent": 0.0002,
       "remainingPct": 40.0,
-      "bookBalance": 9.928482514042933,
+      "bookBalance": 6.618988342695289,
       "observedBalance": 6.618988342695289,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T19:37:09.504614+00:00",
+      "balanceObservedAt": "2026-09-02T19:40:34.482516+00:00",
       "entryPriceUsd": 0.0287,
       "entryTime": "2026-09-02T14:12:23.794661+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 1.1625589158662886,
       "observedBalance": 1.1625589158662886,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T19:37:14.253535+00:00",
+      "balanceObservedAt": "2026-09-02T19:40:38.352537+00:00",
       "entryPriceUsd": 0.4115,
       "entryTime": "2026-09-02T18:48:54.818953+00:00",
       "liveRisk": true
@@ -41,10 +41,10 @@
       "symbol": "SEMI",
       "ethSpent": 0.0002,
       "remainingPct": 40.0,
-      "bookBalance": 6.140322317994405,
+      "bookBalance": 4.0935482119962705,
       "observedBalance": 4.0935482119962705,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T19:37:16.592970+00:00",
+      "balanceObservedAt": "2026-09-02T19:40:40.554078+00:00",
       "entryPriceUsd": 0.04115,
       "entryTime": "2026-09-02T18:52:25.882569+00:00",
       "liveRisk": true
@@ -57,7 +57,7 @@
       "bookBalance": 18.229413267154207,
       "observedBalance": 18.229413267154207,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T19:37:11.795234+00:00",
+      "balanceObservedAt": "2026-09-02T19:40:36.442987+00:00",
       "entryPriceUsd": 0.01985,
       "entryTime": "2026-09-02T10:44:45.490889+00:00",
       "liveRisk": false
@@ -714,24 +714,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-29T11:49:29.666231+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "CASHCAT",
-      "reason": "4 agents approved after consult",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
-    },
-    {
-      "time": "2026-08-29T13:49:54.225753+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "PONS",
-      "reason": "4 agents approved after consult",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain, 決済③見送り/反対=abstain"
-    },
     {
       "time": "2026-08-29T16:23:27.005063+00:00",
       "allow": false,
@@ -1433,13 +1415,27 @@
       "symbol": "DEMOTHREE",
       "reason": "mandatory trailing_stop; tape/dissent cannot block | execution=filled",
       "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=abstain, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
+    },
+    {
+      "time": "2026-09-02T19:36:08.929342+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "CHUMP",
+      "reason": "4 agents approved after consult | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-02T19:36:24.620281+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "staged_tp",
+      "symbol": "SEMI",
+      "reason": "4 agents approved after consult | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-02T09:27:11.914111+00:00",
-      "totalEth": 0.00965633
-    },
     {
       "time": "2026-09-02T09:31:13.042137+00:00",
       "totalEth": 0.00965633
@@ -2154,6 +2150,10 @@
     },
     {
       "time": "2026-09-02T19:37:25.807238+00:00",
+      "totalEth": 0.00399117
+    },
+    {
+      "time": "2026-09-02T19:40:48.503536+00:00",
       "totalEth": 0.00399117
     }
   ]
