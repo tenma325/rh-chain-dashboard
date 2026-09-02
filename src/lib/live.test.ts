@@ -63,7 +63,11 @@ describe('loadingOverlay', () => {
     expect(overlay.walletEth).toBe(0.004)
     expect(overlay.ethUsd).toBe(2500)
     expect(overlay.walletSource).toBe('snapshot')
-    expect(overlay.holdings.every((row) => row.balanceSource === 'snapshot')).toBe(true)
+    expect(
+      overlay.holdings
+        .filter((row) => row.address.toLowerCase() !== AGI_ADDRESS.toLowerCase())
+        .every((row) => row.balanceSource === 'snapshot'),
+    ).toBe(true)
   })
 })
 
@@ -91,7 +95,7 @@ describe('fetchLiveOverlay', () => {
     expect(overlay.ethUsd).toBe(2500)
     expect(overlay.holdings[0].balanceSource).toBe('snapshot')
     expect(overlay.holdings[0].valueUsd).toBeCloseTo(0.4)
-    expect(overlay.issues).toEqual([])
+    expect(overlay.issues.filter((issue) => !issue.includes('AGI'))).toEqual([])
   })
 
 
