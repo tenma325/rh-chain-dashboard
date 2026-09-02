@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-02T01:29:14.490392+00:00",
+  "generatedAt": "2026-09-02T01:32:32.623911+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.01459058,
+  "lastObservedWalletEth": 0.01488809,
   "walletObserved": true,
-  "observedWalletEth": 0.01459058,
+  "observedWalletEth": 0.01488809,
   "observedWeth": 0.0,
-  "observedEthUsd": 2409.42,
-  "walletObservedAt": "2026-09-02T01:29:02.654312+00:00",
+  "observedEthUsd": 2410.11,
+  "walletObservedAt": "2026-09-02T01:32:20.930239+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,22 +18,9 @@
       "bookBalance": 5.1149645916525515,
       "observedBalance": 5.1149645916525515,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T01:29:06.745483+00:00",
+      "balanceObservedAt": "2026-09-02T01:32:23.084760+00:00",
       "entryPriceUsd": 0.219,
       "entryTime": "2026-09-01T22:00:33.272979+00:00",
-      "liveRisk": true
-    },
-    {
-      "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
-      "symbol": "PONS",
-      "ethSpent": 0.00052021,
-      "remainingPct": 80.0,
-      "bookBalance": 2.5766930872714693,
-      "observedBalance": 2.5766930872714693,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T01:29:04.829975+00:00",
-      "entryPriceUsd": 0.3992,
-      "entryTime": "2026-09-01T17:30:08.134046+00:00",
       "liveRisk": true
     },
     {
@@ -44,7 +31,7 @@
       "bookBalance": 33.50263621864626,
       "observedBalance": 33.50263621864626,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-02T01:29:08.593487+00:00",
+      "balanceObservedAt": "2026-09-02T01:32:24.940872+00:00",
       "entryPriceUsd": 0.02446,
       "entryTime": "2026-09-02T01:15:07.059167+00:00",
       "liveRisk": true
@@ -81,10 +68,10 @@
     {
       "symbol": "PONS",
       "entryTime": "2026-09-01T17:30:15.075995+00:00",
-      "exitTime": "",
-      "pnlEth": 0.0,
-      "pnlPct": 0.0,
-      "exitReason": "",
+      "exitTime": "2026-09-02T01:30:44.096703+00:00",
+      "pnlEth": -0.00017364,
+      "pnlPct": -33.37917059846464,
+      "exitReason": "trailing_stop",
       "isWin": false
     },
     {
@@ -557,15 +544,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-08-26T22:12:05.704542+00:00",
-      "allow": true,
-      "side": "sell",
-      "action": "staged_tp",
-      "symbol": "TENDIES",
-      "reason": "8 agents approved after consult",
-      "votes": "市場①流動性・出来高・1h=abstain, 市場②Xほか常駐=approve, 市場③オンチェーン/CA/触媒=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, 市場④マクロ/レジーム=approve, 市場⑤クジラフロー=approve, 市場⑥流動深度=approve"
-    },
     {
       "time": "2026-08-26T22:29:34.062826+00:00",
       "allow": true,
@@ -1276,13 +1254,18 @@
       "symbol": "STONKBROKER",
       "reason": "8 agents approved after consult",
       "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=reject, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject"
+    },
+    {
+      "time": "2026-09-02T01:30:22.001313+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "trailing_stop",
+      "symbol": "PONS",
+      "reason": "mandatory trailing_stop; tape/dissent cannot block | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-01T14:58:14.933209+00:00",
-      "totalEth": 0.01770748
-    },
     {
       "time": "2026-09-01T15:01:33.893582+00:00",
       "totalEth": 0.01770748
@@ -1998,6 +1981,10 @@
     {
       "time": "2026-09-02T01:29:14.485703+00:00",
       "totalEth": 0.01459058
+    },
+    {
+      "time": "2026-09-02T01:32:32.619282+00:00",
+      "totalEth": 0.01488809
     }
   ]
 }
