@@ -1,15 +1,28 @@
 {
-  "generatedAt": "2026-09-03T10:38:25.147689+00:00",
+  "generatedAt": "2026-09-03T10:41:48.822179+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.0023935,
+  "lastObservedWalletEth": 0.00178476,
   "walletObserved": true,
-  "observedWalletEth": 0.0023935,
+  "observedWalletEth": 0.00178476,
   "observedWeth": 0.0,
-  "observedEthUsd": 2390.82,
-  "walletObservedAt": "2026-09-03T10:38:08.131956+00:00",
+  "observedEthUsd": 2392.04,
+  "walletObservedAt": "2026-09-03T10:41:32.608015+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
+    {
+      "address": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
+      "symbol": "CASHCAT",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 1.905148688476884,
+      "observedBalance": 1.905148688476884,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-03T10:41:42.756167+00:00",
+      "entryPriceUsd": 0.2539,
+      "entryTime": "2026-09-03T10:39:09.178166+00:00",
+      "liveRisk": true
+    },
     {
       "address": "0xbe98b75361935b18d688409424a869a4C3dC7401",
       "symbol": "NUDES",
@@ -18,7 +31,7 @@
       "bookBalance": 39.09353824736996,
       "observedBalance": 39.09353824736996,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T10:38:14.592555+00:00",
+      "balanceObservedAt": "2026-09-03T10:41:38.777593+00:00",
       "entryPriceUsd": 0.01212,
       "entryTime": "2026-09-03T10:37:21.673166+00:00",
       "liveRisk": true
@@ -31,7 +44,7 @@
       "bookBalance": 0.8890866297145902,
       "observedBalance": 0.8890866297145902,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T10:38:10.534562+00:00",
+      "balanceObservedAt": "2026-09-03T10:41:34.967014+00:00",
       "entryPriceUsd": 0.5375,
       "entryTime": "2026-09-03T10:34:39.178669+00:00",
       "liveRisk": true
@@ -44,7 +57,7 @@
       "bookBalance": 395.46487652764,
       "observedBalance": 395.46487652764,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T10:38:12.555006+00:00",
+      "balanceObservedAt": "2026-09-03T10:41:36.872054+00:00",
       "entryPriceUsd": 0.001197,
       "entryTime": "2026-09-03T10:36:28.043901+00:00",
       "liveRisk": true
@@ -55,15 +68,24 @@
       "ethSpent": 0.0002,
       "remainingPct": 100.0,
       "bookBalance": 21.680129536052956,
-      "observedBalance": 5e-18,
+      "observedBalance": 21.680129536052956,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T10:38:16.491198+00:00",
+      "balanceObservedAt": "2026-09-03T10:41:40.707717+00:00",
       "entryPriceUsd": 0.02217,
       "entryTime": "2026-09-03T10:38:15.931483+00:00",
       "liveRisk": true
     }
   ],
   "trades": [
+    {
+      "symbol": "CASHCAT",
+      "entryTime": "2026-09-03T10:39:10.567864+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
     {
       "symbol": "STONKBROKER",
       "entryTime": "2026-09-03T10:38:17.230148+00:00",
@@ -1473,10 +1495,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-03T00:43:32.887779+00:00",
-      "totalEth": 0.00362269
-    },
-    {
       "time": "2026-09-03T00:46:51.654358+00:00",
       "totalEth": 0.00362269
     },
@@ -2191,6 +2209,10 @@
     {
       "time": "2026-09-03T10:38:25.135193+00:00",
       "totalEth": 0.0023935
+    },
+    {
+      "time": "2026-09-03T10:41:48.815339+00:00",
+      "totalEth": 0.00178476
     }
   ]
 }
