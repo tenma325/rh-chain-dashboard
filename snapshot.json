@@ -1,15 +1,28 @@
 {
-  "generatedAt": "2026-09-03T10:35:01.048537+00:00",
+  "generatedAt": "2026-09-03T10:38:25.147689+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00299408,
+  "lastObservedWalletEth": 0.0023935,
   "walletObserved": true,
-  "observedWalletEth": 0.00299408,
+  "observedWalletEth": 0.0023935,
   "observedWeth": 0.0,
-  "observedEthUsd": 2392.76,
-  "walletObservedAt": "2026-09-03T10:34:48.610861+00:00",
+  "observedEthUsd": 2390.82,
+  "walletObservedAt": "2026-09-03T10:38:08.131956+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
+    {
+      "address": "0xbe98b75361935b18d688409424a869a4C3dC7401",
+      "symbol": "NUDES",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 39.09353824736996,
+      "observedBalance": 39.09353824736996,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-03T10:38:14.592555+00:00",
+      "entryPriceUsd": 0.01212,
+      "entryTime": "2026-09-03T10:37:21.673166+00:00",
+      "liveRisk": true
+    },
     {
       "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
       "symbol": "PONS",
@@ -18,13 +31,66 @@
       "bookBalance": 0.8890866297145902,
       "observedBalance": 0.8890866297145902,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T10:34:50.964182+00:00",
+      "balanceObservedAt": "2026-09-03T10:38:10.534562+00:00",
       "entryPriceUsd": 0.5375,
       "entryTime": "2026-09-03T10:34:39.178669+00:00",
+      "liveRisk": true
+    },
+    {
+      "address": "0x38bb87Cf3E7344A82be7CD671c191f015b97eEe6",
+      "symbol": "SANTACOIN",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 395.46487652764,
+      "observedBalance": 395.46487652764,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-03T10:38:12.555006+00:00",
+      "entryPriceUsd": 0.001197,
+      "entryTime": "2026-09-03T10:36:28.043901+00:00",
+      "liveRisk": true
+    },
+    {
+      "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
+      "symbol": "STONKBROKER",
+      "ethSpent": 0.0002,
+      "remainingPct": 100.0,
+      "bookBalance": 21.680129536052956,
+      "observedBalance": 5e-18,
+      "balanceObserved": true,
+      "balanceObservedAt": "2026-09-03T10:38:16.491198+00:00",
+      "entryPriceUsd": 0.02217,
+      "entryTime": "2026-09-03T10:38:15.931483+00:00",
       "liveRisk": true
     }
   ],
   "trades": [
+    {
+      "symbol": "STONKBROKER",
+      "entryTime": "2026-09-03T10:38:17.230148+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
+    {
+      "symbol": "NUDES",
+      "entryTime": "2026-09-03T10:37:23.034518+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
+    {
+      "symbol": "SANTACOIN",
+      "entryTime": "2026-09-03T10:36:29.401901+00:00",
+      "exitTime": "",
+      "pnlEth": 0.0,
+      "pnlPct": 0.0,
+      "exitReason": "",
+      "isWin": false
+    },
     {
       "symbol": "PONS",
       "entryTime": "2026-09-03T10:34:40.740465+00:00",
@@ -1407,10 +1473,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-03T00:40:15.186491+00:00",
-      "totalEth": 0.00362269
-    },
-    {
       "time": "2026-09-03T00:43:32.887779+00:00",
       "totalEth": 0.00362269
     },
@@ -2125,6 +2187,10 @@
     {
       "time": "2026-09-03T10:35:01.043169+00:00",
       "totalEth": 0.00299408
+    },
+    {
+      "time": "2026-09-03T10:38:25.135193+00:00",
+      "totalEth": 0.0023935
     }
   ]
 }
