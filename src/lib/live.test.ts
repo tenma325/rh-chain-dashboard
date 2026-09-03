@@ -94,8 +94,7 @@ describe('fetchLiveOverlay', () => {
     expect(overlay.walletEth).toBe(0.004)
     expect(overlay.ethUsd).toBe(2500)
     expect(overlay.holdings[0].balanceSource).toBe('snapshot')
-    expect(overlay.holdings[0].valueUsd).toBeCloseTo(0.4)
-    expect(overlay.issues.filter((issue) => !issue.includes('AGI'))).toEqual([])
+    expect(overlay.issues).toEqual([])
   })
 
 

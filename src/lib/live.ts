@@ -1,5 +1,5 @@
 import snapshotJson from "../data/snapshot.json";
-import { AGI_ADDRESS, allowlist, resolveHeldBalance } from "./ledger";
+import { AGI_ADDRESS, allowlist, isOpenBookPosition, resolveHeldBalance } from "./ledger";
 import type { Holding, LiveOverlay, Snapshot, SnapshotPosition } from "./types";
 import { isFiniteNumber } from "./format";
 
@@ -137,7 +137,8 @@ export async function fetchLiveOverlay(snapshot: Snapshot = SNAPSHOT): Promise<L
       bookBalance: spec.bookBalance,
       observedBalance: spec.balanceObserved ? spec.observedBalance : null,
     });
-    if (held.source === "unknown") {
+    const isAgi = spec.address.toLowerCase() === AGI_ADDRESS.toLowerCase();
+    if (held.source === "unknown" && isOpenBookPosition(spec) && !isAgi) {
       issues.push(`${spec.symbol}の保有数量を取得できませんでした`);
     }
     return toHolding(spec, held.balance, bestPair(pairs, spec.address), held.source);
