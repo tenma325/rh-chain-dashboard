@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-03T11:43:45.337365+00:00",
+  "generatedAt": "2026-09-03T11:47:14.709047+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00118247,
+  "lastObservedWalletEth": 0.00109977,
   "walletObserved": true,
-  "observedWalletEth": 0.00118247,
+  "observedWalletEth": 0.00109977,
   "observedWeth": 0.0,
-  "observedEthUsd": 2408.97,
-  "walletObservedAt": "2026-09-03T11:43:25.348853+00:00",
+  "observedEthUsd": 2411.14,
+  "walletObservedAt": "2026-09-03T11:46:54.560651+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 0.5715446065430652,
       "observedBalance": 0.5715446065430652,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T11:43:34.445713+00:00",
+      "balanceObservedAt": "2026-09-03T11:47:03.429778+00:00",
       "entryPriceUsd": 0.2539,
       "entryTime": "2026-09-03T10:39:09.178166+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 13.645472321861742,
       "observedBalance": 13.645472321861742,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T11:43:36.565020+00:00",
+      "balanceObservedAt": "2026-09-03T11:47:05.494368+00:00",
       "entryPriceUsd": 0.03471,
       "entryTime": "2026-09-03T10:42:33.668037+00:00",
       "liveRisk": true
@@ -44,22 +44,9 @@
       "bookBalance": 0.8890866297145902,
       "observedBalance": 0.8890866297145902,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T11:43:27.786376+00:00",
+      "balanceObservedAt": "2026-09-03T11:46:57.445092+00:00",
       "entryPriceUsd": 0.5375,
       "entryTime": "2026-09-03T10:34:39.178669+00:00",
-      "liveRisk": true
-    },
-    {
-      "address": "0x38bb87Cf3E7344A82be7CD671c191f015b97eEe6",
-      "symbol": "SANTACOIN",
-      "ethSpent": 0.0002,
-      "remainingPct": 100.0,
-      "bookBalance": 395.46487652764,
-      "observedBalance": 395.46487652764,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T11:43:29.931993+00:00",
-      "entryPriceUsd": 0.001197,
-      "entryTime": "2026-09-03T10:36:28.043901+00:00",
       "liveRisk": true
     },
     {
@@ -70,7 +57,7 @@
       "bookBalance": 21.680129536052956,
       "observedBalance": 21.680129536052956,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T11:43:32.234458+00:00",
+      "balanceObservedAt": "2026-09-03T11:47:00.314444+00:00",
       "entryPriceUsd": 0.02217,
       "entryTime": "2026-09-03T10:38:15.931483+00:00",
       "liveRisk": true
@@ -116,10 +103,10 @@
     {
       "symbol": "SANTACOIN",
       "entryTime": "2026-09-03T10:36:29.401901+00:00",
-      "exitTime": "",
-      "pnlEth": 0.0,
-      "pnlPct": 0.0,
-      "exitReason": "",
+      "exitTime": "2026-09-03T11:44:59.229007+00:00",
+      "pnlEth": -0.0002827,
+      "pnlPct": -141.34825503302147,
+      "exitReason": "stop_loss",
       "isWin": false
     },
     {
@@ -781,15 +768,6 @@
     }
   ],
   "council": [
-    {
-      "time": "2026-09-02T01:14:51.375096+00:00",
-      "allow": true,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "STONKBROKER",
-      "reason": "8 agents approved after consult",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=reject, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=reject"
-    },
     {
       "time": "2026-09-02T01:30:22.001313+00:00",
       "allow": true,
@@ -1500,13 +1478,18 @@
       "symbol": "CASHCAT",
       "reason": "4 agents approved after consult | execution=filled",
       "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=abstain, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=abstain, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=abstain, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=abstain, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-03T11:44:38.853037+00:00",
+      "allow": true,
+      "side": "sell",
+      "action": "stop_loss",
+      "symbol": "SANTACOIN",
+      "reason": "mandatory stop_loss; tape/dissent cannot block | execution=filled",
+      "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=abstain, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=approve, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=approve, コスト①スリッページ・往復=approve, リスク①CASHCAT相関・同時保有=approve"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-03T01:46:28.224145+00:00",
-      "totalEth": 0.00362269
-    },
     {
       "time": "2026-09-03T01:49:45.998295+00:00",
       "totalEth": 0.00362269
@@ -2222,6 +2205,10 @@
     {
       "time": "2026-09-03T11:43:45.331629+00:00",
       "totalEth": 0.00118247
+    },
+    {
+      "time": "2026-09-03T11:47:14.700581+00:00",
+      "totalEth": 0.00109977
     }
   ]
 }
