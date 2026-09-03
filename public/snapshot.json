@@ -1,29 +1,15 @@
 {
-  "generatedAt": "2026-09-03T04:52:09.363151+00:00",
+  "generatedAt": "2026-09-03T04:55:27.797838+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
-  "lastObservedWalletEth": 0.00356559,
+  "lastObservedWalletEth": 0.00328463,
   "walletObserved": true,
-  "observedWalletEth": 0.00356559,
+  "observedWalletEth": 0.00328463,
   "observedWeth": 0.0,
-  "observedEthUsd": 2404.41,
-  "walletObservedAt": "2026-09-03T04:51:56.739174+00:00",
+  "observedEthUsd": 2406.08,
+  "walletObservedAt": "2026-09-03T04:55:15.599073+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
-  "positions": [
-    {
-      "address": "0xe934e36A439C94017B64a3FecE66AF12099aBF50",
-      "symbol": "STONKBROKER",
-      "ethSpent": 0.0,
-      "remainingPct": 80.0,
-      "bookBalance": 14.583530613723365,
-      "observedBalance": 14.583530613723365,
-      "balanceObserved": true,
-      "balanceObservedAt": "2026-09-03T04:51:58.888758+00:00",
-      "entryPriceUsd": 0.02015,
-      "entryTime": "2026-09-02T19:56:42.343612+00:00",
-      "liveRisk": false
-    }
-  ],
+  "positions": [],
   "trades": [
     {
       "symbol": "SPACEHOOD",
@@ -1398,10 +1384,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-02T18:52:43.698621+00:00",
-      "totalEth": 0.00660033
-    },
-    {
       "time": "2026-09-02T18:56:15.641026+00:00",
       "totalEth": 0.00562541
     },
@@ -2116,6 +2098,10 @@
     {
       "time": "2026-09-03T04:52:09.358413+00:00",
       "totalEth": 0.00356559
+    },
+    {
+      "time": "2026-09-03T04:55:27.792877+00:00",
+      "totalEth": 0.00328463
     }
   ]
 }
