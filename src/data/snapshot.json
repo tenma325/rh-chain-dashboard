@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-04T12:16:28.524200+00:00",
+  "generatedAt": "2026-09-04T12:20:00.833031+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.00892193,
   "walletObserved": true,
   "observedWalletEth": 0.00892193,
   "observedWeth": 0.0,
-  "observedEthUsd": 2523.94,
-  "walletObservedAt": "2026-09-04T12:16:16.146951+00:00",
+  "observedEthUsd": 2521.47,
+  "walletObservedAt": "2026-09-04T12:19:37.246109+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [],
@@ -716,42 +716,6 @@
   ],
   "council": [
     {
-      "time": "2026-09-04T10:08:48.348483+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "GRASS",
-      "reason": "fomo veto: fomo.family dump sell heat 0.82; fomoapi.io sell trader=yaevwastaken usd=17000 yaevwastaken sold $GRASS (",
-      "votes": "市場①FOMO(fomo.family)=reject, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
-      "time": "2026-09-04T10:09:38.101572+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "NUDES",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
-      "time": "2026-09-04T10:10:28.677702+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "SANTACOIN",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=reject, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
-      "time": "2026-09-04T10:11:19.989667+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "BONER",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
       "time": "2026-09-04T10:12:09.894712+00:00",
       "allow": false,
       "side": "buy",
@@ -1434,13 +1398,45 @@
       "symbol": "TENDIES",
       "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
       "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=approve"
+    },
+    {
+      "time": "2026-09-04T12:17:00.501120+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "WEBSITE",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-04T12:17:51.073286+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "POOLS",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-04T12:18:42.835267+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "SANTACOIN",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=reject, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-04T12:19:32.742718+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "IF",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-04T01:52:34.238071+00:00",
-      "totalEth": 0.00427241
-    },
     {
       "time": "2026-09-04T01:56:02.719973+00:00",
       "totalEth": 0.00427241
@@ -2155,6 +2151,10 @@
     },
     {
       "time": "2026-09-04T12:16:28.515862+00:00",
+      "totalEth": 0.00892193
+    },
+    {
+      "time": "2026-09-04T12:20:00.828041+00:00",
       "totalEth": 0.00892193
     }
   ]
