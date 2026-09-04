@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-04T03:38:41.721669+00:00",
+  "generatedAt": "2026-09-04T03:42:05.870197+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.00427241,
   "walletObserved": true,
   "observedWalletEth": 0.00427241,
   "observedWeth": 0.0,
-  "observedEthUsd": 2506.98,
-  "walletObservedAt": "2026-09-04T03:38:26.114024+00:00",
+  "observedEthUsd": 2505.78,
+  "walletObservedAt": "2026-09-04T03:41:48.343747+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [
@@ -18,7 +18,7 @@
       "bookBalance": 0.5715446065430652,
       "observedBalance": 0.5715446065430652,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-04T03:38:33.908701+00:00",
+      "balanceObservedAt": "2026-09-04T03:41:54.631750+00:00",
       "entryPriceUsd": 0.2539,
       "entryTime": "2026-09-03T10:39:09.178166+00:00",
       "liveRisk": true
@@ -31,7 +31,7 @@
       "bookBalance": 13.645472321861742,
       "observedBalance": 13.645472321861742,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-04T03:38:35.803183+00:00",
+      "balanceObservedAt": "2026-09-04T03:41:56.551877+00:00",
       "entryPriceUsd": 0.03471,
       "entryTime": "2026-09-03T10:42:33.668037+00:00",
       "liveRisk": true
@@ -44,7 +44,7 @@
       "bookBalance": 0.8890866297145902,
       "observedBalance": 0.8890866297145902,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-04T03:38:30.084128+00:00",
+      "balanceObservedAt": "2026-09-04T03:41:50.712059+00:00",
       "entryPriceUsd": 0.5375,
       "entryTime": "2026-09-03T10:34:39.178669+00:00",
       "liveRisk": true
@@ -57,7 +57,7 @@
       "bookBalance": 21.680129536052956,
       "observedBalance": 21.680129536052956,
       "balanceObserved": true,
-      "balanceObservedAt": "2026-09-04T03:38:32.002180+00:00",
+      "balanceObservedAt": "2026-09-04T03:41:52.663391+00:00",
       "entryPriceUsd": 0.02217,
       "entryTime": "2026-09-03T10:38:15.931483+00:00",
       "liveRisk": true
@@ -1491,10 +1491,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-03T10:35:01.043169+00:00",
-      "totalEth": 0.00299408
-    },
-    {
       "time": "2026-09-03T10:38:25.135193+00:00",
       "totalEth": 0.0023935
     },
@@ -2208,6 +2204,10 @@
     },
     {
       "time": "2026-09-04T03:38:41.716009+00:00",
+      "totalEth": 0.00427241
+    },
+    {
+      "time": "2026-09-04T03:42:05.864194+00:00",
       "totalEth": 0.00427241
     }
   ]
