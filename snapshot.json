@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T00:54:26.601509+00:00",
+  "generatedAt": "2026-09-05T00:57:49.261043+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.00102928,
   "walletObserved": true,
   "observedWalletEth": 0.00102928,
   "observedWeth": 0.0,
-  "observedEthUsd": 2454.89,
-  "walletObservedAt": "2026-09-05T00:54:13.971909+00:00",
+  "observedEthUsd": 2453.78,
+  "walletObservedAt": "2026-09-05T00:57:36.006672+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [],
@@ -716,42 +716,6 @@
   ],
   "council": [
     {
-      "time": "2026-09-04T13:12:52.421258+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "FRONG",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
-      "time": "2026-09-04T13:13:42.316676+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "HOOKR",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
-      "time": "2026-09-04T13:14:32.684628+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "TENDIES",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=approve, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=approve"
-    },
-    {
-      "time": "2026-09-04T13:15:23.356922+00:00",
-      "allow": false,
-      "side": "buy",
-      "action": "entry",
-      "symbol": "GG",
-      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
-      "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
-    },
-    {
       "time": "2026-09-04T13:16:14.064807+00:00",
       "allow": false,
       "side": "buy",
@@ -1434,13 +1398,45 @@
       "symbol": "BONER",
       "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
       "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-05T00:54:29.385314+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "IF",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-05T00:55:19.042459+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "GG",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=approve, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-05T00:56:08.830237+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "NUDES",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=abstain, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
+    },
+    {
+      "time": "2026-09-05T00:57:00.461488+00:00",
+      "allow": false,
+      "side": "buy",
+      "action": "entry",
+      "symbol": "POOLS",
+      "reason": "slippage veto: round-trip 10.0% >= first TP 8.2%",
+      "votes": "市場①FOMO(fomo.family)=abstain, 市場②流動性・出来高・1h=approve, 市場③Xほか常駐=approve, 市場④オンチェーン/CA/触媒=approve, 市場⑤マクロ/レジーム=approve, 市場⑥FOMOフォローフロー=abstain, 市場⑦流動深度=approve, 決済①買い最終判定=abstain, 決済②利確・損切り・サイズ=approve, 決済③見送り/反対=reject, 執行④売買ルート健全性=approve, 検証⑤実績フィードバック=abstain, コスト①スリッページ・往復=reject, リスク①CASHCAT相関・同時保有=abstain"
     }
   ],
   "walletHistory": [
-    {
-      "time": "2026-09-04T03:11:45.072853+00:00",
-      "totalEth": 0.00427241
-    },
     {
       "time": "2026-09-04T03:15:06.666140+00:00",
       "totalEth": 0.00427241
@@ -2155,6 +2151,10 @@
     },
     {
       "time": "2026-09-05T00:54:26.491786+00:00",
+      "totalEth": 0.00102928
+    },
+    {
+      "time": "2026-09-05T00:57:49.247451+00:00",
       "totalEth": 0.00102928
     }
   ]
