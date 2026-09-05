@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T23:35:20.159842+00:00",
+  "generatedAt": "2026-09-05T23:38:38.959511+00:00",
   "walletAddress": "0xa4C7596C56a7d76a61d032F43d4DE6CB19319D6d",
   "lastObservedWalletEth": 0.00102928,
   "walletObserved": true,
   "observedWalletEth": 0.00102928,
   "observedWeth": 0.0,
-  "observedEthUsd": 2483.46,
-  "walletObservedAt": "2026-09-05T23:35:08.529889+00:00",
+  "observedEthUsd": 2479.83,
+  "walletObservedAt": "2026-09-05T23:38:26.279896+00:00",
   "tradingMode": "live",
   "activeRuleset": "high_risk_v1",
   "positions": [],
@@ -1438,10 +1438,6 @@
   ],
   "walletHistory": [
     {
-      "time": "2026-09-05T13:43:05.461505+00:00",
-      "totalEth": 0.00102928
-    },
-    {
       "time": "2026-09-05T13:46:23.489456+00:00",
       "totalEth": 0.00102928
     },
@@ -2155,6 +2151,10 @@
     },
     {
       "time": "2026-09-05T23:35:20.154322+00:00",
+      "totalEth": 0.00102928
+    },
+    {
+      "time": "2026-09-05T23:38:38.954713+00:00",
       "totalEth": 0.00102928
     }
   ]
